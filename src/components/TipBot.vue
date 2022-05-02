@@ -1,26 +1,94 @@
 <script>
   export default {
+    data() {
+      return {
+        isActive: true
+      }
+    },
     methods: {
-      onClick() {}
+      onClick() {
+        this.isActive = !this.isActive
+        console.log(this.isActive)
+      },
+      clickText() {
+        var popup = document.getElementById('myPopup')
+        popup.classList.toggle('show')
+      }
     }
   }
 </script>
 
 <style>
+  /* Popup coding is fetched from:
+  https://www.w3schools.com/howto/howto_js_popup.asp
+  and modified.*/
+
+  /* Popup container */
   .popup {
-    display: none;
-    position: fixed;
-    left: 50%;
-    right: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: pointer;
   }
 
-  popup.visible {
-    display: block;
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 250px;
+    height: 250px;
+    background-color: rgb(155, 236, 241);
+    color: rgb(2, 14, 80);
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 3%;
+    right: 3%;
+  }
+
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(155, 236, 241) transparent transparent transparent;
+  }
+
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 </style>
 
 <template>
-  <p>Testsida för Dagens Tips</p>
-  <div class="popup">Todays Tips!</div>
+  <div class="popup">
+    <span class="popuptext" id="myPopup">Todays Tip!</span>
+  </div>
+  <button @click="clickText">Click me!</button>
 </template>
