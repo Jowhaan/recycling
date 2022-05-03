@@ -9,11 +9,11 @@ export default createRouter({
   routes: [
     {
       component: HomeView,
-      path: './HomeView'
+      path: '/'
     },
     {
       component: QuizView,
-      path: './QuizView'
+      path: '/QuizView'
     },
     {
       component: TipBotView,
