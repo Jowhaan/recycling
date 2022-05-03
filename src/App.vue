@@ -12,28 +12,38 @@
   </main>
 </template>
 
-<!-- SASS för att kunna ändra Bootstrapelement samt kunna göra
-färger och andra stilsättningsinställningar till VARIABLER -->
+<!-- USE SASS
+  to be able to change Bootstrap defaults and be able to make styles into variables.
 
-<!-- OM VI VILL HA SASS FÖR HELA PROJEKTET:
-Lägg det här i App.vue
+   --IF WE WANT SASS GLOBAL IN ENTIRE PROJECT:
+      Add sass style in App.vue:
 
-<style lang="scss"></style>
--->
+      <style lang="scss"></style>
 
-<!-- OM VI VILL HA SASS FÖR ETT SPECIFIKT ELEMENT:
-Lägg in scoped style i elementet t.ex. så här:
+   --IF WE WANT SASS FOR A SPECIFIC COMPONENT:
+      Add scoped sass style in the component
+      Example:
 
-<style lang="scss" scoped>
-  $some-variable: bold;
+      <style lang="scss" scoped>
+        $some-variable: bold;
 
-  p {
-    font-weight: $some-variable;
-  }
-</style>
+      p {
+        font-weight: $some-variable;
+      }
+      </style>
 
-<template>
-  <p>Hejsan</p>
-</template>
+      <template>
+        <p>Hello</p>
+      </template>
 
  -->
+
+<!-- USE BOOTSTRAP -EXAMPLE-
+
+      <input
+        class="btn btn-primary"
+        type="button"
+        value="Click here"
+      />
+
+  -->
