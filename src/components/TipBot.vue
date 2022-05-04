@@ -58,6 +58,7 @@
     text-align: center;
     border-radius: 6px;
     padding: 8px 0;
+    margin: 8px;
     align-items: flex-end;
     align-self: flex-end;
   }

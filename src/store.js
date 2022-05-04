@@ -323,6 +323,51 @@ const mutations = {},
         wrongAnswers: [],
         tip: 'Here is a tip'
       }
+    ],
+    trash: [
+      {
+        id: 1,
+        name: 'haircolor',
+        type: 'chemicals',
+        sortAs: 'hazardous waste',
+        returnAt: 'recycling central',
+        whatHappens:
+          'Det mesta återvinns. Det som inte går att återvinna förbränns eller deponeras under säkra former.'
+      },
+      {
+        id: 2,
+        name: 'frying pan',
+        type: 'metal',
+        sortAs: 'metal',
+        returnAt: 'recycling central',
+        whatHappens: 'Återvinns till nya produkter.'
+      },
+      {
+        id: 3,
+        name: 'styrofoam',
+        type: 'plastic',
+        sortAs: 'plastic packaging',
+        returnAt: 'recycling station',
+        whatHappens:
+          'Plasten återvinns till nya plastprodukter, t ex krukor, avloppsrör, utegolv, stövlar och flipflop-skor.'
+      },
+      {
+        id: 4,
+        name: 'sofa',
+        type: 'bulky waste',
+        sortAs: 'padded furniture',
+        returnAt: 'recycling central',
+        whatHappens: 'Återvinns och blir nya produkter eller energiåtervinns.'
+      },
+      {
+        id: 5,
+        name: 'yoghurt package',
+        type: 'paper packaging',
+        sortAs: 'paper packaging',
+        returnAt: 'recycling station',
+        whatHappens:
+          'Pappersförpackningar blir nya pappersförpackningar, ett mjölkpaket eller en sockerpåse kan till exempel bli cornflakes- eller vällingpaket i sitt nästa liv.'
+      }
     ]
   }
 
