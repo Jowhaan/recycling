@@ -1,10 +1,14 @@
 <script>
+  import MenuList from './components/MenuList.vue'
   export default {
-    components: {}
+    components: {
+      MenuList
+    }
   }
 </script>
 
 <template>
+  <MenuList />
   <main>
     <RouterView />
   </main>

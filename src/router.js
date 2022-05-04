@@ -9,15 +9,15 @@ export default createRouter({
   routes: [
     {
       component: HomeView,
-      path: '/'
+      path: '/home'
     },
     {
       component: QuizView,
-      path: '/QuizView'
+      path: '/quiz'
     },
     {
       component: TipBotView,
-      path: '/TipBot'
+      path: '/tipbot'
     }
   ]
 })
