@@ -327,46 +327,467 @@ const mutations = {},
     trash: [
       {
         id: 1,
-        name: 'haircolor',
-        type: 'chemicals',
+        engName: 'waste oil',
+        sweName: 'spillolja',
         sortAs: 'hazardous waste',
-        returnAt: 'recycling central',
+        sign: 'hazardous-waste',
+        returnAt: 'recycling center',
         whatHappens:
           'Det mesta återvinns. Det som inte går att återvinna förbränns eller deponeras under säkra former.'
       },
+
       {
         id: 2,
-        name: 'frying pan',
-        type: 'metal',
-        sortAs: 'metal',
-        returnAt: 'recycling central',
-        whatHappens: 'Återvinns till nya produkter.'
+        engName: 'needles',
+        sweName: 'kanyler',
+        sortAs: 'pharmaceuticals',
+        sign: 'pharma',
+        returnAt: 'pharmacy',
+        whatHappens: 'Lämnas vanligen till energiutvinning.'
       },
+
       {
         id: 3,
-        name: 'styrofoam',
-        type: 'plastic',
+        engName: 'mercury thermometer',
+        sweName: 'kvicksilvertermometrar',
+        sortAs: 'hazardous waste',
+        sign: 'hazardous-waste',
+        returnAt: 'recycling center',
+        whatHappens:
+          'Det mesta återvinns. Det som inte går att återvinna förbränns eller deponeras under säkra former.'
+      },
+
+      {
+        id: 4,
+        engName: 'medicine',
+        sweName: 'medicin',
+        sortAs: 'pharmaceuticals',
+        sign: 'pharma',
+        returnAt: 'pharmacy',
+        whatHappens: 'Lämnas vanligen till energiutvinning.'
+      },
+
+      {
+        id: 5,
+        engName: 'paint',
+        sweName: 'färg',
+        sortAs: 'hazardous waste',
+        sign: 'hazardous-waste',
+        returnAt: 'recycling center',
+        whatHappens:
+          'Det mesta återvinns. Det som inte går att återvinna förbränns eller deponeras under säkra former.'
+      },
+
+      {
+        id: 6,
+        engName: 'glue',
+        sweName: 'lim',
+        sortAs: 'hazardous waste',
+        sign: 'hazardous-waste',
+        returnAt: 'recycling center',
+        whatHappens:
+          'Det mesta återvinns. Det som inte går att återvinna förbränns eller deponeras under säkra former.'
+      },
+
+      {
+        id: 7,
+        engName: 'power cord',
+        sweName: 'sladd',
+        sortAs: 'electronics',
+        sign: 'cables',
+        returnAt: 'recycling center',
+        whatHappens: 'Återvinns och blir till nya produkter.'
+      },
+
+      {
+        id: 8,
+        engName: 'dishwasher',
+        sweName: 'diskmaskin',
+        sortAs: 'major appliances',
+        sign: 'major-appliances',
+        returnAt: 'recycling center',
+        whatHappens: 'Farliga ämnen tas omhand och metaller återvinns.'
+      },
+
+      {
+        id: 9,
+        engName: 'stove',
+        sweName: 'spis',
+        sortAs: 'major appliances',
+        sign: 'major-appliances',
+        returnAt: 'recycling center',
+        whatHappens: 'Farliga ämnen tas omhand och metaller återvinns.'
+      },
+
+      {
+        id: 10,
+        engName: 'led-light',
+        sweName: 'led-lampor',
+        sortAs: 'electronics',
+        sign: 'electronics',
+        returnAt: 'recycling center',
+        whatHappens: 'Återvinns och blir till nya produkter.'
+      },
+
+      {
+        id: 11,
+        engName: 'solar panels',
+        sweName: 'solpaneler',
+        sortAs: 'solar panels',
+        sign: 'solar-panels',
+        returnAt: 'recycling center',
+        whatHappens: '?'
+      },
+
+      {
+        id: 12,
+        engName: 'battery',
+        sweName: 'batteri',
+        sortAs: 'batteries',
+        sign: 'batteries',
+        returnAt: 'battery box',
+        whatHappens:
+          'Mycket metaller och andra material kan materialåtervinnas. En del energiåutvinns medan kvicksilver slutförvaras på ett säkert sätt.'
+      },
+
+      {
+        id: 13,
+        engName: 'car battery',
+        sweName: 'bilbatteri',
+        sortAs: 'hazardous waste',
+        sign: 'hazardous-waste',
+        returnAt: 'recycling center',
+        whatHappens:
+          'Det mesta återvinns. Det som inte går att återvinna förbränns eller deponeras under säkra former.'
+      },
+
+      {
+        id: 14,
+        engName: 'computer',
+        sweName: 'dator',
+        sortAs: 'electronics',
+        sign: 'electronics',
+        returnAt: 'recycling center',
+        whatHappens: 'Återvinns och blir till nya produkter.'
+      },
+
+      {
+        id: 15,
+        engName: 'electric toothbrush',
+        sweName: 'eltandborste',
+        sortAs: 'electronics',
+        sign: 'electronics',
+        returnAt: 'recycling center',
+        whatHappens: 'Återvinns och blir till nya produkter.'
+      },
+
+      {
+        id: 16,
+        engName: 'hair dryer',
+        sweName: 'hårtork',
+        sortAs: 'electronics',
+        sign: 'electronics',
+        returnAt: 'recycling center',
+        whatHappens: 'Återvinns och blir till nya produkter.'
+      },
+
+      {
+        id: 17,
+        engName: 'newspaper',
+        sweName: 'tidning',
+        sortAs: 'newspapers',
+        sign: 'newspapers',
+        returnAt: 'recycling station',
+        whatHappens:
+          'Tidningar och trycksaker blir till nya tidningar, men även toalett- och hushållspapper.'
+      },
+
+      {
+        id: 18,
+        engName: 'bubble wrap',
+        sweName: 'bubbelplast',
         sortAs: 'plastic packaging',
+        sign: 'plastic-packaging',
         returnAt: 'recycling station',
         whatHappens:
           'Plasten återvinns till nya plastprodukter, t ex krukor, avloppsrör, utegolv, stövlar och flipflop-skor.'
       },
+
       {
-        id: 4,
-        name: 'sofa',
-        type: 'bulky waste',
-        sortAs: 'padded furniture',
-        returnAt: 'recycling central',
-        whatHappens: 'Återvinns och blir nya produkter eller energiåtervinns.'
+        id: 19,
+        engName: 'can',
+        sweName: 'burk',
+        sortAs: 'metal',
+        sign: 'metal-packaging',
+        returnAt: 'recycling station',
+        whatHappens:
+          'Metallförpackningar såsom konservburkar och kaviartuber blir ex till järnvägsräls, motordelar och armeringsjärn. Inget är för litet för att återvinnas, minsta kapsyl gör nytta. Metall kan återvinnas nästan hur många gånger om helst.'
       },
+
       {
-        id: 5,
-        name: 'yoghurt package',
-        type: 'paper packaging',
+        id: 20,
+        engName: 'pet bottle',
+        sweName: 'pet flaska',
+        sortAs: 'plastic packaging',
+        sign: 'plastic-packaging',
+        returnAt: 'grocery store',
+        whatHappens:
+          'You get money back if you return your PET bottles at your store.'
+      },
+
+      {
+        id: 21,
+        engName: 'styrofoam',
+        sweName: 'frigolit',
+        sortAs: 'plastic packaging',
+        sign: 'plastic-packaging',
+        returnAt: 'recycling station',
+        whatHappens:
+          'Plasten återvinns till nya plastprodukter, t ex krukor, avloppsrör, utegolv, stövlar och flipflop-skor.'
+      },
+
+      {
+        id: 22,
+        engName: 'plastic bag',
+        sweName: 'plastpåse',
+        sortAs: 'plastic packaging',
+        sign: 'plastic-packaging',
+        returnAt: 'recycling station',
+        whatHappens:
+          'Plasten återvinns till nya plastprodukter, t ex krukor, avloppsrör, utegolv, stövlar och flipflop-skor.'
+      },
+
+      {
+        id: 23,
+        engName: 'cardboard',
+        sweName: 'wellpapp',
+        sortAs: 'cardboard',
+        sign: 'cardboard',
+        returnAt: 'recycling station',
+        whatHappens: 'Wellpapp återvinns och blir nytt material.'
+      },
+
+      {
+        id: 24,
+        engName: 'wrapping paper',
+        sweName: 'omslagspapper',
+        sortAs: 'residual waste',
+        sign: 'residual-waste',
+        returnAt: 'home',
+        whatHappens: 'Förbränns och blir värme och energi.'
+      },
+
+      {
+        id: 25,
+        engName: 'watering can',
+        sweName: 'vattenkanna',
+        sortAs: 'rigid plastic',
+        sign: 'rigid-plastic',
+        returnAt: 'recycling center',
+        whatHappens:
+          'Grovplasten återvinns och blir nya produkter eller energiåtervinns.'
+      },
+
+      {
+        id: 26,
+        engName: 'milk packaging',
+        sweName: 'mjölkförpackning',
         sortAs: 'paper packaging',
+        sign: 'paper-packaging',
         returnAt: 'recycling station',
         whatHappens:
           'Pappersförpackningar blir nya pappersförpackningar, ett mjölkpaket eller en sockerpåse kan till exempel bli cornflakes- eller vällingpaket i sitt nästa liv.'
+      },
+
+      {
+        id: 27,
+        engName: 'mail order catalog',
+        sweName: 'postorderkatalog',
+        sortAs: 'newspapers',
+        sign: 'newspapers',
+        returnAt: 'recycling station',
+        whatHappens:
+          'Tidningar och trycksaker blir till nya tidningar, men även toalett- och hushållspapper.'
+      },
+
+      {
+        id: 28,
+        engName: 'paper',
+        sweName: 'papper',
+        sortAs: 'newspapers',
+        sign: 'newspapers',
+        returnAt: 'recycling station',
+        whatHappens:
+          'Tidningar och trycksaker blir till nya tidningar, men även toalett- och hushållspapper.'
+      },
+
+      {
+        id: 29,
+        engName: 'glass',
+        sweName: 'glas',
+        sortAs: 'glass',
+        sign: 'clear-glass-packaging',
+        returnAt: 'recycling station',
+        whatHappens:
+          'Glasförpackningar blir till nya glasflaskor och burkar, men även andra produkter som t ex glasull, som används för att isolera hus.'
+      },
+
+      {
+        id: 30,
+        engName: 'foil',
+        sweName: 'folie',
+        sortAs: 'metal packaging',
+        sign: 'metal-packaging',
+        returnAt: 'recycling station',
+        whatHappens:
+          'Metallförpackningar såsom konservburkar och kaviartuber blir ex till järnvägsräls, motordelar och armeringsjärn. Inget är för litet för att återvinnas, minsta kapsyl gör nytta. Metall kan återvinnas nästan hur många gånger om helst.'
+      },
+
+      {
+        id: 31,
+        engName: 'cap',
+        sweName: 'kapsyl',
+        sortAs: 'metal packaging',
+        sign: 'metal-packaging',
+        returnAt: 'recycling station',
+        whatHappens:
+          'Metallförpackningar såsom konservburkar och kaviartuber blir ex till järnvägsräls, motordelar och armeringsjärn. Inget är för litet för att återvinnas, minsta kapsyl gör nytta. Metall kan återvinnas nästan hur många gånger om helst.'
+      },
+
+      {
+        id: 32,
+        engName: 'phone',
+        sweName: 'telefon',
+        sortAs: 'electronics',
+        sign: 'electronics',
+        returnAt: 'recycling center',
+        whatHappens: 'Återvinns och blir till nya produkter.'
+      },
+
+      {
+        id: 33,
+        engName: 'invasive alien species',
+        sweName: 'invasiv art',
+        sortAs: 'invasive alien species',
+        sign: 'invasive',
+        returnAt: 'recycling center',
+        whatHappens:
+          'Växtavfall eller jord som kan innehålla delar från invasiva växter ska aldrig läggas i komposten eller naturen. Privatpersoner kan lägga växtdelar i en säck, försluta väl och lämna på någon av stadens återvinningscentraler.         Kontakta personal innan du lämnar säckarna. Växtdelarna sorteras som brännbart.   Tänk också på att risken för spridning är stor under transport, så förvara materialet i slutna kärl eller säckar. Jordmassor med växtdelar av parkslide och jätteloka får inte flyttas eller återanvändas. Det gäller även om man samlat ihop växtdelarna.'
+      },
+
+      {
+        id: 34,
+        engName: 'coffee',
+        sweName: 'kaffe',
+        sortAs: 'food waste',
+        sign: 'food-waste',
+        returnAt: 'recycling station',
+        whatHappens:
+          'Rötas och blir biogas och biogödsel eller komposteras till näringsrik jord.'
+      },
+
+      {
+        id: 37,
+        engName: 'fabric',
+        sweName: 'textilier',
+        sortAs: 'fabric',
+        sign: 'fabric',
+        returnAt: 'recycling center',
+        whatHappens:
+          'Hel textil återanvänds. Trasig textil skickas till återvinning, exempelvis som trasor eller isolering. Mycket arbete pågår för att återvinna mer textilavfall i ny textil.'
+      },
+
+      {
+        id: 38,
+        engName: 'clothes',
+        sweName: 'kläder',
+        sortAs: 'fabric',
+        sign: 'fabric',
+        returnAt: 'recycling center',
+        whatHappens:
+          'Hel textil återanvänds. Trasig textil skickas till återvinning, exempelvis som trasor eller isolering. Mycket arbete pågår för att återvinna mer textilavfall i ny textil.'
+      },
+
+      {
+        id: 39,
+        engName: 'flowers',
+        sweName: 'blommor',
+        sortAs: 'garden waste',
+        sign: 'garden-waste',
+        returnAt: 'recycling center',
+        whatHappens:
+          'Komposteras. Separat insamling av fallfrukt kan rötas för att bli biogas och biogödsel.'
+      },
+
+      {
+        id: 40,
+        engName: 'twigs',
+        sweName: 'grenar',
+        sortAs: 'twigs and branches',
+        sign: 'twigs-branches',
+        returnAt: 'recycling center',
+        whatHappens:
+          'Materialet flisas, en del komposteras, resten förbränns och blir energi.'
+      },
+
+      {
+        id: 41,
+        engName: 'sofa',
+        sweName: 'soffa',
+        sortAs: 'upholstered furniture',
+        sign: 'upholstered-furniture',
+        returnAt: 'recycling central',
+        whatHappens: 'Återvinns och blir nya produkter eller energiåtervinns.'
+      },
+
+      {
+        id: 42,
+        engName: 'frying pan',
+        sweName: 'stekpanna',
+        sortAs: 'metal',
+        sign: 'metal',
+        returnAt: 'recycling central',
+        whatHappens: 'Återvinns till nya produkter.'
+      },
+
+      {
+        id: 44,
+        engName: 'tires',
+        sweName: 'däck',
+        sortAs: 'tyres',
+        sign: 'tyres',
+        returnAt: 'recycling central',
+        whatHappens: 'Återförsäljaren återvinner däck och fälg.'
+      },
+
+      {
+        id: 46,
+        engName: 'band-aid',
+        sweName: 'plåster',
+        sortAs: 'residual waste',
+        sign: 'residual-waste',
+        returnAt: 'home',
+        whatHappens: 'Förbränns och blir värme och energi.'
+      },
+
+      {
+        id: 48,
+        engName: 'pot',
+        sweName: 'kruka',
+        sortAs: 'porcelain & china',
+        sign: 'porslin-o-keramik-cmyk',
+        returnAt: 'recycling central',
+        whatHappens: 'Används till vägbyggen och täckning av avfallsdeponin.'
+      },
+
+      {
+        id: 49,
+        engName: 'candle',
+        sweName: 'stearinljus',
+        sortAs: 'residual waste',
+        sign: 'residual-waste',
+        returnAt: 'home',
+        whatHappens: 'Förbränns och blir värme och energi.'
       }
     ]
   }
