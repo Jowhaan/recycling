@@ -10,7 +10,8 @@ const mutations = {},
         correctAnswer: '11,000 l',
         mockAnswer: '7,000 l',
         mockAnswer2: '15,000 l',
-        mockAnswer3: '3,000 l'
+        mockAnswer3: '3,000 l',
+        tip: 'the production of ONE pair of jeans requires 11,000 liters of water!'
       },
       {
         id: 2,
@@ -19,7 +20,8 @@ const mutations = {},
         correctAnswer: '72 kg',
         mockAnswer: '52 kg',
         mockAnswer2: '92 kg',
-        mockAnswer3: '82 kg'
+        mockAnswer3: '82 kg',
+        tip: 'we throw away 72kg of food / person each year in Sweden.'
       },
       {
         id: 3,
@@ -28,7 +30,8 @@ const mutations = {},
         correctAnswer: '85 kg',
         mockAnswer: '75 kg',
         mockAnswer2: '95 kg',
-        mockAnswer3: '65 kg'
+        mockAnswer3: '65 kg',
+        tip: 'the average swede eats 85kg of meat / year.'
       },
       {
         id: 4,
@@ -36,7 +39,8 @@ const mutations = {},
         correctAnswer: 'Always buy the cheapest option',
         mockAnswer: 'Make sure what we buy lasts longer',
         mockAnswer2: 'Throw away less things',
-        mockAnswer3: 'Not buying things of bad quality'
+        mockAnswer3: 'Not buying things of bad quality',
+        tip: '?'
       },
       {
         id: 5,
@@ -45,7 +49,8 @@ const mutations = {},
         correctAnswer: '80,000 ton',
         mockAnswer: '70,000 ton',
         mockAnswer2: '90,000 ton',
-        mockAnswer3: '110,000 ton'
+        mockAnswer3: '110,000 ton',
+        tip: 'that we throw away 80,000 ton of trash each year that could have been recycled.'
       },
       {
         id: 6,
@@ -53,7 +58,8 @@ const mutations = {},
         correctAnswer: 'A jar',
         mockAnswer: 'A glass',
         mockAnswer2: 'A brick',
-        mockAnswer3: 'A plate'
+        mockAnswer3: 'A plate',
+        tip: '?'
       },
       {
         id: 7,
@@ -62,7 +68,8 @@ const mutations = {},
         correctAnswer: '17 kg',
         mockAnswer: '15 kg',
         mockAnswer2: '19 kg',
-        mockAnswer3: '21 kg'
+        mockAnswer3: '21 kg',
+        tip: '?'
       },
       {
         id: 8,
@@ -70,7 +77,8 @@ const mutations = {},
         correctAnswer: '2 kg',
         mockAnswer: '0,5 kg',
         mockAnswer2: '1 kg',
-        mockAnswer3: '1,5 kg'
+        mockAnswer3: '1,5 kg',
+        tip: 'every kg of plastic you recycle saves 2kg of CO2!'
       },
       {
         id: 9,
@@ -78,7 +86,8 @@ const mutations = {},
         correctAnswer: '7 times',
         mockAnswer: '5 times',
         mockAnswer2: '9 times',
-        mockAnswer3: '11 times'
+        mockAnswer3: '11 times',
+        tip: 'you can recycle paper 7 times!'
       },
       {
         id: 10,
@@ -87,7 +96,8 @@ const mutations = {},
         correctAnswer: '24hrs in front of the computer',
         mockAnswer: '8hrs of TV',
         mockAnswer2: '40 brewed cups of coffee',
-        mockAnswer3: '4hrs of TV'
+        mockAnswer3: '4hrs of TV',
+        tip: 'the energy saved from recycling one single aluminium can is the same as 24 hours in front of the computer.'
       },
       {
         id: 11,
@@ -95,7 +105,8 @@ const mutations = {},
         correctAnswer: 'You do not have to remove the label',
         mockAnswer: 'You do not have to remove the cap/lid',
         mockAnswer2: 'Coloured and transparent glass is recycled together',
-        mockAnswer3: 'You can recycle a regular drinking glass'
+        mockAnswer3: 'You can recycle a regular drinking glass',
+        tip: 'when you recycle your bottles and jars you do not have to remove the labels.'
       },
       {
         id: 12,
@@ -103,7 +114,8 @@ const mutations = {},
         correctAnswer: 'Residual waste',
         mockAnswer: 'Food waste',
         mockAnswer2: 'Plastic',
-        mockAnswer3: 'Landfill waste'
+        mockAnswer3: 'Landfill waste',
+        tip: 'that your toothbrush goes into the residual waste container.'
       },
       {
         id: 13,
@@ -111,7 +123,8 @@ const mutations = {},
         correctAnswer: 'Infinite times',
         mockAnswer: 'Ten times',
         mockAnswer2: 'A hundred times',
-        mockAnswer3: 'A thousand times'
+        mockAnswer3: 'A thousand times',
+        tip: 'that you can recycle glass forever!'
       },
       {
         id: 14,
@@ -120,7 +133,8 @@ const mutations = {},
         correctAnswer: '7,5 kg',
         mockAnswer: '5,5 kg',
         mockAnswer2: '6,5 kg',
-        mockAnswer3: '8,5 kg'
+        mockAnswer3: '8,5 kg',
+        tip: 'we throw away 7,5kg of textiles / person and year in Sweden.'
       },
       {
         id: 15,
@@ -128,7 +142,8 @@ const mutations = {},
         correctAnswer: 'Paper packaging',
         mockAnswer: 'It contains glue so; residual waste',
         mockAnswer2: 'News paper bin',
-        mockAnswer3: 'Flush it down the toilet'
+        mockAnswer3: 'Flush it down the toilet',
+        tip: 'your paper rolls goes into the paper packaging container.'
       },
       {
         id: 16,
@@ -139,7 +154,8 @@ const mutations = {},
           'Those contain a bit of plastic so therefor among plastic packaging',
         mockAnswer2: 'They have to be delivered to a proper recycling station',
         mockAnswer3:
-          'Take your time to separate the mouth guards, and then sort the different pieces as plastic packaging, metal & paper packaging'
+          'Take your time to separate the mouth guards, and then sort the different pieces as plastic packaging, metal & paper packaging',
+        tip: 'your mouthguard goes into the residual waste container.'
       },
       {
         id: 17,
@@ -147,7 +163,8 @@ const mutations = {},
         correctAnswer: 'Baking paper is sorted as residual waste',
         mockAnswer: 'It contains plastic so therefor among plastic packaging',
         mockAnswer2: 'Paper packaging',
-        mockAnswer3: 'Never throw away baking paper, use it again'
+        mockAnswer3: 'Never throw away baking paper, use it again',
+        tip: 'that after you finish your buns you throw the baking paper into the residual waste.'
       },
       {
         id: 18,
@@ -156,7 +173,8 @@ const mutations = {},
           'The container as metal and the cap as plastic packaging',
         mockAnswer: 'Everything straight down the metal containers',
         mockAnswer2: 'Container in residual waste, cap as plastic',
-        mockAnswer3: 'Food waste since you could not squeeze everything out'
+        mockAnswer3: 'Food waste since you could not squeeze everything out',
+        tip: 'that your tube of Kalles Caviar goes into the metal container (except the cap, it goes into plastic packaging).'
       },
       {
         id: 19,
@@ -164,7 +182,8 @@ const mutations = {},
         correctAnswer: 'Plastic packaging',
         mockAnswer: 'Residual waste',
         mockAnswer2: 'Paper packaging',
-        mockAnswer3: 'Give to your kids or pets as they love styrofoam'
+        mockAnswer3: 'Give to your kids or pets as they love styrofoam',
+        tip: 'styrofoam goes into the plastic packaging container.'
       },
       {
         id: 20,
@@ -172,7 +191,8 @@ const mutations = {},
         correctAnswer: 'Food waste',
         mockAnswer: 'Paper packaging',
         mockAnswer2: 'Residual waste',
-        mockAnswer3: 'Save coffeefilters for next time you replant a flower'
+        mockAnswer3: 'Save coffeefilters for next time you replant a flower',
+        tip: 'coffeefilters goes into your food waste bag.'
       },
       {
         id: 21,
@@ -181,7 +201,8 @@ const mutations = {},
         mockAnswer: 'Residual waste',
         mockAnswer2:
           'The bags feel and looks shiny, therefor it can not be plastic but some sort of metal and goes in metal packaging!',
-        mockAnswer3: 'There is always crumbs left so it belongs in Food waste'
+        mockAnswer3: 'There is always crumbs left so it belongs in Food waste',
+        tip: 'your can recycle your empty chipbag as plastic packaging.'
       },
       {
         id: 22,
@@ -189,7 +210,8 @@ const mutations = {},
         correctAnswer: 'correct answer',
         mockAnswer: 'fel svar',
         mockAnswer2: 'fel svar igen',
-        mockAnswer3: 'fel igen!'
+        mockAnswer3: 'fel igen!',
+        tip: 'Here is a tip'
       },
       {
         id: 23,
@@ -197,7 +219,8 @@ const mutations = {},
         correctAnswer: 'correct answer',
         mockAnswer: 'fel svar',
         mockAnswer2: 'fel svar igen',
-        mockAnswer3: 'fel igen!'
+        mockAnswer3: 'fel igen!',
+        tip: 'Here is a tip'
       },
       {
         id: 24,
@@ -205,7 +228,8 @@ const mutations = {},
         correctAnswer: 'correct answer',
         mockAnswer: 'fel svar',
         mockAnswer2: 'fel svar igen',
-        mockAnswer3: 'fel igen!'
+        mockAnswer3: 'fel igen!',
+        tip: 'Here is a tip'
       },
       {
         id: 25,
@@ -213,7 +237,8 @@ const mutations = {},
         correctAnswer: 'correct answer',
         mockAnswer: 'fel svar',
         mockAnswer2: 'fel svar igen',
-        mockAnswer3: 'fel igen!'
+        mockAnswer3: 'fel igen!',
+        tip: 'Here is a tip'
       },
       {
         id: 26,
@@ -221,7 +246,8 @@ const mutations = {},
         correctAnswer: 'correct answer',
         mockAnswer: 'fel svar',
         mockAnswer2: 'fel svar igen',
-        mockAnswer3: 'fel igen!'
+        mockAnswer3: 'fel igen!',
+        tip: 'Here is a tip'
       },
       {
         id: 27,
@@ -229,7 +255,8 @@ const mutations = {},
         correctAnswer: 'correct answer',
         mockAnswer: 'fel svar',
         mockAnswer2: 'fel svar igen',
-        mockAnswer3: 'fel igen!'
+        mockAnswer3: 'fel igen!',
+        tip: 'Here is a tip'
       },
       {
         id: 28,
@@ -237,7 +264,8 @@ const mutations = {},
         correctAnswer: 'correct answer',
         mockAnswer: 'fel svar',
         mockAnswer2: 'fel svar igen',
-        mockAnswer3: 'fel igen!'
+        mockAnswer3: 'fel igen!',
+        tip: 'Here is a tip'
       },
       {
         id: 29,
@@ -245,7 +273,8 @@ const mutations = {},
         correctAnswer: 'correct answer',
         mockAnswer: 'fel svar',
         mockAnswer2: 'fel svar igen',
-        mockAnswer3: 'fel igen!'
+        mockAnswer3: 'fel igen!',
+        tip: 'Here is a tip'
       },
       {
         id: 30,
@@ -253,7 +282,8 @@ const mutations = {},
         correctAnswer: 'correct answer',
         mockAnswer: 'fel svar',
         mockAnswer2: 'fel svar igen',
-        mockAnswer3: 'fel igen!'
+        mockAnswer3: 'fel igen!',
+        tip: 'Here is a tip'
       }
     ]
   }

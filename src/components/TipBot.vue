@@ -5,6 +5,7 @@
         isActive: true
       }
     },
+    // Need to redo functions to work more like vue [Jennie]
     methods: {
       onClick() {
         this.isActive = !this.isActive
@@ -13,6 +14,15 @@
       clickText() {
         var popup = document.getElementById('myPopup')
         popup.classList.toggle('show')
+      }
+    },
+    // Get's random number at start but never changes unless page is reloaded [Jennie]
+    computed: {
+      tipOfTheDay() {
+        let tipNumber = Math.floor(
+          Math.random() * this.$store.state.quizQuestions.length
+        )
+        return this.$store.state.quizQuestions[tipNumber].tip
       }
     }
   }
@@ -28,7 +38,6 @@
     width: 100%;
     height: 100%;
     display: block;
-    cursor: pointer;
   }
 
   /* The actual popup (appears on top) */
@@ -88,7 +97,10 @@
 
 <template>
   <div class="popup">
-    <span class="popuptext" id="myPopup">Todays Tip!</span>
+    <div class="popuptext" id="myPopup">
+      <p>Did you know that...</p>
+      <p>{{ tipOfTheDay }}</p>
+    </div>
   </div>
   <button @click="clickText">Click me!</button>
 </template>
