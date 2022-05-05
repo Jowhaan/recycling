@@ -20,7 +20,6 @@
         popup.classList.toggle('show')
       }
     },
-    // Get's random number at start but never changes unless page is reloaded [Jennie]
     computed: {
       tipOfTheDay() {
         return this.$store.state.quizQuestions[this.randomNumber].tip
@@ -118,6 +117,5 @@
       <p>{{ tipOfTheDay }}</p>
     </span>
     <img src="../../assets/cartoon.png" alt="toon" @click="clickText" />
-    <!-- <button @click="clickText">Click me!</button> -->
   </div>
 </template>
