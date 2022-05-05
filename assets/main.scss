@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap');
 
 body {
@@ -42,3 +43,35 @@ body {
 }
 
 @import 'bootstrap/scss/bootstrap';
+=======
+/* CHANGE COLORTHEME HERE
+    read more: getbootstrap.com/docs/5.0/customize/sass/
+    read more: avancera Handout: Vite: CSS preprocessing
+*/
+
+// $body-bg: #111;
+
+// $body-color: rgba(255, 255, 255, 0.9);
+
+// $theme-colors: (
+//   'primary': #166285,
+//   'secondary': #4f4f52,
+//   'success': #577717,
+//   'info': #3f7679,
+//   'warning': #ac5b2c,
+//   'danger': #88193a,
+//   'light': #c8c8c8,
+//   'dark': #2f2f2f
+// );
+
+/* IF WE DISCOVER THAT WE NEED ONLY SOME FEW BOOTSTRAP-IMPORTS:
+    change first link to several needed imports.
+*/
+@import 'bootstrap/scss/bootstrap';
+
+/* BOOTSTRAP ICONS
+    use as font -example icon-element:
+    <i class="bi bi-list" style="font-size: 2rem; color: cornflowerblue" />
+*/
+@import 'bootstrap-icons'
+>>>>>>> 67a066e66bc488362f255ad1b414797c4ab0c00c

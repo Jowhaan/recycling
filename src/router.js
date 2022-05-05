@@ -4,25 +4,33 @@ import HomeView from './views/HomeView.vue'
 import QuizView from './views/QuizView.vue'
 import TipBotView from './views/TipBotView.vue'
 import SearchView from './views/SearchView.vue'
+import TipView from './views/TipView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
     {
       component: HomeView,
-      path: '/HomeView'
+      path: '/home'
+    },
+
+    {
+      component: SearchView,
+      path: '/search'
+
     },
     {
       component: QuizView,
-      path: '/QuizView'
+      path: '/quiz'
     },
     {
-      component: SearchView,
-      path: '/SearchView'
+      component: TipView,
+      path: '/tip'
+
     },
     {
       component: TipBotView,
-      path: '/TipBot'
+      path: '/tipbot'
     }
   ]
 })

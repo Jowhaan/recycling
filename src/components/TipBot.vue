@@ -2,17 +2,27 @@
   export default {
     data() {
       return {
-        isActive: true
+        isActive: true,
+        randomNumber: 0
       }
     },
+    // Need to redo functions to work more like vue [Jennie]
     methods: {
       onClick() {
         this.isActive = !this.isActive
         console.log(this.isActive)
       },
       clickText() {
+        this.randomNumber = Math.floor(
+          Math.random() * this.$store.state.quizQuestions.length
+        )
         var popup = document.getElementById('myPopup')
         popup.classList.toggle('show')
+      }
+    },
+    computed: {
+      tipOfTheDay() {
+        return this.$store.state.quizQuestions[this.randomNumber].tip
       }
     }
   }
@@ -27,24 +37,29 @@
   .popup {
     width: 100%;
     height: 100%;
-    display: block;
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+
+  img {
+    align-items: flex-end;
+    align-self: flex-end;
+    width: 60px;
   }
 
   /* The actual popup (appears on top) */
   .popup .popuptext {
     visibility: hidden;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 150px;
     background-color: rgb(155, 236, 241);
     color: rgb(2, 14, 80);
     text-align: center;
     border-radius: 6px;
     padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 3%;
-    right: 3%;
+    margin: 8px;
+    align-items: flex-end;
+    align-self: flex-end;
   }
 
   /* Popup arrow */
@@ -87,8 +102,20 @@
 </style>
 
 <template>
+  <p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta et pariatur
+    doloremque deserunt? Obcaecati vel ut ea repudiandae doloribus error
+    repellendus incidunt, labore accusantium. Quidem voluptate architecto libero
+    harum natus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea
+    cum nisi voluptatibus nobis soluta? Aspernatur doloremque obcaecati
+    laboriosam accusantium labore praesentium officia provident, explicabo
+    tenetur expedita. Ipsum ullam aspernatur quam!
+  </p>
   <div class="popup">
-    <span class="popuptext" id="myPopup">Todays Tip!</span>
+    <span class="popuptext" id="myPopup">
+      <p>Did you know that...</p>
+      <p>{{ tipOfTheDay }}</p>
+    </span>
+    <img src="../../assets/cartoon.png" alt="toon" @click="clickText" />
   </div>
-  <button @click="clickText">Click me!</button>
 </template>
