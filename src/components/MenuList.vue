@@ -2,10 +2,13 @@
   <nav>
     <ul>
       <li>
-        <RouterLink to="/home">Home</RouterLink>
+        <RouterLink to="/">Home</RouterLink>
       </li>
       <li>
         <RouterLink to="/quiz">Quiz</RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/tip">Tip of the Day</RouterLink>
       </li>
     </ul>
   </nav>

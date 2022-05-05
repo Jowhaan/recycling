@@ -28,10 +28,6 @@
 
 <template>
   <h1>Tip of the day</h1>
-  <img
-    src="../../assets/Recycling centres/Garden waste/garden-waste.ai"
-    alt=""
-  />
   <div
     id="carouselExampleControlsNoTouching"
     class="carousel slide"
@@ -41,21 +37,21 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img
-          src="../../assets/Recycling centres/Garden waste/garden-waste.ai"
+          src="../../assets/RecyclingSigns/batteries.svg"
           class="d-block w-100"
           alt="garden waste sign"
         />
       </div>
       <div class="carousel-item">
         <img
-          src="../../assets/Recycling centres/Garden waste/twigs-branches.ai"
+          src="../../assets/RecyclingSigns/newspapers.svg"
           class="d-block w-100"
           alt="twigs and branches sign"
         />
       </div>
       <div class="carousel-item">
         <img
-          src="../../assets/Recycling centres/Garden waste/invasive.ai"
+          src="../../assets/RecyclingSigns/metal-packaging.svg"
           class="d-block w-100"
           alt="invasive speices sign"
         />
