@@ -17,7 +17,6 @@ export default createRouter({
     {
       component: SearchView,
       path: '/search'
-
     },
     {
       component: QuizView,
@@ -26,7 +25,6 @@ export default createRouter({
     {
       component: TipView,
       path: '/tip'
-
     },
     {
       component: TipBotView,
