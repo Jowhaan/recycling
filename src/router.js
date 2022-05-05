@@ -3,7 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from './views/HomeView.vue'
 import QuizView from './views/QuizView.vue'
 import TipBotView from './views/TipBotView.vue'
-import SearchView from './views/SearchView.vue'
+import SearchBar from './components/SearchBar.vue'
 import TipView from './views/TipView.vue'
 
 export default createRouter({
@@ -11,13 +11,12 @@ export default createRouter({
   routes: [
     {
       component: HomeView,
-      path: '/home'
+      path: '/'
     },
 
     {
-      component: SearchView,
+      component: SearchBar,
       path: '/search'
-
     },
     {
       component: QuizView,
@@ -26,7 +25,6 @@ export default createRouter({
     {
       component: TipView,
       path: '/tip'
-
     },
     {
       component: TipBotView,

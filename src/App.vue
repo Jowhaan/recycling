@@ -1,17 +1,14 @@
 <script>
+  import MenuList from './components/MenuList.vue'
 
-import MenuList from './components/MenuList.vue'
-  import SearchView from './views/SearchView.vue'
   export default {
-    components: { SearchView, MenuList }
-
+    components: { MenuList }
   }
 </script>
 
 <template>
   <MenuList />
   <main>
-    <SearchView />
     <RouterView />
   </main>
 </template>
