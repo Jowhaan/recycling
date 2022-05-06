@@ -33,7 +33,7 @@
   https://www.w3schools.com/howto/howto_js_popup.asp
   and modified.*/
 
-  img {
+  #tipbot {
     position: absolute;
     width: 60px;
     bottom: 0;
@@ -109,6 +109,11 @@
       <p>Did you know that...</p>
       <p>{{ tipOfTheDay }}</p>
     </span>
-    <img src="../../assets/cartoon.png" alt="toon" @click="clickText" />
+    <img
+      id="tipbot"
+      src="../../assets/cartoon.png"
+      alt="toon"
+      @click="clickText"
+    />
   </div>
 </template>

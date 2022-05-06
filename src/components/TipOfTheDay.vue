@@ -3,22 +3,15 @@
     data() {
       return {}
     },
-    methods: {
-      onClick() {
-        this.isActive = !this.isActive
-        console.log(this.isActive)
-      },
-      clickText() {
-        this.randomNumber = Math.floor(
-          Math.random() * this.$store.state.quizQuestions.length
-        )
-        var popup = document.getElementById('myPopup')
-        popup.classList.toggle('show')
-      }
-    },
+    methods: {},
     computed: {
-      tipOfTheDay() {
-        return this.$store.state.quizQuestions[this.randomNumber].tip
+      tip() {
+        return this.$store.state.quizQuestions[0].tip
+      },
+      pic() {
+        return (
+          '../../assets/tipPics/' + this.$store.state.quizQuestions[0].tipPic
+        )
       }
     }
   }
@@ -27,40 +20,73 @@
 <style></style>
 
 <template>
-  <h1>Tip of the day</h1>
   <div
-    id="carouselExampleControlsNoTouching"
+    id="carouselExampleControls"
     class="carousel slide"
-    data-bs-touch="false"
-    data-bs-interval="false"
+    data-bs-ride="carousel"
   >
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img
-          src="../../assets/RecyclingSigns/batteries.svg"
-          class="d-block w-100"
-          alt="garden waste sign"
-        />
+        <div
+          class="card border border-5 border-white rounded"
+          style="width: 18rem"
+        >
+          <img src="{{ pic }}" class="d-block w-100" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Did you know that...</h5>
+            <p class="card-text">
+              {{ tip }}
+            </p>
+          </div>
+        </div>
       </div>
+
       <div class="carousel-item">
-        <img
-          src="../../assets/RecyclingSigns/newspapers.svg"
-          class="d-block w-100"
-          alt="twigs and branches sign"
-        />
+        <div
+          class="card border border-5 border-white rounded"
+          style="width: 18rem"
+        >
+          <img
+            src="../../assets/RecyclingSigns/batteries.svg"
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
       </div>
+
       <div class="carousel-item">
-        <img
-          src="../../assets/RecyclingSigns/metal-packaging.svg"
-          class="d-block w-100"
-          alt="invasive speices sign"
-        />
+        <div
+          class="card border border-5 border-white rounded"
+          style="width: 18rem"
+        >
+          <img
+            src="../../assets/RecyclingSigns/batteries.svg"
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
       </div>
     </div>
     <button
       class="carousel-control-prev"
       type="button"
-      data-bs-target="#carouselExampleControlsNoTouching"
+      data-bs-target="#carouselExampleControls"
       data-bs-slide="prev"
     >
       <span class="carousel-control-prev-icon" aria-hidden="true" />
@@ -69,7 +95,7 @@
     <button
       class="carousel-control-next"
       type="button"
-      data-bs-target="#carouselExampleControlsNoTouching"
+      data-bs-target="#carouselExampleControls"
       data-bs-slide="next"
     >
       <span class="carousel-control-next-icon" aria-hidden="true" />

@@ -11,7 +11,8 @@ const mutations = {},
           'How much water do you think is required to produce ONE pair of jeans?',
         correctAnswer: '11,000 l',
         wrongAnswers: ['7,000 l', '15,000 l', '3,000 l', '13,000 l', '8,000 l'],
-        tip: 'the production of ONE pair of jeans requires 11,000 liters of water!'
+        tip: 'the production of ONE pair of jeans requires 11,000 liters of water!',
+        tipPic: 'jeans.jpg'
       },
       {
         id: 2,
