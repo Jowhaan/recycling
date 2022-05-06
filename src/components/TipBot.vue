@@ -111,7 +111,7 @@
     </span>
     <img
       id="tipbot"
-      src="../../assets/cartoon.png"
+      src="../../assets/earthly.svg"
       alt="toon"
       @click="clickText"
     />
