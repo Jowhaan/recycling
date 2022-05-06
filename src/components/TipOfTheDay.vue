@@ -1,5 +1,12 @@
 <script>
+  import * as bootstrap from 'bootstrap'
+
   export default {
+    mounted() {
+      var myCarousel = document.querySelector('#carouselExampleControls')
+      var carousel = new bootstrap.Carousel(myCarousel)
+      console.log(carousel)
+    },
     data() {
       return {}
     },
