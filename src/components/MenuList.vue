@@ -1,9 +1,13 @@
 <script>
+  import NavList from './NavList.vue'
   export default {
     data() {
       return {
         menuPosition: 'hide'
       }
+    },
+    components: {
+      NavList
     },
     methods: {
       showMenu() {
@@ -27,12 +31,7 @@
   <div :class="menuPosition" id="sidebar" style="display: flex">
     <div style="width: 40vw; background-color: black">
       <div @click="hideMenu" class="list-group">
-        <RouterLink to="/" class="list-group-item list-group-item-action"
-          >Home
-        </RouterLink>
-        <RouterLink to="/quiz" class="list-group-item list-group-item-action"
-          >Quiz
-        </RouterLink>
+        <NavList />
       </div>
     </div>
     <i @click="hideMenu" class="bi bi-x-lg" id="closeIcon" />
