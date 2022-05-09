@@ -24,65 +24,31 @@
     style="font-size: 2rem; color: black"
   />
 
-  <span :class="menuPosition" id="sidebar" style="display: flex">
-    <div class="list-group">
-      <RouterLink to="/" class="list-group-item list-group-item-action"
-        >Home
-      </RouterLink>
-      <RouterLink to="/quiz" class="list-group-item list-group-item-action"
-        >Quiz
-      </RouterLink>
+  <div :class="menuPosition" id="sidebar" style="display: flex">
+    <div style="width: 40vw; background-color: black">
+      <div @click="hideMenu" class="list-group">
+        <RouterLink to="/" class="list-group-item list-group-item-action"
+          >Home
+        </RouterLink>
+        <RouterLink to="/quiz" class="list-group-item list-group-item-action"
+          >Quiz
+        </RouterLink>
+      </div>
     </div>
+    <i @click="hideMenu" class="bi bi-x-lg" id="closeIcon" />
 
-    <i
-      @click="hideMenu"
-      class="bi bi-x-lg"
-      id="closeIcon"
-      style="
-        font-size: 1rem;
-        color: white;
-        padding: 0.5rem;
-        position: absolute;
-        right: 00.5rem;
-      "
-    />
-  </span>
-
-  <!-- <nav>
-      <ul>
-        <li>
-          <RouterLink to="/">Home</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/quiz">Quiz</RouterLink>
-        </li>
-      </ul>
-    </nav> -->
-
-  <!-- <div class="list-group">
-      <a
-        href="#"
-        class="list-group-item list-group-item-action active"
-        aria-current=""
-        true
-      >
-        The current link item
-      </a>
-      <a href="#" class="list-group-item list-group-item-action">
-        A second link item
-      </a>
-    </div> -->
+    <div @click="hideMenu" style="width: 60vw" />
+  </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   #sidebar {
-    background-color: black;
     color: white;
     position: absolute;
-    left: -300px;
+    left: -100vw;
     bottom: 0px;
     top: 0px;
-    width: 200px;
+    width: 100vw;
     transition-property: left;
     transition-duration: 0.5;
     transition-timing-function: ease-out;
@@ -91,6 +57,15 @@
     left: 0px;
   }
   #sidebar.hide {
-    left: -300px;
+    left: -100vw;
+  }
+  #closeIcon {
+    background-color: black;
+    font-size: 1rem;
+    color: gray;
+    padding: 0.5rem;
+    &:hover {
+      color: white;
+    }
   }
 </style>
