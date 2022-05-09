@@ -44,6 +44,7 @@
   #sidebar {
     color: white;
     position: absolute;
+    z-index: 100;
     left: -100vw;
     bottom: 0px;
     top: 0px;
