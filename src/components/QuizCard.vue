@@ -11,19 +11,17 @@
     data() {
       return {
         questions: [],
-        correctAnswers: [],
         answers: [],
         answersIndex: 0,
         questionsIndex: 0,
-        score: null
+        score: 0
       }
     },
     methods: {
       //metod för att reseta
       resetQuiz() {
         this.questions = []
-        this.correctAnswers = []
-        this.score = null
+        this.score = 0
         this.questionsIndex = 0
         this.answersIndex = 0
       },
@@ -52,9 +50,6 @@
         //Rätt svar ska ju alltid med så den lägger vi till i arrayen med en gång
         var correctAnswer = this.questions[this.answersIndex].correctAnswer
         this.answers.push(correctAnswer)
-        //Lägger även till den i komponentens array över rätta svar för att faktiskt kunna rätta dem.
-        this.correctAnswers.push(correctAnswer)
-
         //Om frågan har mer än 2st fel svar (vi behöver 3 totalt)
         //Så måste man slumpa fram 2st
         if (this.questions[this.answersIndex].wrongAnswers.length > 2) {
@@ -88,9 +83,10 @@
         this.answersIndex++
       },
       nextQuestion() {
-        this.questionsIndex++
         this.answers = []
         this.checkAnswer()
+        this.questionsIndex++
+        this.clearRadio()
         if (this.questionsIndex < 5) {
           this.getAnswers()
         }
@@ -111,8 +107,27 @@
         this.answers = array
       },
       checkAnswer() {
-        //Hur får jag tag i vad som klickades på?
+        //Jag måste få tag i vilken som är checked till att börja med
+        //Sen måste jag jämföra .checked = true med rätt svar, om det är rätt så blir det poäng!
+        var radAnswers = document.getElementsByName('answer')
+        for (var i = 0; i < radAnswers.length; i++) {
+          if (
+            radAnswers[i].checked === true &&
+            radAnswers[i].value ==
+              this.questions[this.questionsIndex].correctAnswer
+          ) {
+            this.score++
+          }
+        }
+      },
+      //För att dom inte ska vara checked på nästa fråga måste man resetta dom efter varje.
+      clearRadio() {
+        var radList = document.getElementsByName('answer')
+        for (var i = 0; i < radList.length; i++) {
+          if (radList[i].checked) radList[i].checked = false
+        }
       }
+      //Måste ha en metod för att kolla så ett alternativ är valt?
     }
   }
 </script>
@@ -123,7 +138,7 @@
     padding: 10px 16px;
     border-color: coral;
     border: 2px;
-    width: 200px;
+    width: 300px;
     height: 400px;
     border-radius: 5px;
   }
@@ -141,13 +156,28 @@
       <b>{{ this.questions[questionsIndex].question }}</b>
     </p>
     <div class="answer-container">
-      <input type="button" :value="this.answers[0]" />
-      <p>{{ '2 ' + this.answers[1] }}</p>
-      <p>{{ '3 ' + this.answers[2] }}</p>
-      <input type="button" value="Next question" @click="nextQuestion" />
+      <div>
+        <input name="answer" type="radio" :value="this.answers[0]" />
+        <label>
+          {{ this.answers[0] }}
+        </label>
+      </div>
+      <div>
+        <input name="answer" type="radio" :value="this.answers[1]" />
+        <label>
+          {{ this.answers[1] }}
+        </label>
+      </div>
+      <div>
+        <input name="answer" type="radio" :value="this.answers[2]" />
+        <label>
+          {{ this.answers[2] }}
+        </label>
+      </div>
+      <input type="button" @click="nextQuestion" value="Next question" />
     </div>
   </div>
   <div v-else>
-    <QuizResult />
+    <QuizResult :score="this.score" />
   </div>
 </template>

@@ -1,7 +1,5 @@
 <script>
-  import QuizCard from '../components/QuizCard.vue'
   export default {
-    components: { QuizCard },
     data() {
       return {
         finalScore: this.score,
@@ -31,13 +29,10 @@
   }
 </style>
 <template>
-  <div v-if="playAgain">
-    <QuizCard />
-  </div>
+  <div v-if="playAgain" />
   <div v-else class="quiz-card">
     <h1>{{ this.finalScore }}/5</h1>
     <h3 v-if="this.finalScore > 4">Whooo! Greta would be proud</h3>
     <h3 v-else>You still need to learn more about recycling</h3>
-    <p @click="onClick">Take the quiz again</p>
   </div>
 </template>
