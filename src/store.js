@@ -11,7 +11,8 @@ const mutations = {},
           'How much water do you think is required to produce ONE pair of jeans?',
         correctAnswer: '11,000 l',
         wrongAnswers: ['7,000 l', '15,000 l', '3,000 l', '13,000 l', '8,000 l'],
-        tip: 'the production of ONE pair of jeans requires 11,000 liters of water!'
+        tip: 'the production of ONE pair of jeans requires 11,000 liters of water!',
+        tipPic: '../../assets/tipPics/jeans.jpg'
       },
       {
         id: 2,
@@ -54,7 +55,7 @@ const mutations = {},
           'How much gets thrown away each year in Sweden that could have been recycled instead?',
         correctAnswer: '80,000 ton',
         wrongAnswers: ['60,000 ton', '70,000 ton', '90,000 ton', '100,000 ton'],
-        tip: 'that we throw away 80,000 ton of trash each year that could have been recycled.'
+        tip: 'we throw away 80,000 ton of trash each year that could have been recycled.'
       },
       {
         id: 6,
@@ -128,7 +129,7 @@ const mutations = {},
         question: 'Your toothbrush goes in what container?',
         correctAnswer: 'Residual waste',
         wrongAnswers: ['Food waste', 'Plastic', 'Landfill waste'],
-        tip: 'that your toothbrush goes into the residual waste container.'
+        tip: 'your toothbrush goes into the residual waste container.'
       },
       {
         id: 13,
@@ -137,7 +138,7 @@ const mutations = {},
         question: 'How many times can you recycle glass?',
         correctAnswer: 'Infinite times',
         wrongAnswers: ['Ten times', 'A hundred times', 'A thousand times'],
-        tip: 'that you can recycle glass forever!'
+        tip: 'you can recycle glass forever!'
       },
       {
         id: 14,
@@ -187,7 +188,7 @@ const mutations = {},
           'Paper packaging',
           'Never throw away baking paper, use it again'
         ],
-        tip: 'that after you finish your buns you throw the baking paper into the residual waste.'
+        tip: 'after you finish your buns you throw the baking paper into the residual waste.'
       },
       {
         id: 18,
@@ -201,7 +202,7 @@ const mutations = {},
           'Container in residual waste, cap as plastic',
           'Food waste since you could not squeeze everything out'
         ],
-        tip: 'that your tube of Kalles Caviar goes into the metal container (except the cap, it goes into plastic packaging).'
+        tip: 'your tube of Kalles Caviar goes into the metal container (except the cap, it goes into plastic packaging).'
       },
       {
         id: 19,
@@ -240,7 +241,7 @@ const mutations = {},
           'The bags feel and looks shiny, therefore it can not be plastic but some sort of metal and goes in metal packaging!',
           'There is always crumbs left so it belongs in food waste'
         ],
-        tip: 'your can recycle your empty chipbag as plastic packaging.'
+        tip: 'you can recycle your empty chipbag as plastic packaging.'
       },
       {
         id: 22,

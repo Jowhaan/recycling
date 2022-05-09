@@ -41,6 +41,7 @@
         placeholder="Ex. toothbrush, playstation..."
         aria-label="Search"
       />
+      <button class="bi bi-search" />
     </div>
   </body>
 </template>
