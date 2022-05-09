@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 const mutations = {},
   state = {
+    todaysTip: 0,
     quizQuestions: [
       {
         id: 1,

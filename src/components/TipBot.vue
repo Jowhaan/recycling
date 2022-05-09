@@ -18,6 +18,9 @@
         )
         var popup = document.getElementById('myPopup')
         popup.classList.toggle('show')
+      },
+      goToTipPage(tipNum) {
+        console.log(tipNum)
       }
     },
     computed: {
@@ -108,6 +111,7 @@
     <span class="popuptext" id="myPopup">
       <p>Did you know that...</p>
       <p>{{ tipOfTheDay }}</p>
+      <i @click="goToTipPage(randomNumber)" class="bi bi-arrow-right" />
     </span>
     <img
       id="tipbot"

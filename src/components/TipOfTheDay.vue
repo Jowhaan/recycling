@@ -3,7 +3,7 @@
 
   export default {
     mounted() {
-      var myCarousel = document.querySelector('#carouselExampleControls')
+      var myCarousel = document.querySelector('#myCarousel')
       var carousel = new bootstrap.Carousel(myCarousel)
       console.log(carousel)
     },
@@ -30,18 +30,20 @@
     width: 20rem;
     margin: auto;
   }
+
+  #cardImage {
+    margin-top: 25px;
+    height: 220px;
+  }
 </style>
 
 <template>
-  <div
-    id="carouselExampleControls"
-    class="carousel slide"
-    data-bs-ride="carousel"
-  >
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="card border border-5 border-white rounded">
-          <div>
+          <i class="bi bi-share position-absolute top-0 end-0" />
+          <div id="cardImage">
             <img :src="pic" class="d-block w-100" alt="..." />
           </div>
           <div class="card-body">
@@ -59,14 +61,15 @@
         class="carousel-item"
       >
         <div class="card border border-5 border-white rounded">
-          <img
-            src="../../assets/roundEarthly.svg"
-            class="d-block w-100"
-            alt="..."
-          />
-          <!--
-          <img :src="card.tipPic" class="d-block w-100" alt="..." />
-          -->
+          <i class="bi bi-share position-absolute top-0 end-0" />
+          <div id="cardImage">
+            <!-- <img :src="pic" class="d-block w-100" alt="..." /> -->
+            <img
+              src="../../assets/roundEarthly.svg"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
           <div class="card-body">
             <h5 class="card-title">Did you know that:</h5>
             <p class="card-text">
@@ -79,7 +82,7 @@
     <button
       class="carousel-control-prev"
       type="button"
-      data-bs-target="#carouselExampleControls"
+      data-bs-target="#myCarousel"
       data-bs-slide="prev"
     >
       <span class="carousel-control-prev-icon" aria-hidden="true" />
@@ -88,11 +91,12 @@
     <button
       class="carousel-control-next"
       type="button"
-      data-bs-target="#carouselExampleControls"
+      data-bs-target="#myCarousel"
       data-bs-slide="next"
     >
       <span class="carousel-control-next-icon" aria-hidden="true" />
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+  <button data-bs-target="#myCarousel" data-bs-slide-to="5" />
 </template>
