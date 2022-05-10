@@ -12,18 +12,32 @@
       return {
         questions: [],
         answers: [],
+        answer: null,
         answersIndex: 0,
         questionsIndex: 0,
-        score: 0
+        score: 0,
+        disableRadio: null
+      }
+    },
+    computed: {
+      //Tvingar användaren att välja ett av de tre svaren
+      isDisabled() {
+        if (this.answer !== null) {
+          return false
+        } else {
+          return true
+        }
       }
     },
     methods: {
       //metod för att reseta
       resetQuiz() {
         this.questions = []
+        this.answers = []
         this.score = 0
         this.questionsIndex = 0
         this.answersIndex = 0
+        this.answer = null
       },
       //metod för att slumpa 5 quizfrågor
       getQuestions() {
@@ -45,9 +59,6 @@
       },
       getAnswers() {
         //Fyller på en array med 3st svar motsvarande rätt fråga.
-        //Går via answersIndex på questions[] så efter getQuestions() körts
-        //så blir indexet 1 = man fyller på med frågor till fråga 2.
-        //Rätt svar ska ju alltid med så den lägger vi till i arrayen med en gång
         var correctAnswer = this.questions[this.answersIndex].correctAnswer
         this.answers.push(correctAnswer)
         //Om frågan har mer än 2st fel svar (vi behöver 3 totalt)
@@ -67,7 +78,7 @@
                 conflict = true
               }
             }
-            //Om det inte är conflict efter att den kollat igenom arrayen så
+            //Om det inte är konflikt efter att den kollat igenom arrayen så
             //lägger den till felsvaret
             if (!conflict) {
               this.answers.push(currentWrongAnswer)
@@ -79,17 +90,19 @@
           this.answers.push(this.questions[this.answersIndex].wrongAnswers[0])
           this.answers.push(this.questions[this.answersIndex].wrongAnswers[1])
         }
+        //Blanda arrayen
         this.shuffle(this.answers)
         this.answersIndex++
       },
       nextQuestion() {
-        this.answers = []
         this.checkAnswer()
+        this.answer = null
+        this.answers = []
         this.questionsIndex++
-        this.clearRadio()
         if (this.questionsIndex < 5) {
           this.getAnswers()
         }
+        this.disableRadio = null
       },
       //Gör en shuffle för arrayer för att slumpa ordningen på svarsalternativen så frågorna inte ser samma ut hela tiden
       shuffle(array) {
@@ -107,74 +120,61 @@
         this.answers = array
       },
       checkAnswer() {
-        //Jag måste få tag i vilken som är checked till att börja med
-        //Sen måste jag jämföra .checked = true med rätt svar, om det är rätt så blir det poäng!
-        var radAnswers = document.getElementsByName('answer')
-        for (var i = 0; i < radAnswers.length; i++) {
-          if (
-            radAnswers[i].checked === true &&
-            radAnswers[i].value ==
-              this.questions[this.questionsIndex].correctAnswer
-          ) {
-            this.score++
-          }
-        }
-      },
-      //För att dom inte ska vara checked på nästa fråga måste man resetta dom efter varje.
-      clearRadio() {
-        var radList = document.getElementsByName('answer')
-        for (var i = 0; i < radList.length; i++) {
-          if (radList[i].checked) radList[i].checked = false
+        if (this.answer === this.questions[this.questionsIndex].correctAnswer) {
+          this.score++
         }
       }
-      //Måste ha en metod för att kolla så ett alternativ är valt?
     }
   }
 </script>
-<style>
-  .quiz-card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    padding: 10px 16px;
-    border-color: coral;
-    border: 2px;
-    width: 300px;
-    height: 400px;
-    border-radius: 5px;
-  }
-  .quiz-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
-  #question {
-  }
-  .answer-container {
-  }
-</style>
 <template>
-  <div v-if="questionsIndex < 5" class="quiz-card">
+  <div v-if="questionsIndex < 5">
     <p id="question">
       <b>{{ this.questions[questionsIndex].question }}</b>
     </p>
-    <div class="answer-container">
+    <div>
       <div>
-        <input name="answer" type="radio" :value="this.answers[0]" />
+        <input
+          v-model="answer"
+          name="answer"
+          type="radio"
+          :value="this.answers[0]"
+          :checked="this.disableRadio"
+        />
         <label>
           {{ this.answers[0] }}
         </label>
       </div>
       <div>
-        <input name="answer" type="radio" :value="this.answers[1]" />
+        <input
+          v-model="answer"
+          name="answer"
+          type="radio"
+          :value="this.answers[1]"
+          :checked="this.disableRadio"
+        />
         <label>
           {{ this.answers[1] }}
         </label>
       </div>
       <div>
-        <input name="answer" type="radio" :value="this.answers[2]" />
+        <input
+          v-model="answer"
+          name="answer"
+          type="radio"
+          :value="this.answers[2]"
+          :checked="this.disableRadio"
+        />
         <label>
           {{ this.answers[2] }}
         </label>
       </div>
-      <input type="button" @click="nextQuestion" value="Next question" />
+      <input
+        type="button"
+        :disabled="isDisabled"
+        @click="nextQuestion"
+        value="Next question"
+      />
     </div>
   </div>
   <div v-else>

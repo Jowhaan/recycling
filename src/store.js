@@ -5,8 +5,10 @@ const mutations = {},
     quizQuestions: [
       {
         id: 1,
-        ifRight: '',
-        ifWrong: '',
+        ifRight:
+          'Correct, it requires 11,000l of water to produce ONE pair of jeans.',
+        ifWrong:
+          'Sorry, it does require 11,00l water for a single pair of jeans.',
         question:
           'How much water do you think is required to produce ONE pair of jeans?',
         correctAnswer: '11,000 l',
@@ -16,8 +18,8 @@ const mutations = {},
       },
       {
         id: 2,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct, we throw away 72 kg food per person each year.',
+        ifWrong: 'Sorry, correct answer is 72 kg.',
         question:
           'How much food do you think we on average throw away per person each year in Sweden?',
         correctAnswer: '72 kg',
@@ -26,8 +28,8 @@ const mutations = {},
       },
       {
         id: 3,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct, we consume 85 kg meat per person each year.',
+        ifWrong: 'Sorry, correct answer is 85 kg.',
         question:
           'How much meat do you think we eat on average in Sweden each year?',
         correctAnswer: '85 kg',
@@ -36,8 +38,10 @@ const mutations = {},
       },
       {
         id: 4,
-        ifRight: '',
-        ifWrong: '',
+        ifRight:
+          'Correct, buying bad quality stuff generally means you need to buy the same item again more frequently than good quality stuff.',
+        ifWrong:
+          'Sorry, correct answer is that you should not buy bad quality stuff.',
         question: 'Which of the following options does NOT prevent waste',
         correctAnswer: 'Always buy the cheapest option',
         wrongAnswers: [
@@ -49,8 +53,9 @@ const mutations = {},
       },
       {
         id: 5,
-        ifRight: '',
-        ifWrong: '',
+        ifRight:
+          'Correct, we throw away 80,000 tons of stuff that should have been recycled instead.',
+        ifWrong: 'Sorry, the correct answer is 80,000 tons.',
         question:
           'How much gets thrown away each year in Sweden that could have been recycled instead?',
         correctAnswer: '80,000 ton',
@@ -59,8 +64,8 @@ const mutations = {},
       },
       {
         id: 6,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct, only the jar can be recycled.',
+        ifWrong: 'Sorry, it is only the jar that can be recycled.',
         question: 'Which of the following items can be recycled?',
         correctAnswer: 'A jar',
         wrongAnswers: ['A glass', 'A brick', 'A plate'],
@@ -68,8 +73,9 @@ const mutations = {},
       },
       {
         id: 7,
-        ifRight: '',
-        ifWrong: '',
+        ifRight:
+          'Correct, we consume in a way that we use 17 kg of plastic containers each year.',
+        ifWrong: 'Sorry, the correct answer is 17 kg.',
         question:
           'How much plastic containers do you think we use on average per person in Sweden each year?',
         correctAnswer: '17 kg',
@@ -78,8 +84,8 @@ const mutations = {},
       },
       {
         id: 8,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct, you save 2 kg CO2 for every kg of recycled plastic',
+        ifWrong: 'Sorry, correct answer is 2 kg CO2.',
         question: 'How much CO2 do you save per recycled kg of plastic?',
         correctAnswer: '2 kg',
         wrongAnswers: ['1 kg', '1,5 kg', '2,5 kg', '3 kg'],
@@ -87,8 +93,8 @@ const mutations = {},
       },
       {
         id: 9,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct, you can recycle paper as much as 7 times!',
+        ifWrong: 'Sorry, the correct answer is 7 times.',
         question: 'Aproximately how many times can you recycle paper?',
         correctAnswer: '7 times',
         wrongAnswers: ['3 times', '5 times', '9 times', '11 times'],
@@ -96,8 +102,10 @@ const mutations = {},
       },
       {
         id: 10,
-        ifRight: '',
-        ifWrong: '',
+        ifRight:
+          'Correct, you can sit guilt-free in front of the computer for 24hhrs for each recycled can.',
+        ifWrong:
+          'Sorry, correct answer is that it is equvialent to 24hrs in front of the computer.',
         question:
           'The energy saved from recycling ONE aluminum can is equvialent to?',
         correctAnswer: '24hrs in front of the computer',
@@ -111,8 +119,9 @@ const mutations = {},
       },
       {
         id: 11,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct, you do not have to remove label(s).',
+        ifWrong:
+          'Sorry, the correct answer is that you do not have to remove the label(s).',
         question: 'What is true about glass bottles and jars?',
         correctAnswer: 'You do not have to remove the label',
         wrongAnswers: [
@@ -124,8 +133,9 @@ const mutations = {},
       },
       {
         id: 12,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct, it goes into the residual waste container.',
+        ifWrong:
+          'Sorry, correct answer is that you should throw it into the residual waste container.',
         question: 'Your toothbrush goes in what container?',
         correctAnswer: 'Residual waste',
         wrongAnswers: ['Food waste', 'Plastic', 'Landfill waste'],
@@ -133,8 +143,9 @@ const mutations = {},
       },
       {
         id: 13,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct, you can recycle glass indefinitely.',
+        ifWrong:
+          'Sorry, correct answer is that you can recycle glass indefinitely!',
         question: 'How many times can you recycle glass?',
         correctAnswer: 'Infinite times',
         wrongAnswers: ['Ten times', 'A hundred times', 'A thousand times'],
@@ -142,8 +153,9 @@ const mutations = {},
       },
       {
         id: 14,
-        ifRight: '',
-        ifWrong: '',
+        ifRight:
+          'Correct, we throw away 7,5 kg clothes & textiles each, each year.',
+        ifWrong: 'Sorry, correct answer is 7,5 kg each, each year.',
         question:
           'How much clothes & textiles do each swede on average throw away each year? ',
         correctAnswer: '7,5 kg',
@@ -152,8 +164,8 @@ const mutations = {},
       },
       {
         id: 15,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct, it goes to paper packaging!',
+        ifWrong: 'Sorry, correct answer is paper packaging',
         question: 'Empty toilet & kitchen paper rolls goes where?',
         correctAnswer: 'Paper packaging',
         wrongAnswers: [
@@ -165,8 +177,9 @@ const mutations = {},
       },
       {
         id: 16,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct, it goes in the residual waste container.',
+        ifWrong:
+          'Sorry, correct answer is that it should go into the residual waste container.',
         question:
           'During COVID times we have used a lot of mouth guards, where should you place this after it has been used?',
         correctAnswer: 'Residual waste',
@@ -179,8 +192,9 @@ const mutations = {},
       },
       {
         id: 17,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct!',
+        ifWrong:
+          'Sorry, correct answer is that it should go in the residual waste container.',
         question: 'How do you sort baking paper?',
         correctAnswer: 'Baking paper is sorted as residual waste',
         wrongAnswers: [
@@ -192,8 +206,9 @@ const mutations = {},
       },
       {
         id: 18,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct!',
+        ifWrong:
+          'Sorry, correct answer is that the container goes as metal and the cap as plastic packaging.',
         question: 'A package of Kalles caviar goes where?',
         correctAnswer:
           'The container as metal and the cap as plastic packaging',
@@ -206,8 +221,9 @@ const mutations = {},
       },
       {
         id: 19,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct, it to plastic packaging',
+        ifWrong:
+          'Sorry, correct answer is that it should be recycled as plastic packaging.',
         question: 'How do you recycle styrofoam?',
         correctAnswer: 'Plastic packaging',
         wrongAnswers: [
@@ -219,8 +235,9 @@ const mutations = {},
       },
       {
         id: 20,
-        ifRight: '',
-        ifWrong: '',
+        ifRight:
+          'Correct! (let it dry before you put it there to avoid a mess).',
+        ifWrong: 'Sorry, correct answer is food waste.',
         question: 'Coffee filters goes where?',
         correctAnswer: 'Food waste',
         wrongAnswers: [
@@ -232,8 +249,9 @@ const mutations = {},
       },
       {
         id: 21,
-        ifRight: '',
-        ifWrong: '',
+        ifRight: 'Correct!',
+        ifWrong:
+          'Sorry, correct answer is that it is recycled as plastic packaging.',
         question: 'An empty bag of chips goes where?',
         correctAnswer: 'Plastic packaging',
         wrongAnswers: [
