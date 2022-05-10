@@ -1,13 +1,13 @@
 <script>
-  import QuizStart from '../components/QuizStart.vue'
+  import QuizCard from '../components/QuizCard.vue'
 
   export default {
     components: {
-      QuizStart
+      QuizCard
     }
   }
 </script>
 
 <template>
-  <QuizStart />
+  <QuizCard />
 </template>
