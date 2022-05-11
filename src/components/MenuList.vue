@@ -29,7 +29,13 @@
   />
 
   <div :class="menuPosition" id="sidebar" style="display: flex">
-    <div style="width: 40vw; background-color: black">
+    <div
+      style="
+        width: 40vw;
+        background-color: black;
+        border-radius: 0px 0px 25px 0px;
+      "
+    >
       <div @click="hideMenu" class="list-group">
         <NavList />
       </div>
@@ -46,7 +52,7 @@
     position: absolute;
     z-index: 100;
     left: -100vw;
-    bottom: 0px;
+    bottom: 50px;
     top: 0px;
     width: 100vw;
     transition-property: left;
@@ -60,7 +66,9 @@
     left: -100vw;
   }
   #closeIcon {
-    background-color: black;
+    opacity: 0.5;
+    position: relative;
+    left: -40px;
     font-size: 1rem;
     color: gray;
     padding: 0.5rem;
