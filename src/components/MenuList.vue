@@ -29,19 +29,14 @@
   />
 
   <div :class="menuPosition" id="sidebar" style="display: flex">
-    <div
-      id="navbar"
-      style="
-        width: 40vw;
-        background-color: black;
-        border-radius: 0px 0px 25px 0px;
-      "
-    >
-      <div @click="hideMenu" class="list-group">
-        <NavList />
+    <div id="menubar" style="display: flex; border-radius: 0px 0px 25px 0px">
+      <div id="navbar" style="width: 40vw">
+        <div @click="hideMenu" class="list-group">
+          <NavList />
+        </div>
       </div>
+      <i @click="hideMenu" class="bi bi-x-lg" id="closeIcon" />
     </div>
-    <i @click="hideMenu" class="bi bi-x-lg" id="closeIcon" />
 
     <div @click="hideMenu" style="width: 60vw" />
   </div>
@@ -71,7 +66,7 @@
   #closeIcon {
     opacity: 0.5;
     position: relative;
-    left: -40px;
+    left: -10px;
     font-size: 1rem;
     padding: 0.5rem;
     &:hover {
