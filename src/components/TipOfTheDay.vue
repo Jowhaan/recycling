@@ -71,7 +71,7 @@
             />
           </div>
           <div class="card-body">
-            <h5 class="card-title">Did you know that:</h5>
+            <p class="card-title"><b>Did you know that:</b></p>
             <p class="card-text">
               {{ card.tip }}
             </p>
@@ -98,5 +98,5 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <button data-bs-target="#myCarousel" data-bs-slide-to="5" />
+  <!-- <button data-bs-target="#myCarousel" data-bs-slide-to="5" /> -->
 </template>

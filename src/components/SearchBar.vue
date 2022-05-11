@@ -44,17 +44,12 @@
     align-items: center;
   }
   .flexbox-item-1 {
-    font-style: Italic;
-    font-weight: bold;
-    font-size: 25px;
-    padding-bottom: 20px;
-    padding-top: 150px;
     flex-grow: 1;
     align-items: center;
   }
   .flexbox-item-input {
     border: 3px solid black;
-    height: 20px;
+    height: 30px;
     border-radius: 25px;
     flex-grow: 1;
     align-items: center;
