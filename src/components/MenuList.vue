@@ -25,16 +25,18 @@
     @click="showMenu"
     class="bi bi-list"
     id="hamburgerIcon"
-    style="font-size: 2rem; color: black"
+    style="font-size: 2rem"
   />
 
   <div :class="menuPosition" id="sidebar" style="display: flex">
-    <div style="width: 40vw; background-color: black">
-      <div @click="hideMenu" class="list-group">
-        <NavList />
+    <div id="menubar" style="display: flex; border-radius: 0px 0px 25px 0px">
+      <div id="navbar" style="width: 40vw">
+        <div @click="hideMenu" class="list-group">
+          <NavList />
+        </div>
       </div>
+      <i @click="hideMenu" class="bi bi-x-lg" id="closeIcon" />
     </div>
-    <i @click="hideMenu" class="bi bi-x-lg" id="closeIcon" />
 
     <div @click="hideMenu" style="width: 60vw" />
   </div>
@@ -42,27 +44,34 @@
 
 <style lang="scss" scoped>
   #sidebar {
-    color: white;
     position: absolute;
     z-index: 100;
     left: -100vw;
-    bottom: 0px;
+    bottom: 50px;
     top: 0px;
     width: 100vw;
     transition-property: left;
-    transition-duration: 0.5;
     transition-timing-function: ease-out;
   }
+  #navbar {
+    width: 40vw;
+  }
   #sidebar.show {
-    left: 0px;
+    left: 0vw;
+    transition-property: left;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   #sidebar.hide {
     left: -100vw;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
   }
   #closeIcon {
-    background-color: black;
+    opacity: 0.5;
+    position: relative;
+    left: -10px;
     font-size: 1rem;
-    color: gray;
     padding: 0.5rem;
     &:hover {
       color: white;

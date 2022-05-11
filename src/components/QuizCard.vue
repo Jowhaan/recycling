@@ -1,15 +1,22 @@
 <script>
-  import QuizResult from '../components/QuizResult.vue'
   export default {
     created() {
       this.getQuestions()
       this.getAnswers()
     },
-    components: {
-      QuizResult
+    watch: {
+      answer() {
+        if (this.answer !== null) {
+          this.nextQuestion()
+        }
+      }
     },
     data() {
       return {
+        isStarted: false,
+        playAgain: false,
+        rightAnswer: null,
+        continueQuiz: true,
         questions: [],
         answers: [],
         answer: null,
@@ -17,16 +24,6 @@
         questionsIndex: 0,
         score: 0,
         disableRadio: null
-      }
-    },
-    computed: {
-      //Tvingar användaren att välja ett av de tre svaren
-      isDisabled() {
-        if (this.answer !== null) {
-          return false
-        } else {
-          return true
-        }
       }
     },
     methods: {
@@ -38,6 +35,7 @@
         this.questionsIndex = 0
         this.answersIndex = 0
         this.answer = null
+        this.playAgain = false
       },
       //metod för att slumpa 5 quizfrågor
       getQuestions() {
@@ -95,6 +93,7 @@
         this.answersIndex++
       },
       nextQuestion() {
+        this.continueQuiz = false
         this.checkAnswer()
         this.answer = null
         this.answers = []
@@ -122,62 +121,88 @@
       checkAnswer() {
         if (this.answer === this.questions[this.questionsIndex].correctAnswer) {
           this.score++
+          this.rightAnswer = true
         }
+      },
+      onStart() {
+        this.isStarted = true
+      },
+      onPlayAgain() {
+        this.playAgain = true
+        this.resetQuiz()
+        this.getQuestions()
+        this.getAnswers()
+      },
+      onContinueQuiz() {
+        this.continueQuiz = true
+        this.rightAnswer = false
       }
     }
   }
 </script>
 <template>
-  <div v-if="questionsIndex < 5">
-    <p id="question">
-      <b>{{ this.questions[questionsIndex].question }}</b>
-    </p>
-    <div>
-      <div>
-        <input
-          v-model="answer"
-          name="answer"
-          type="radio"
-          :value="this.answers[0]"
-          :checked="this.disableRadio"
-        />
-        <label>
-          {{ this.answers[0] }}
-        </label>
+  <div class="quiz-flex-container">
+    <div v-if="continueQuiz">
+      <div v-if="isStarted">
+        <div class="quiz-flex-container" v-if="questionsIndex < 5">
+          <h4>
+            {{ this.questions[questionsIndex].question }}
+          </h4>
+          <div>
+            <div
+              class="btn-group-vertical"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <div
+                id="quiz-btn-group"
+                :key="this.answers[index]"
+                v-for="(test, index) in this.answers"
+              >
+                <input
+                  v-model="answer"
+                  type="radio"
+                  :value="test"
+                  :checked="this.disableRadio"
+                  class="btn-check"
+                  :id="index"
+                  autocomplete="off"
+                />
+                <label class="btn btn-outline-primary" :for="index">{{
+                  test
+                }}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-else>
+          <div v-if="playAgain" />
+          <div class="quiz-flex-container" v-else>
+            <h1>{{ this.score }}/5</h1>
+            <h3 v-if="this.score > 4">Whooo! Greta would be proud</h3>
+            <h3 v-else>You still need to learn more about recycling</h3>
+            <p @click="onPlayAgain">
+              <b>Tryck på denna texten för att Spela igen!</b>
+            </p>
+          </div>
+        </div>
       </div>
-      <div>
-        <input
-          v-model="answer"
-          name="answer"
-          type="radio"
-          :value="this.answers[1]"
-          :checked="this.disableRadio"
-        />
-        <label>
-          {{ this.answers[1] }}
-        </label>
+      <div v-else>
+        <h3 id="start-quiz" @click="onStart">Start Quiz</h3>
       </div>
-      <div>
-        <input
-          v-model="answer"
-          name="answer"
-          type="radio"
-          :value="this.answers[2]"
-          :checked="this.disableRadio"
-        />
-        <label>
-          {{ this.answers[2] }}
-        </label>
-      </div>
-      <input
-        type="button"
-        :disabled="isDisabled"
-        @click="nextQuestion"
-        value="Next question"
-      />
     </div>
-  </div>
-  <div v-else>
-    <QuizResult :score="this.score" />
+    <div class="quiz-flex-container" v-else @click="onContinueQuiz">
+      <h6>{{ this.questions[questionsIndex - 1].question }}</h6>
+      <div v-if="rightAnswer">
+        <h3 id="quiz-right">
+          {{ this.questions[questionsIndex - 1].ifRight }}
+        </h3>
+      </div>
+      <div v-else>
+        <h3 id="quiz-wrong">
+          {{ this.questions[questionsIndex - 1].ifWrong }}
+        </h3>
+      </div>
+    </div>
   </div>
 </template>
