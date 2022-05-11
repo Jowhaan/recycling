@@ -144,7 +144,7 @@
   <div class="quiz-flex-container">
     <div v-if="continueQuiz">
       <div v-if="isStarted">
-        <div class="quiz-item" v-if="questionsIndex < 5">
+        <div class="quiz-flex-container" v-if="questionsIndex < 5">
           <h4>
             {{ this.questions[questionsIndex].question }}
           </h4>
@@ -154,7 +154,8 @@
               role="group"
               aria-label="Basic radio toggle button group"
             >
-              <template
+              <div
+                id="quiz-btn-group"
                 :key="this.answers[index]"
                 v-for="(test, index) in this.answers"
               >
@@ -170,13 +171,13 @@
                 <label class="btn btn-outline-primary" :for="index">{{
                   test
                 }}</label>
-              </template>
+              </div>
             </div>
           </div>
         </div>
         <div v-else>
           <div v-if="playAgain" />
-          <div v-else>
+          <div class="quiz-flex-container" v-else>
             <h1>{{ this.score }}/5</h1>
             <h3 v-if="this.score > 4">Whooo! Greta would be proud</h3>
             <h3 v-else>You still need to learn more about recycling</h3>
@@ -190,13 +191,17 @@
         <h3 id="start-quiz" @click="onStart">Start Quiz</h3>
       </div>
     </div>
-    <div v-else @click="onContinueQuiz">
+    <div class="quiz-flex-container" v-else @click="onContinueQuiz">
       <h6>{{ this.questions[questionsIndex - 1].question }}</h6>
       <div v-if="rightAnswer">
-        <h3>{{ this.questions[questionsIndex - 1].ifRight }}</h3>
+        <h3 id="quiz-right">
+          {{ this.questions[questionsIndex - 1].ifRight }}
+        </h3>
       </div>
       <div v-else>
-        <h3>{{ this.questions[questionsIndex - 1].ifWrong }}</h3>
+        <h3 id="quiz-wrong">
+          {{ this.questions[questionsIndex - 1].ifWrong }}
+        </h3>
       </div>
     </div>
   </div>
