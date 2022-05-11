@@ -51,17 +51,21 @@
     top: 0px;
     width: 100vw;
     transition-property: left;
-    transition-duration: 0.5;
     transition-timing-function: ease-out;
   }
   #navbar {
     width: 40vw;
   }
   #sidebar.show {
-    left: 0px;
+    left: 0vw;
+    transition-property: left;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   #sidebar.hide {
     left: -100vw;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
   }
   #closeIcon {
     opacity: 0.5;

@@ -1,65 +1,69 @@
-
 /* CHANGE COLORTHEME HERE
     read more: getbootstrap.com/docs/5.0/customize/sass/
     read more: avancera Handout: Vite: CSS preprocessing
 */
 
 $theme-colors: (
-  'primary': #5AB7A8,
-  'primary-background': #EFF3F2,
+  'primary': #5ab7a8,
+  'primary-background': #eff3f2,
   'secondary-background': white,
-  'search-icon-color': #0B604D,
+  'search-icon-color': #0b604d,
 
-  'success': #28A745,
-  'info': #17A2B8,
-  'warning': #FFC107,
-  'danger': #DC3545,
+  'success': #28a745,
+  'info': #17a2b8,
+  'warning': #ffc107,
+  'danger': #dc3545,
 
   'heading-color': black,
-  'body-color': #343A40
+  'body-color': #343a40
 );
 
 /*Saknar:
 Ljus textfärg för mörk bakgrund
 
 */
+.quiz-flex-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+}
 
 h1 {
-  color: black
+  color: black;
 }
 
 p {
-  color:#343A40
+  color: #343a40;
 }
 
 i {
-  color: map-get($theme-colors, "heading-color")
+  color: map-get($theme-colors, 'heading-color');
 }
 
 #menubar {
   background-color: var(--bs-primary);
 }
 
-$body-bg: map-get($theme-colors, "primary-background");
-$body-color: map-get($theme-colors, "heading-color");
+$body-bg: map-get($theme-colors, 'primary-background');
+$body-color: map-get($theme-colors, 'heading-color');
 
-$list-group-color:                  map-get($theme-colors, "heading-color");
-$list-group-bg:                     map-get($theme-colors, "primary");
-$list-group-border-color:           map-get($theme-colors, "primary");
+$list-group-color: map-get($theme-colors, 'heading-color');
+$list-group-bg: map-get($theme-colors, 'primary');
+$list-group-border-color: map-get($theme-colors, 'primary');
 
-$list-group-hover-bg:               map-get($theme-colors, "primary");
-$list-group-active-color:           map-get($theme-colors, "secondary-background");
-$list-group-active-bg:              red;
-$list-group-active-border-color:    red;
+$list-group-hover-bg: map-get($theme-colors, 'primary');
+$list-group-active-color: map-get($theme-colors, 'secondary-background');
+$list-group-active-bg: red;
+$list-group-active-border-color: red;
 
-$list-group-disabled-color:         gray-600;
-$list-group-disabled-bg:            list-group-bg;
+$list-group-disabled-color: gray-600;
+$list-group-disabled-bg: list-group-bg;
 
-$list-group-action-hover-color:     white;
+$list-group-action-hover-color: white;
 
-$list-group-action-active-color:    white;
-$list-group-action-active-bg:       list-group-bg;
-
+$list-group-action-active-color: white;
+$list-group-action-active-bg: list-group-bg;
 
 /* IF WE DISCOVER THAT WE NEED ONLY SOME FEW BOOTSTRAP-IMPORTS:
     change first link to several needed imports.
