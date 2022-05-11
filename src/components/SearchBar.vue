@@ -25,10 +25,6 @@
     flex-grow: 1;
     align-items: center;
   }
-
-  body {
-    background-color: rgb(54, 144, 36);
-  }
 </style>
 
 <template>

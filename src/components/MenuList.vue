@@ -25,11 +25,12 @@
     @click="showMenu"
     class="bi bi-list"
     id="hamburgerIcon"
-    style="font-size: 2rem; color: black"
+    style="font-size: 2rem"
   />
 
   <div :class="menuPosition" id="sidebar" style="display: flex">
     <div
+      id="navbar"
       style="
         width: 40vw;
         background-color: black;
@@ -48,7 +49,6 @@
 
 <style lang="scss" scoped>
   #sidebar {
-    color: white;
     position: absolute;
     z-index: 100;
     left: -100vw;
@@ -58,6 +58,9 @@
     transition-property: left;
     transition-duration: 0.5;
     transition-timing-function: ease-out;
+  }
+  #navbar {
+    width: 40vw;
   }
   #sidebar.show {
     left: 0px;
@@ -70,7 +73,6 @@
     position: relative;
     left: -40px;
     font-size: 1rem;
-    color: gray;
     padding: 0.5rem;
     &:hover {
       color: white;

@@ -4,34 +4,57 @@
     read more: avancera Handout: Vite: CSS preprocessing
 */
 
-// $body-bg: #111;
+$theme-colors: (
+  'primary': #5AB7A8,
+  'primary-background': #EFF3F2,
+  'secondary-background': white,
+  'search-icon-color': #0B604D,
 
-// $body-color: rgba(255, 255, 255, 0.9);
+  'success': #28A745,
+  'info': #17A2B8,
+  'warning': #FFC107,
+  'danger': #DC3545,
 
-// $theme-colors: (
-//   'primary': black,
-//   'secondary': #4f4f52,
-//   'success': #577717,
-//   'info': #3f7679,
-//   'warning': #ac5b2c,
-//   'danger': #88193a,
-//   'light': #c8c8c8,
-//   'dark': #2f2f2f
-// );
+  'heading-color': black,
+  'body-color': #343A40
+);
 
+/*Saknar:
+Ljus textfärg för mörk bakgrund
 
-$list-group-color:                  grey;
-$list-group-bg:                     black;
+*/
 
-$list-group-hover-bg:               black;
-$list-group-active-color:           white;
-$list-group-active-bg:              component-active-bg;
-$list-group-active-border-color:    list-group-active-bg;
+h1 {
+  color: black
+}
+
+p {
+  color:#343A40
+}
+
+i {
+  color: map-get($theme-colors, "heading-color")
+}
+
+#navbar {
+  background-color: var(--bs-primary);
+}
+
+$body-bg: map-get($theme-colors, "primary-background");
+$body-color: map-get($theme-colors, "heading-color");
+
+$list-group-color:                  map-get($theme-colors, "heading-color");
+$list-group-bg:                     map-get($theme-colors, "primary");
+$list-group-border-color:           map-get($theme-colors, "primary");
+
+$list-group-hover-bg:               map-get($theme-colors, "primary");
+$list-group-active-color:           map-get($theme-colors, "secondary-background");
+$list-group-active-bg:              red;
+$list-group-active-border-color:    red;
 
 $list-group-disabled-color:         gray-600;
 $list-group-disabled-bg:            list-group-bg;
 
-$list-group-action-color:           gray-700;
 $list-group-action-hover-color:     white;
 
 $list-group-action-active-color:    white;
