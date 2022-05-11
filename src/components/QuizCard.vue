@@ -145,9 +145,9 @@
     <div v-if="continueQuiz">
       <div v-if="isStarted">
         <div class="quiz-flex-container" v-if="questionsIndex < 5">
-          <h4>
+          <h3>
             {{ this.questions[questionsIndex].question }}
-          </h4>
+          </h3>
           <div>
             <div
               class="btn-group-vertical"
@@ -192,7 +192,9 @@
       </div>
     </div>
     <div class="quiz-flex-container" v-else @click="onContinueQuiz">
-      <h6>{{ this.questions[questionsIndex - 1].question }}</h6>
+      <p>
+        {{ this.questions[questionsIndex - 1].question }}
+      </p>
       <div v-if="rightAnswer">
         <h3 id="quiz-right">
           {{ this.questions[questionsIndex - 1].ifRight }}
