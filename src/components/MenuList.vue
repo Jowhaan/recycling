@@ -72,6 +72,7 @@
     position: relative;
     left: -10px;
     font-size: 1rem;
+    border: 1px;
     padding: 0.5rem;
     &:hover {
       color: white;

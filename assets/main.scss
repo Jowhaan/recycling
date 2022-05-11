@@ -89,6 +89,8 @@ img {
   background-color: var(--bs-primary);
 }
 
+$carousel-control-color: var(-bs--text-color);
+
 $body-bg: map-get($theme-colors, 'primary-background');
 $body-color: map-get($theme-colors, 'text-color');
 
