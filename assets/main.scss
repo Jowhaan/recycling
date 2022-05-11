@@ -14,19 +14,58 @@ $theme-colors: (
   'warning': #ffc107,
   'danger': #dc3545,
 
-  'heading-color': black,
-  'body-color': #343a40
+  'text-color': #2b2b2b,
 );
 
-/*Saknar:
-Ljus textfärg för mörk bakgrund
+@font-face {
+  font-family: Poppins;
+  src: url('Poppins-Bold.ttf') format('truetype');
+  src: url('Poppins-Medium.ttf') format('truetype');
+  src:url('Poppins-Regular.ttf') format('truetype');
+}
 
-*/
+h1 {
+  color: var(-bs--text-color);
+  font-family: Poppins;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32;
+}
+
+h2 {
+  color: var(-bs--text-color);
+  font-family: Poppins;
+  font-weight: medium;
+  font-size: 20px;
+  line-height: 28;
+}
+
+h3 {
+  color: var(-bs--text-color);
+  font-family: Poppins;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20;
+}
+
+p {
+  color: #343a40;
+}
+
+i {
+  color: map-get($theme-colors, 'text-color');
+}
+
+img {
+border-radius: 20px;
+}
+
 .quiz-flex-container {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
+  margin: auto;
 }
 #quiz-btn-group {
   width: 300px;
@@ -42,26 +81,14 @@ Ljus textfärg för mörk bakgrund
   width: 100%;
 }
 
-h1 {
-  color: black;
-}
-
-p {
-  color: #343a40;
-}
-
-i {
-  color: map-get($theme-colors, 'heading-color');
-}
-
 #menubar {
   background-color: var(--bs-primary);
 }
 
 $body-bg: map-get($theme-colors, 'primary-background');
-$body-color: map-get($theme-colors, 'heading-color');
+$body-color: map-get($theme-colors, 'text-color');
 
-$list-group-color: map-get($theme-colors, 'heading-color');
+$list-group-color: map-get($theme-colors, 'text-color');
 $list-group-bg: map-get($theme-colors, 'primary');
 $list-group-border-color: map-get($theme-colors, 'primary');
 
