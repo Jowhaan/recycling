@@ -8,7 +8,7 @@
     props: {
       searchQuery: {
         type: String,
-        default: null
+        default: ''
       }
     },
     watch: {
