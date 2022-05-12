@@ -27,7 +27,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   #trashSign {
     height: 150px;
   }
@@ -35,6 +35,10 @@
   #searchResult {
     text-align: center;
     padding: 10px;
+  }
+
+  img {
+    border-radius: 0;
   }
 
   .flexbox-container {
@@ -46,11 +50,13 @@
   .flexbox-item-1 {
     flex-grow: 1;
     align-items: center;
+    text-align: center;
   }
   .flexbox-item-input {
-    border: 3px solid black;
+    border: 3px solid #0b604d;
     height: 30px;
-    border-radius: 25px;
+    width: 70%;
+    border-radius: 80px;
     flex-grow: 1;
     align-items: center;
   }

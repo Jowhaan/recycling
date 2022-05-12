@@ -5,7 +5,11 @@
         searchResult: []
       }
     },
-    props: [searchQuery],
+    props: {
+      searchQuery: {
+        type: String,
+        default: ""
+    },
     watch: {
       searchQuery(newName, oldName) {
         console.log(`Namnet har ändrats från ${oldName} till ${newName}`)
