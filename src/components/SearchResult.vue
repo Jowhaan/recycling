@@ -5,7 +5,12 @@
         searchResult: []
       }
     },
-    props: [searchQuery],
+    props: {
+      searchQuery: {
+        type: String,
+        default: null
+      }
+    },
     watch: {
       searchQuery(newName, oldName) {
         console.log(`Namnet har ändrats från ${oldName} till ${newName}`)
@@ -14,7 +19,7 @@
     methods: {
       search() {
         console.log('recieved information')
-        console.log(searchQuery)
+        console.log(this.searchQuery)
         for (let i = 0; i < this.$store.state.trash.length; i++) {
           if (this.searchQuery === this.$store.state.trash[i].engName) {
             this.searchResult.push(this.$store.state.trash[i])
