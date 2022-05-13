@@ -34,34 +34,34 @@ $theme-colors: (
 h1 {
   color: var(--bs-text-color);
   font-family: "PoppinsBold";
-  font-size: 7vw;
-  line-height: 5vh;
+  font-size: 24px;
+  line-height: 32px;
 }
 
 h2 {
   color: var(--bs-text-color);
   font-family: "PoppinsMedium";
-  font-size: 5.8vw;
-  line-height: 4.4vh;
+  font-size: 20px;
+  line-height: 28px;
 }
 
 h3 {
   color: var(--bs-text-color);
   font-family: "PoppinsBold";
-  font-size: 4.6vw;
-  line-height: 3.1vh;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 p {
   color: var(--bs-text-color);
   font-family: "PoppinsRegular";
-  font-size: 4.6vw;
-  line-height: 3.1vh;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 i {
   color: map-get($theme-colors, 'text-color');
-  font-size: 9.3vw;
+  font-size: 32px;
   font-weight: Bold;
 }
 
@@ -129,6 +129,15 @@ img {
     color: var(--bs-primary);
   }
 }
+.list-group-item-action {
+  color: var(-bs--text-color);
+      font-family: "PoppinsRegular";
+      font-size: 16px;
+      line-height: 20px;
+      &:hover {
+        color: var(--bs-primary);
+      }
+}
 
 $carousel-control-color: var(--bs-text-color);
 
@@ -141,23 +150,15 @@ $list-group-border-color: map-get($theme-colors, 'primary-background');
 
 $list-group-hover-bg: map-get($theme-colors, 'primary-background');
 $list-group-active-color: map-get($theme-colors, 'primary-background');
-$list-group-active-bg: red;
-$list-group-active-border-color: red;
 
 $list-group-disabled-color: gray-600;
 $list-group-disabled-bg: list-group-bg;
 
 $list-group-action-hover-color: map-get($theme-colors, 'primary');
 
-$list-group-action-active-color: white;
+$list-group-action-active-color: map-get($theme-colors, 'primary');
 $list-group-action-active-bg: list-group-bg;
 
-.list-group-item-action {
-  color: var(-bs--text-color);
-      font-family: "PoppinsRegular";
-      font-size: 4.6vw;
-      line-height: 3.1vh;
-}
 
 
 
