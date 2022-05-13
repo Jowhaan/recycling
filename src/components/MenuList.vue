@@ -14,7 +14,6 @@
       showMenu() {
         this.menuPosition = 'show'
         this.backgroundFade = 'show'
-        this.backgroundFade = 'fadeIn'
       },
       hideMenu() {
         this.menuPosition = 'hide'
@@ -31,21 +30,7 @@
     id="hamburgerIcon"
     style="font-size: 2rem"
   />
-  <div
-    :class="backgroundFade"
-    id="secondBackground"
-    style="
-      display: flex;
-      background-color: blue;
-      position: absolute;
-      top: 0px;
-      bottom: 0px;
-      left: 0px;
-      right: 0px;
-    "
-  >
-    Var är du?
-  </div>
+  <div :class="backgroundFade" id="secondBackground" />
   <div :class="menuPosition" id="sidebar" style="display: flex">
     <div id="menubar" style="display: flex; border-radius: 0px 0px 25px 0px">
       <div id="navbar" style="width: 40vw">
@@ -71,9 +56,6 @@
     transition-property: left;
     transition-timing-function: ease-out;
   }
-  #navbar {
-    width: 40vw;
-  }
   #sidebar.show {
     left: 0vw;
     transition-property: left;
@@ -86,21 +68,8 @@
     transition-timing-function: ease-out;
   }
 
-  #secondBackground.hide {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  #secondBackgroun.show {
-    visibility: visible;
-    opacity: 0;
-  }
-
-  #secondBackgroun.fadeIn {
-    visibility: visible;
-    opacity: 0.5;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-out;
+  #navbar {
+    width: 40vw;
   }
 
   #closeIcon {
