@@ -1,26 +1,62 @@
 <script>
-  /* import SearchResult from './SearchResult.vue' */
-
   export default {
-    /* components: {
-      SearchResult
-    }, */
+    created() {
+      this.getAllImagePaths()
+    },
     data() {
       return {
         searchQuery: '',
-        searchResult: []
+        searchHit: false,
+        allImagePaths: [],
+        currentSign: [],
+        signClicked: false,
+        signClickedPath: '',
+        currentHitPath: '',
+        currentPath: '',
+        currentTrashObject: null
+      }
+    },
+    watch: {
+      searchQuery() {
+        this.searchHit = false
+        this.signClicked = false
+        this.currentTrashObject = null
+        this.$store.state.trash.filter((result) => {
+          if (this.searchQuery === result.engName) {
+            this.searchHit = true
+            this.currentHitPath = result.sign
+            this.currentTrashObject = result
+            console.log(result)
+          }
+        })
       }
     },
     methods: {
-      search() {
-        console.log('Clicked searchbutton')
-        this.searchResult = []
-        for (let i = 0; i < this.$store.state.trash.length; i++) {
-          if (this.searchQuery === this.$store.state.trash[i].engName) {
-            this.searchResult.push(this.$store.state.trash[i])
-            //console.log(this.searchResult)
-            //Kopiera denna för att göra den sökbar genom svenska ord också
+      getAllImagePaths() {
+        for (var i = 0; i < this.$store.state.trash.length; i++) {
+          var currentPath = this.$store.state.trash[i].sign
+          var conflict = false
+
+          for (var j = 0; j < this.allImagePaths.length; j++) {
+            if (this.allImagePaths[j] === currentPath) {
+              conflict = true
+            }
           }
+          if (!conflict) {
+            this.allImagePaths.push(currentPath)
+          }
+        }
+      },
+      onSignClick(imagePath) {
+        this.currentSign = []
+        this.signClicked = true
+        this.signClickedPath = imagePath
+        //Jag har imagepathen här nu, så vi ska kolla vart den finns i vårt backend
+        var test = this.$store.state.trash.filter(
+          (result) => imagePath === result.sign
+        )
+        for (var i = 0; i < test.length; i++) {
+          this.currentSign.push(test[i].engName)
         }
       }
     }
@@ -28,7 +64,7 @@
 </script>
 
 <style scoped>
-  #trashSign {
+  .trashSign {
     height: 150px;
   }
 
@@ -40,12 +76,12 @@
   img {
     border-radius: 0;
   }
-
   .flexbox-container {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
+    padding-top: 2rem;
   }
   .flexbox-item-1 {
     flex-grow: 1;
@@ -72,21 +108,43 @@
       placeholder="Ex. toothbrush, playstation..."
       aria-label="Search"
     />
-    <button class="bi bi-search" @click="search" />
+    <div v-if="searchHit && !signClicked">
+      <img
+        class="trashSign"
+        :src="'../../assets/RecyclingSigns/' + this.currentHitPath + '.svg'"
+      />
+      <h3>You recycle your {{ this.searchQuery }} here</h3>
+      <p>{{ this.currentTrashObject.whatHappens }}</p>
+    </div>
+    <div v-if="searchQuery && !searchHit && !signClicked">
+      <h3>Categories:</h3>
+      <div
+        :key="this.allImagePaths[index]"
+        class="image-items"
+        v-for="(imagePath, index) in allImagePaths"
+      >
+        <img
+          class="trashSign"
+          :src="'../../assets/RecyclingSigns/' + imagePath + '.svg'"
+          :alt="imagePath"
+          @click="onSignClick(imagePath)"
+        />
+      </div>
+    </div>
+    <div v-if="signClicked">
+      <img
+        class="trashSign"
+        :src="'../../assets/RecyclingSigns/' + this.signClickedPath + '.svg'"
+      />
+      <p>Here you throw away:</p>
+      <ul>
+        <li
+          :key="this.currentSign[index]"
+          v-for="(trashName, index) in currentSign"
+        >
+          {{ trashName }}
+        </li>
+      </ul>
+    </div>
   </div>
-  <!-- Search result -->
-  <!-- <div>{{ searchQuery }}</div> -->
-  <div id="searchResult" v-for="trash in searchResult" :key="trash.id">
-    <h2>{{ trash.engName }}</h2>
-    <img
-      id="trashSign"
-      :src="'../../assets/RecyclingSigns/' + trash.sign + '.svg'"
-      alt="{{ trash.sign }}"
-    />
-    <!-- <p>Sort as: {{ trash.sortAs }}</p> -->
-    <p>Return at a {{ trash.returnAt }}</p>
-    <!-- <p>How will it be recycled? {{ trash.whatHappens }}</p> -->
-  </div>
-  <!-- En template för ikonerna med olika återvinningsbilder och en för själva sökresultatet. Så länge searchQuery === "" / null / undefined så visas den ena, sen hoppar den över till din andra
-  <SearchResult :search-query="searchQuery" /> -->
 </template>
