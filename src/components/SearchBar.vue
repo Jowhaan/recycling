@@ -26,7 +26,6 @@
             this.searchHit = true
             this.currentHitPath = result.sign
             this.currentTrashObject = result
-            console.log(result)
           }
         })
       }
@@ -51,7 +50,6 @@
         this.currentSign = []
         this.signClicked = true
         this.signClickedPath = imagePath
-        //Jag har imagepathen här nu, så vi ska kolla vart den finns i vårt backend
         var test = this.$store.state.trash.filter(
           (result) => imagePath === result.sign
         )
