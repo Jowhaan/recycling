@@ -19,7 +19,8 @@ $theme-colors: (
 
 @font-face {
   font-family: Poppins;
-  src: url('Poppins-Bold.ttf') format('truetype'), url('Poppins-Medium.ttf') format('truetype'), url('Poppins-Regular.ttf') format('truetype');
+  src: url('Poppins-Bold.ttf') format('truetype'),
+  ('Poppins-Medium.ttf') format('truetype'),('Poppins-Regular.ttf') format('truetype');
 }
 
 h1 {
@@ -33,7 +34,7 @@ h1 {
 h2 {
   color: var(--bs-text-color);
   font-family: Poppins;
-  font-weight: medium;
+  font-weight: Medium;
   font-size: 5.8vw;
   line-height: 28;
 }
@@ -41,7 +42,7 @@ h2 {
 h3 {
   color: var(--bs-text-color);
   font-family: Poppins;
-  font-weight: bold;
+  font-weight: Bold;
   font-size: 4.6vw;
   line-height: 20;
 }
@@ -55,7 +56,7 @@ p {
 i {
   color: map-get($theme-colors, 'text-color');
   font-size: 9.3vw;
-  font-weight: bold;
+  font-weight: Bold;
 }
 
 img {
@@ -120,6 +121,13 @@ img {
   &:hover {
     color: var(--bs-primary);
   }
+}
+.list-group-item-action {
+  color: var(-bs--text-color);
+      font-family: Poppins;
+      font-weight: Regular;
+      font-size: 4.6vw;
+      line-height: 5.8vh;
 }
 
 $carousel-control-color: var(--bs-text-color);
