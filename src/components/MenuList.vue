@@ -24,12 +24,7 @@
 </script>
 
 <template>
-  <i
-    @click="showMenu"
-    class="bi bi-list"
-    id="hamburgerIcon"
-    style="font-size: 2rem"
-  />
+  <i @click="showMenu" class="bi bi-list" />
   <div :class="backgroundFade" id="secondBackground" />
   <div :class="menuPosition" id="sidebar" style="display: flex">
     <div id="menubar" style="display: flex; border-radius: 0px 0px 25px 0px">
@@ -70,16 +65,5 @@
 
   #navbar {
     width: 40vw;
-  }
-
-  #closeIcon {
-    opacity: 0.5;
-    position: relative;
-    left: -10px;
-    font-size: 1rem;
-    padding: 0.5rem;
-    &:hover {
-      color: white;
-    }
   }
 </style>
