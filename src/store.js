@@ -9,7 +9,7 @@ const mutations = {},
         ifRight:
           'Correct, it requires 11,000l of water to produce ONE pair of jeans.',
         ifWrong:
-          'Sorry, it does require 11,00l water for a single pair of jeans.',
+          'Sorry, it does require 11,000l water for a single pair of jeans.',
         question:
           'How much water do you think is required to produce ONE pair of jeans?',
         correctAnswer: '11,000 l',
@@ -104,7 +104,7 @@ const mutations = {},
       {
         id: 10,
         ifRight:
-          'Correct, you can sit guilt-free in front of the computer for 24hhrs for each recycled can.',
+          'Correct, you can sit guilt-free in front of the computer for 24hrs for each recycled can.',
         ifWrong:
           'Sorry, correct answer is that it is equvialent to 24hrs in front of the computer.',
         question:

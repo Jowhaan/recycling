@@ -3,7 +3,8 @@
   export default {
     data() {
       return {
-        menuPosition: 'hide'
+        menuPosition: 'hide',
+        backgroundFade: 'hide'
       }
     },
     components: {
@@ -12,9 +13,12 @@
     methods: {
       showMenu() {
         this.menuPosition = 'show'
+        this.backgroundFade = 'show'
+        this.backgroundFade = 'fadeIn'
       },
       hideMenu() {
         this.menuPosition = 'hide'
+        this.backgroundFade = 'hide'
       }
     }
   }
@@ -27,21 +31,30 @@
     id="hamburgerIcon"
     style="font-size: 2rem"
   />
-
+  <div
+    :class="backgroundFade"
+    id="secondBackground"
+    style="
+      display: flex;
+      background-color: blue;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+    "
+  >
+    Var är du?
+  </div>
   <div :class="menuPosition" id="sidebar" style="display: flex">
-    <div
-      id="navbar"
-      style="
-        width: 40vw;
-        background-color: black;
-        border-radius: 0px 0px 25px 0px;
-      "
-    >
-      <div @click="hideMenu" class="list-group">
-        <NavList />
+    <div id="menubar" style="display: flex; border-radius: 0px 0px 25px 0px">
+      <div id="navbar" style="width: 40vw">
+        <div @click="hideMenu" class="list-group">
+          <NavList />
+        </div>
       </div>
+      <i @click="hideMenu" class="bi bi-x-lg" id="closeIcon" />
     </div>
-    <i @click="hideMenu" class="bi bi-x-lg" id="closeIcon" />
 
     <div @click="hideMenu" style="width: 60vw" />
   </div>
@@ -72,10 +85,28 @@
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
   }
+
+  #secondBackground.hide {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  #secondBackgroun.show {
+    visibility: visible;
+    opacity: 0;
+  }
+
+  #secondBackgroun.fadeIn {
+    visibility: visible;
+    opacity: 0.5;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+  }
+
   #closeIcon {
     opacity: 0.5;
     position: relative;
-    left: -40px;
+    left: -10px;
     font-size: 1rem;
     padding: 0.5rem;
     &:hover {

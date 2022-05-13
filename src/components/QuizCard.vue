@@ -15,7 +15,8 @@
       return {
         isStarted: false,
         playAgain: false,
-        continueQuiz: false,
+        rightAnswer: null,
+        continueQuiz: true,
         questions: [],
         answers: [],
         answer: null,
@@ -120,6 +121,7 @@
       checkAnswer() {
         if (this.answer === this.questions[this.questionsIndex].correctAnswer) {
           this.score++
+          this.rightAnswer = true
         }
       },
       onStart() {
@@ -133,53 +135,76 @@
       },
       onContinueQuiz() {
         this.continueQuiz = true
+        this.rightAnswer = false
       }
     }
   }
 </script>
 <template>
-  <div v-if="isStarted">
-    <div v-if="questionsIndex < 5">
-      <p>
-        <b>{{ this.questions[questionsIndex].question }}</b>
-      </p>
-      <div>
-        <div
-          class="btn-group-vertical"
-          role="group"
-          aria-label="Basic radio toggle button group"
-        >
-          <template
-            :key="this.answers[index]"
-            v-for="(test, index) in this.answers"
-          >
-            <input
-              v-model="answer"
-              type="radio"
-              :value="test"
-              :checked="this.disableRadio"
-              class="btn-check"
-              :id="index"
-              autocomplete="off"
-            />
-            <label class="btn btn-outline-primary" :for="index">{{
-              test
-            }}</label>
-          </template>
+  <div class="quiz-flex-container">
+    <div v-if="continueQuiz">
+      <div v-if="isStarted">
+        <div class="quiz-flex-container" v-if="questionsIndex < 5">
+          <h3>
+            {{ this.questions[questionsIndex].question }}
+          </h3>
+          <div>
+            <div
+              class="btn-group-vertical"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <div
+                id="quiz-btn-group"
+                :key="this.answers[index]"
+                v-for="(test, index) in this.answers"
+              >
+                <input
+                  v-model="answer"
+                  type="radio"
+                  :value="test"
+                  :checked="this.disableRadio"
+                  class="btn-check"
+                  :id="index"
+                  autocomplete="off"
+                />
+                <label class="btn btn-outline-primary" :for="index">{{
+                  test
+                }}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-else>
+          <div v-if="playAgain" />
+          <div class="quiz-flex-container" v-else>
+            <h1>{{ this.score }}/5</h1>
+            <h3 v-if="this.score > 4">Whooo! Greta would be proud</h3>
+            <h3 v-else>You still need to learn more about recycling</h3>
+            <p @click="onPlayAgain">
+              <b>Tryck på denna texten för att Spela igen!</b>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div v-else>
-      <div v-if="playAgain" />
       <div v-else>
-        <h1>{{ this.score }}/5</h1>
-        <h3 v-if="this.score > 4">Whooo! Greta would be proud</h3>
-        <h3 v-else>You still need to learn more about recycling</h3>
-        <p @click="onPlayAgain">Spela igen</p>
+        <h3 id="start-quiz" @click="onStart">Start Quiz</h3>
       </div>
     </div>
-  </div>
-  <div v-else>
-    <h3 @click="onStart">Start Quiz</h3>
+    <div class="quiz-flex-container" v-else @click="onContinueQuiz">
+      <p>
+        {{ this.questions[questionsIndex - 1].question }}
+      </p>
+      <div v-if="rightAnswer">
+        <h3 id="quiz-right">
+          {{ this.questions[questionsIndex - 1].ifRight }}
+        </h3>
+      </div>
+      <div v-else>
+        <h3 id="quiz-wrong">
+          {{ this.questions[questionsIndex - 1].ifWrong }}
+        </h3>
+      </div>
+    </div>
   </div>
 </template>
