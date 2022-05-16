@@ -171,7 +171,7 @@
         </li>
       </ul>
     </div>
-    <div v-if="searchQuery && containsSpecific && !signClicked">
+    <div v-if="searchQuery && containsSpecific && !signClicked && !searchHit">
       <h3>Categories:</h3>
       <div
         :key="this.specificImagePaths[index]"
