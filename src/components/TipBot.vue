@@ -18,6 +18,9 @@
         )
         var popup = document.getElementById('myPopup')
         popup.classList.toggle('show')
+      },
+      goToTipPage(tipNum) {
+        console.log(tipNum)
       }
     },
     computed: {
@@ -33,33 +36,35 @@
   https://www.w3schools.com/howto/howto_js_popup.asp
   and modified.*/
 
+  #tipbot {
+    position: absolute;
+    width: 60px;
+    bottom: 0;
+    right: 0;
+  }
+
   /* Popup container */
   .popup {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  img {
-    align-items: flex-end;
-    align-self: flex-end;
-    width: 60px;
+    display: inline-block;
+    cursor: pointer;
   }
 
   /* The actual popup (appears on top) */
   .popup .popuptext {
     visibility: hidden;
-    width: 200px;
-    height: 150px;
-    background-color: rgb(155, 236, 241);
-    color: rgb(2, 14, 80);
+    width: 160px;
+    background-color: rgb(117, 250, 141);
+    color: rgb(6, 0, 0);
     text-align: center;
     border-radius: 6px;
     padding: 8px 0;
-    margin: 8px;
-    align-items: flex-end;
-    align-self: flex-end;
+    margin: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 50px;
+    right: 0;
   }
 
   /* Popup arrow */
@@ -67,11 +72,11 @@
     content: '';
     position: absolute;
     top: 100%;
-    left: 50%;
+    left: 80%;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: rgb(155, 236, 241) transparent transparent transparent;
+    border-color: rgb(117, 250, 141) transparent transparent transparent;
   }
 
   /* Toggle this class when clicking on the popup container (hide and show the popup) */
@@ -102,20 +107,17 @@
 </style>
 
 <template>
-  <p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta et pariatur
-    doloremque deserunt? Obcaecati vel ut ea repudiandae doloribus error
-    repellendus incidunt, labore accusantium. Quidem voluptate architecto libero
-    harum natus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea
-    cum nisi voluptatibus nobis soluta? Aspernatur doloremque obcaecati
-    laboriosam accusantium labore praesentium officia provident, explicabo
-    tenetur expedita. Ipsum ullam aspernatur quam!
-  </p>
   <div class="popup">
     <span class="popuptext" id="myPopup">
       <p>Did you know that...</p>
       <p>{{ tipOfTheDay }}</p>
+      <i @click="goToTipPage(randomNumber)" class="bi bi-arrow-right" />
     </span>
-    <img src="../../assets/cartoon.png" alt="toon" @click="clickText" />
+    <img
+      id="tipbot"
+      src="../../assets/earthly.svg"
+      alt="toon"
+      @click="clickText"
+    />
   </div>
 </template>
