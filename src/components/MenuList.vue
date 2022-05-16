@@ -3,7 +3,8 @@
   export default {
     data() {
       return {
-        menuPosition: 'hide'
+        menuPosition: 'hide',
+        backgroundFade: 'hide'
       }
     },
     components: {
@@ -12,22 +13,19 @@
     methods: {
       showMenu() {
         this.menuPosition = 'show'
+        this.backgroundFade = 'show'
       },
       hideMenu() {
         this.menuPosition = 'hide'
+        this.backgroundFade = 'hide'
       }
     }
   }
 </script>
 
 <template>
-  <i
-    @click="showMenu"
-    class="bi bi-list"
-    id="hamburgerIcon"
-    style="font-size: 2rem"
-  />
-
+  <i @click="showMenu" class="bi bi-list" />
+  <div :class="backgroundFade" id="secondBackground" />
   <div :class="menuPosition" id="sidebar" style="display: flex">
     <div id="menubar" style="display: flex; border-radius: 0px 0px 25px 0px">
       <div id="navbar" style="width: 40vw">
@@ -53,9 +51,6 @@
     transition-property: left;
     transition-timing-function: ease-out;
   }
-  #navbar {
-    width: 40vw;
-  }
   #sidebar.show {
     left: 0vw;
     transition-property: left;
@@ -67,14 +62,8 @@
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
   }
-  #closeIcon {
-    opacity: 0.5;
-    position: relative;
-    left: -10px;
-    font-size: 1rem;
-    padding: 0.5rem;
-    &:hover {
-      color: white;
-    }
+
+  #navbar {
+    width: 40vw;
   }
 </style>

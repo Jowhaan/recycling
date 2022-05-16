@@ -1,8 +1,3 @@
-/* CHANGE COLORTHEME HERE
-    read more: getbootstrap.com/docs/5.0/customize/sass/
-    read more: avancera Handout: Vite: CSS preprocessing
-*/
-
 $theme-colors: (
   'primary': #5ab7a8,
   'primary-background': #eff3f2,
@@ -18,44 +13,56 @@ $theme-colors: (
 );
 
 @font-face {
-  font-family: Poppins;
-  src: url('Poppins-Bold.ttf') format('truetype');
-  src: url('Poppins-Medium.ttf') format('truetype');
-  src: url('Poppins-Regular.ttf') format('truetype');
+  font-family: "PoppinsRegular";
+  font-weight: normal;
+  font-style: normal;
+  src: url("Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "PoppinsMedium";
+  font-weight: normal;
+  font-style: normal;
+  src: url("Poppins-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "PoppinsBold";
+  font-weight: normal;
+  font-style: normal;
+  src: url("Poppins-Bold.ttf") format("truetype");
 }
 
 h1 {
-  color: var(-bs--text-color);
-  font-family: Poppins;
-  font-weight: bold;
+  color: var(--bs-text-color);
+  font-family: "PoppinsBold";
   font-size: 24px;
-  line-height: 32;
+  line-height: 32px;
 }
 
 h2 {
-  color: var(-bs--text-color);
-  font-family: Poppins;
-  font-weight: medium;
+  color: var(--bs-text-color);
+  font-family: "PoppinsMedium";
   font-size: 20px;
-  line-height: 28;
+  line-height: 28px;
 }
 
 h3 {
-  color: var(-bs--text-color);
-  font-family: Poppins;
-  font-weight: bold;
+  color: var(--bs-text-color);
+  font-family: "PoppinsBold";
   font-size: 16px;
-  line-height: 20;
+  line-height: 20px;
 }
 
 p {
-  color: var(-bs--text-color);
-  font-family: Poppins;
+  color: var(--bs-text-color);
+  font-family: "PoppinsRegular";
   font-size: 16px;
+  line-height: 20px;
 }
 
 i {
   color: map-get($theme-colors, 'text-color');
+  font-size: 32px;
+  font-weight: Bold;
 }
 
 img {
@@ -80,36 +87,80 @@ img {
 }
 
 .btn {
-  color: var(-bs--text-color);
+  color: var(--bs-text-color);
   font-family: Poppins;
   width: 100%;
 }
 
 #menubar {
-  background-color: var(--bs-primary);
+  background-color: var(--bs-primary-background);
 }
 
-$carousel-control-color: var(-bs--text-color);
+#secondBackground {
+  display: flex;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+}
+
+#secondBackground.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+
+#secondBackground.show {
+  background-color: var(--bs-search-icon-color);
+  visibility: visible;
+  opacity: 0.7;
+  transition-duration: 0.5s;
+}
+#closeIcon {
+  position: relative;
+  left: -10px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  &:hover {
+    color: var(--bs-primary);
+  }
+}
+.list-group-item-action {
+  color: var(-bs--text-color);
+      font-family: "PoppinsRegular";
+      font-size: 16px;
+      line-height: 20px;
+      &:hover {
+        color: var(--bs-primary);
+      }
+}
+
+$carousel-control-color: var(--bs-text-color);
 
 $body-bg: map-get($theme-colors, 'primary-background');
 $body-color: map-get($theme-colors, 'text-color');
 
 $list-group-color: map-get($theme-colors, 'text-color');
-$list-group-bg: map-get($theme-colors, 'primary');
-$list-group-border-color: map-get($theme-colors, 'primary');
+$list-group-bg: map-get($theme-colors, 'primary-background');
+$list-group-border-color: map-get($theme-colors, 'primary-background');
 
-$list-group-hover-bg: map-get($theme-colors, 'primary');
-$list-group-active-color: map-get($theme-colors, 'secondary-background');
-$list-group-active-bg: red;
-$list-group-active-border-color: red;
+$list-group-hover-bg: map-get($theme-colors, 'primary-background');
+$list-group-active-color: map-get($theme-colors, 'primary-background');
 
 $list-group-disabled-color: gray-600;
 $list-group-disabled-bg: list-group-bg;
 
-$list-group-action-hover-color: white;
+$list-group-action-hover-color: map-get($theme-colors, 'primary');
 
-$list-group-action-active-color: white;
+$list-group-action-active-color: map-get($theme-colors, 'primary');
 $list-group-action-active-bg: list-group-bg;
+
+
+
 
 /* IF WE DISCOVER THAT WE NEED ONLY SOME FEW BOOTSTRAP-IMPORTS:
     change first link to several needed imports.
