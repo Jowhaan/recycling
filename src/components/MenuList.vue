@@ -26,26 +26,25 @@
 <template>
   <i @click="showMenu" class="bi bi-list" />
   <div :class="backgroundFade" id="secondBackground" />
-  <div :class="menuPosition" id="sidebar" style="display: flex">
-    <div id="menubar" style="display: flex; border-radius: 0px 0px 25px 0px">
-      <div id="navbar" style="width: 40vw">
+  <div :class="menuPosition" id="sidebar">
+    <div id="menubar">
+      <div id="side-navbar">
         <div @click="hideMenu" class="list-group">
           <NavList />
         </div>
       </div>
-      <i @click="hideMenu" class="bi bi-x-lg" id="closeIcon" />
+      <i @click="hideMenu" class="bi bi-x" id="closeIcon" />
     </div>
-
-    <div @click="hideMenu" style="width: 60vw" />
+    <div @click="hideMenu" id="clickSurface" />
   </div>
 </template>
 
 <style lang="scss" scoped>
   #sidebar {
+    display: flex;
     position: absolute;
     z-index: 100;
     left: -100vw;
-    bottom: 50px;
     top: 0px;
     width: 100vw;
     transition-property: left;
@@ -62,8 +61,49 @@
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
   }
+  #secondBackground {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 100;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+  }
 
-  #navbar {
-    width: 40vw;
+  #secondBackground.hide {
+    visibility: hidden;
+    opacity: 0;
+    transition-duration: 0.5s;
+  }
+
+  #secondBackground.show {
+    background-color: var(--bs-search-icon-color);
+    visibility: visible;
+    opacity: 0.7;
+    transition-duration: 0.5s;
+  }
+  #menubar {
+    display: flex;
+    border-radius: 0px 20px 20px 0px;
+    background-color: var(--bs-primary-background);
+  }
+  #side-navbar {
+    width: 70vw;
+    height: 97vh;
+  }
+  #clickSurface {
+    width: 30vw;
+  }
+
+  #closeIcon {
+    font-size: 32px;
+    margin-top: 20px;
+    margin-right: 20px;
+    &:hover {
+      color: var(--bs-primary);
+    }
   }
 </style>
