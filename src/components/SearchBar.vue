@@ -5,17 +5,17 @@
     },
     data() {
       return {
-        searchQuery: '',
-        searchHit: false,
-        allImagePaths: [],
-        specificImagePaths: [],
-        containsSpecific: false,
-        currentSign: [],
-        signClicked: false,
-        signClickedPath: '',
-        currentHitPath: '',
-        currentPath: '',
-        currentTrashObject: null
+        searchQuery: '', //input fältet
+        searchHit: false, //om input fält matchar engName i trash
+        allImagePaths: [], //alla ikoner vi har som är kopplat till store.trash
+        specificImagePaths: [], //filtrerar mot input fältet
+        containsSpecific: false, //om vi har träffar mot filtreringen ovan
+        currentSign: [], //array med trash.engName som tillhör klickad skylt
+        signClicked: false, //om man klickat på en skylt
+        signClickedPath: '', //klickad skylts sökväg
+        currentHitPath: '', //skylten tillhörande match från sökfält
+        currentPath: '', //används för att ta ner alla sökvägar till skyltar
+        currentTrashObject: null //hela trash objektet för en searchQuery träff
       }
     },
     watch: {
@@ -114,7 +114,6 @@
   <div class="flexbox-container">
     <h1 class="flexbox-item-1">What do you want to recycle?</h1>
     <input
-      @focus="isFocused"
       class="flexbox-item-input form-control"
       list="datalistOptions"
       type="text"
