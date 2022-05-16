@@ -8,20 +8,22 @@
         searchQuery: '', //input fältet
         searchHit: false, //om input fält matchar engName i trash
         allImagePaths: [], //alla ikoner vi har som är kopplat till store.trash
-        specificImagePaths: [], //filtrerar mot input fältet
+        specificImagePaths: [], //filtreras mot input fältet och läggs här
         containsSpecific: false, //om vi har träffar mot filtreringen ovan
         currentSign: [], //array med trash.engName som tillhör klickad skylt
         signClicked: false, //om man klickat på en skylt
         signClickedPath: '', //klickad skylts sökväg
         currentHitPath: '', //skylten tillhörande match från sökfält
         currentPath: '', //används för att ta ner alla sökvägar till skyltar
-        currentTrashObject: null //hela trash objektet för en searchQuery träff
+        currentTrashObject: null, //hela trash objektet för en searchQuery träff
+        dataListOptions: [] //matchade strängar för "autocompletern"
       }
     },
     watch: {
       searchQuery() {
         this.searchHit = false
         this.getSpecificImagePaths()
+        this.getDataListOptions()
         this.signClicked = false
         this.currentTrashObject = null
         this.$store.state.trash.filter((result) => {
@@ -39,8 +41,17 @@
         this.specificImagePaths = []
         this.$store.state.trash.filter((result) => {
           if (result.engName.startsWith(this.searchQuery)) {
-            this.specificImagePaths.push(result.sign)
             this.containsSpecific = true
+            var conflict = false
+            var currentSign = result.sign
+            for (var i = 0; i < this.specificImagePaths.length; i++) {
+              if (this.specificImagePaths[i] === currentSign) {
+                conflict = true
+              }
+            }
+            if (!conflict) {
+              this.specificImagePaths.push(result.sign)
+            }
           }
         })
       },
@@ -70,6 +81,16 @@
         for (var i = 0; i < test.length; i++) {
           this.currentSign.push(test[i].engName)
         }
+      },
+      getDataListOptions() {
+        this.dataListOptions = []
+        this.$store.state.trash.filter((result) => {
+          if (this.searchQuery !== '') {
+            if (result.engName.startsWith(this.searchQuery)) {
+              this.dataListOptions.push(result.engName)
+            }
+          }
+        })
       }
     }
   }
@@ -118,19 +139,15 @@
       list="datalistOptions"
       type="text"
       v-model="searchQuery"
-      placeholder="Ex. toothbrush, playstation..."
+      placeholder="Ex. glue, computer..."
       aria-label="Search"
     />
-    <datalist id="datalistOptions">
-      <option value="Detta är statiska värden" />
-      <option value="Som ska ersättas med en 'v-for'" />
-      <option value="Som ska leda till en array" />
-      <option value="Som ska innehålla matchande ord på" />
-      <option value="Det man har börjat söka på" />
-      <option value="Som jag kanske redan har någonstans" />
-      <option value="I min kod men jag har gjort tillräckligt" />
-      <option value="För idag, så nu tar vi helg" />
-      <option value="Sen ska listan bli dynamisk" />
+    <datalist v-if="!searchHit" id="datalistOptions">
+      <option
+        :key="this.dataListOptions[index]"
+        v-for="(name, index) in dataListOptions"
+        :value="name"
+      />
     </datalist>
     <div v-if="searchHit && !signClicked">
       <img
