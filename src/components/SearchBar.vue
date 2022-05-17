@@ -16,7 +16,8 @@
         currentHitPath: '', //skylten tillhörande match från sökfält
         currentPath: '', //används för att ta ner alla sökvägar till skyltar
         currentTrashObject: null, //hela trash objektet för en searchQuery träff
-        dataListOptions: [] //matchade strängar för "autocompletern"
+        dataListOptions: [], //matchade strängar för "autocompletern"
+        inputFocus: false
       }
     },
     watch: {
@@ -40,7 +41,10 @@
         this.containsSpecific = false
         this.specificImagePaths = []
         this.$store.state.trash.filter((result) => {
-          if (result.engName.startsWith(this.searchQuery)) {
+          if (
+            this.searchQuery !== '' &&
+            result.engName.startsWith(this.searchQuery)
+          ) {
             this.containsSpecific = true
             var conflict = false
             var currentSign = result.sign
@@ -69,6 +73,11 @@
             this.allImagePaths.push(currentPath)
           }
         }
+      },
+      onBlur() {
+        setTimeout(() => {
+          this.inputFocus = false
+        }, 100)
       },
       onSignClick(imagePath) {
         this.currentSign = []
@@ -100,12 +109,10 @@
   .trashSign {
     height: 150px;
   }
-
   #searchResult {
     text-align: center;
     padding: 10px;
   }
-
   img {
     border-radius: 0;
   }
@@ -141,6 +148,8 @@
       v-model="searchQuery"
       placeholder="Ex. glue, computer..."
       aria-label="Search"
+      @focus="inputFocus = true"
+      @blur="onBlur"
     />
     <datalist v-if="!searchHit" id="datalistOptions">
       <option
@@ -157,7 +166,14 @@
       <h3>You recycle your {{ this.searchQuery }} here</h3>
       <p>{{ this.currentTrashObject.whatHappens }}</p>
     </div>
-    <div v-if="searchQuery && !containsSpecific && !searchHit && !signClicked">
+    <div
+      v-if="
+        (inputFocus || searchQuery) &&
+        !containsSpecific &&
+        !searchHit &&
+        !signClicked
+      "
+    >
       <h3>Categories:</h3>
       <div
         :key="this.allImagePaths[index]"
