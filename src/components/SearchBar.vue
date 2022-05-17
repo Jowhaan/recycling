@@ -77,7 +77,7 @@
       onBlur() {
         setTimeout(() => {
           this.inputFocus = false
-        }, 100)
+        }, 1000)
       },
       onSignClick(imagePath) {
         this.currentSign = []
@@ -107,14 +107,15 @@
 
 <style scoped>
   .trashSign {
-    height: 150px;
+    height: 80px;
   }
   #searchResult {
     text-align: center;
     padding: 10px;
   }
   img {
-    border-radius: 0;
+    border-radius: 10px;
+    padding: 5px;
   }
   .flexbox-container {
     display: flex;
@@ -122,6 +123,10 @@
     flex-direction: column;
     align-items: center;
     padding-top: 2rem;
+    margin-top: 2rem;
+  }
+  .image-items {
+    padding-top: 1rem;
   }
   .flexbox-item-1 {
     flex-grow: 1;
@@ -158,12 +163,15 @@
         :value="name"
       />
     </datalist>
-    <div v-if="searchHit && !signClicked">
+    <div class="flexbox-container" v-if="searchHit && !signClicked">
+      <h3>You recycle your {{ this.searchQuery }} at a:</h3>
+      <h2>{{ this.currentTrashObject.returnAt }}</h2>
       <img
+        style="height: 150px"
         class="trashSign"
         :src="'../../assets/RecyclingSigns/' + this.currentHitPath + '.svg'"
       />
-      <h3>You recycle your {{ this.searchQuery }} here</h3>
+      <p>What happens when i recycle?</p>
       <p>{{ this.currentTrashObject.whatHappens }}</p>
     </div>
     <div
@@ -174,8 +182,8 @@
         !signClicked
       "
     >
-      <h3>Categories:</h3>
-      <div
+      <h3 style="margin-top: 10px">Categories:</h3>
+      <span
         :key="this.allImagePaths[index]"
         class="image-items"
         v-for="(imagePath, index) in allImagePaths"
@@ -186,10 +194,11 @@
           :alt="imagePath"
           @click="onSignClick(imagePath)"
         />
-      </div>
+      </span>
     </div>
     <div v-if="signClicked">
       <img
+        style="height: 150px"
         class="trashSign"
         :src="'../../assets/RecyclingSigns/' + this.signClickedPath + '.svg'"
       />
@@ -211,6 +220,7 @@
         v-for="(imagePath, index) in specificImagePaths"
       >
         <img
+          style="height: 150px"
           class="trashSign"
           :src="'../../assets/RecyclingSigns/' + imagePath + '.svg'"
           :alt="imagePath"
