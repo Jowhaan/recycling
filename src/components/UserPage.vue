@@ -9,8 +9,7 @@ avatarBackground into SASS */
         password: '',
         loggedIn: false,
         currentUser: '',
-        message: '',
-        level: ''
+        message: ''
       }
     },
     methods: {
@@ -35,27 +34,39 @@ avatarBackground into SASS */
         console.log(this.loggedIn)
         console.log(this.currentUser)
       }
-    }
-    /* computed: {
+    },
+    computed: {
       userLevel() {
-        switch (this.currentUser.quizScore) {
-          case 100:
-            this.level = 'platinum'
-            break
-          case 60 - 99:
-            this.level = 'gold'
-            break
-          case 30 - 59:
-            this.level = 'silver'
-            break
-          case 15 - 29:
-            this.level = 'bronze'
-            break
-          default:
-            this.level = 'n00b'
+        var currentLvl
+        var currentBla
+        if (this.currentUser.quizScore >= 100) {
+          currentLvl = 'platinum'
+          currentBla = ((this.currentUser.quizScore - 100) / 50) * 100
+        } else if (
+          this.currentUser.quizScore <= 99 &&
+          this.currentUser.quizScore >= 60
+        ) {
+          currentLvl = 'gold'
+          currentBla = ((this.currentUser.quizScore - 60) / 30) * 100
+        } else if (
+          this.currentUser.quizScore <= 59 &&
+          this.currentUser.quizScore >= 30
+        ) {
+          currentLvl = 'silver'
+          currentBla = ((this.currentUser.quizScore - 30) / 30) * 100
+        } else if (
+          this.currentUser.quizScore <= 29 &&
+          this.currentUser.quizScore >= 15
+        ) {
+          currentLvl = 'bronze'
+          currentBla = ((this.currentUser.quizScore - 15) / 15) * 100
+        } else if (this.currentUser.quizScore <= 15) {
+          currentLvl = 'n00b'
+          currentBla = (this.currentUser.quizScore / 15) * 100
         }
+        return [currentLvl, currentBla]
       }
-    } */
+    }
   }
 </script>
 
@@ -117,11 +128,14 @@ avatarBackground into SASS */
         <div
           class="progress-bar progress-bar-striped bg-success"
           role="progressbar"
-          style="width: 25%"
+          :style="'width: ' + userLevel[1] + '%'"
           aria-valuenow="25"
           aria-valuemin="0"
           aria-valuemax="100"
         />
+      </div>
+      <div>
+        <img :src="'../../assets/' + userLevel[0] + '.svg'" alt="" />
       </div>
       <p>Quiz's taken: {{ currentUser.quizTaken }}</p>
       <p>Total score: {{ currentUser.quizScore }}</p>
