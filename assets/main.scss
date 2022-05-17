@@ -69,6 +69,13 @@ img {
   border-radius: 20px;
 }
 
+#link {
+  color: var(--bs-text-color);
+  font-family: "PoppinsRegular";
+  font-size: 16px;
+  line-height: 20px;
+}
+
 .quiz-flex-container {
   display: flex;
   justify-content: space-evenly;
@@ -90,44 +97,6 @@ img {
   color: var(--bs-text-color);
   font-family: Poppins;
   width: 100%;
-}
-
-#menubar {
-  background-color: var(--bs-primary-background);
-}
-
-#secondBackground {
-  display: flex;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  transition-property: all;
-  transition-timing-function: ease-in-out;
-}
-
-#secondBackground.hide {
-  visibility: hidden;
-  opacity: 0;
-  transition-duration: 0.5s;
-}
-
-#secondBackground.show {
-  background-color: var(--bs-search-icon-color);
-  visibility: visible;
-  opacity: 0.7;
-  transition-duration: 0.5s;
-}
-#closeIcon {
-  position: relative;
-  left: -10px;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0.5rem;
-  &:hover {
-    color: var(--bs-primary);
-  }
 }
 .list-group-item-action {
   color: var(-bs--text-color);
