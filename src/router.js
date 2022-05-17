@@ -21,6 +21,10 @@ export default createRouter({
       component: QuizView,
       path: '/quiz'
     },
+    /*{
+      component: NavBar,
+      path: '/nav'
+    },*/
     {
       component: TipView,
       path: '/tip'

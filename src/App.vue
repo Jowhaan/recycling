@@ -1,12 +1,14 @@
 <script>
-  import MenuList from './components/MenuList.vue'
+  /*import MenuList from './components/MenuList.vue'*/
+  import NavBar from './components/NavBar.vue'
   export default {
-    components: { MenuList }
+    components: { NavBar }
   }
 </script>
 
 <template>
-  <MenuList />
+  <!--<MenuList />-->
+  <NavBar />
   <main>
     <RouterView />
   </main>
