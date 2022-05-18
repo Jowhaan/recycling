@@ -46,7 +46,7 @@ const mutations = {},
         password: 'trash123',
         profilePic: '../../assets/profilePictures/5.jpg',
         quizTaken: 4,
-        quizScore: 19,
+        quizScore: 99,
         savedCO2: 6
       },
       {
@@ -55,7 +55,7 @@ const mutations = {},
         password: 'trash123',
         profilePic: '../../assets/profilePictures/6.jpg',
         quizTaken: 2,
-        quizScore: 10,
+        quizScore: 100,
         savedCO2: 4
       },
       {
@@ -64,7 +64,7 @@ const mutations = {},
         password: 'trash123',
         profilePic: '../../assets/profilePictures/7.jpg',
         quizTaken: 5,
-        quizScore: 17,
+        quizScore: 65,
         savedCO2: 5
       },
       {
@@ -73,7 +73,7 @@ const mutations = {},
         password: 'trash123',
         profilePic: '../../assets/profilePictures/8.jpg',
         quizTaken: 5,
-        quizScore: 13,
+        quizScore: 43,
         savedCO2: 5
       }
     ],
