@@ -3,6 +3,80 @@ import { createStore } from 'vuex'
 const mutations = {},
   state = {
     todaysTip: 0,
+    personalProfiles: [
+      {
+        userId: 1,
+        userName: 'Pernilla',
+        password: 'trash123',
+        profilePic: '../../assets/profilePictures/1.jpg',
+        quizTaken: 2,
+        quizScore: 8,
+        savedCO2: 12
+      },
+      {
+        userId: 2,
+        userName: 'Jennie',
+        password: 'trash123',
+        profilePic: '../../assets/profilePictures/2.jpg',
+        quizTaken: 15,
+        quizScore: 20,
+        savedCO2: 0
+      },
+      {
+        userId: 3,
+        userName: 'Johan',
+        password: 'trash123',
+        profilePic: '../../assets/profilePictures/3.jpg',
+        quizTaken: 12,
+        quizScore: 56,
+        savedCO2: 70
+      },
+      {
+        userId: 4,
+        userName: 'Linus',
+        password: 'trash123',
+        profilePic: '../../assets/profilePictures/4.jpg',
+        quizTaken: 8,
+        quizScore: 18,
+        savedCO2: 5
+      },
+      {
+        userId: 5,
+        userName: 'Klara',
+        password: 'trash123',
+        profilePic: '../../assets/profilePictures/5.jpg',
+        quizTaken: 4,
+        quizScore: 19,
+        savedCO2: 6
+      },
+      {
+        userId: 6,
+        userName: 'Nikolina',
+        password: 'trash123',
+        profilePic: '../../assets/profilePictures/6.jpg',
+        quizTaken: 2,
+        quizScore: 10,
+        savedCO2: 4
+      },
+      {
+        userId: 7,
+        userName: 'Sofia',
+        password: 'trash123',
+        profilePic: '../../assets/profilePictures/7.jpg',
+        quizTaken: 5,
+        quizScore: 17,
+        savedCO2: 5
+      },
+      {
+        userId: 8,
+        userName: 'Elin',
+        password: 'trash123',
+        profilePic: '../../assets/profilePictures/8.jpg',
+        quizTaken: 5,
+        quizScore: 13,
+        savedCO2: 5
+      }
+    ],
     quizQuestions: [
       {
         id: 1,
