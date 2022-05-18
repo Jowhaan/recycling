@@ -34,36 +34,46 @@ avatarBackground into SASS */
           lvlMessage: ''
         }
         if (user.quizScore >= 100) {
-          user.level = 'platinum'
-          user.lvlProgress = 472
-          user.lvlMessage = 'You made it! You are a recycling Hero!'
+          userScore.level = 'platinum'
+          userScore.lvlProgress = 472
+          userScore.lvlMessage = 'You made it! You are a recycling Hero!'
         } else if (user.quizScore <= 99 && user.quizScore >= 60) {
-          user.level = 'gold'
-          user.pointsLeft = 40 - (user.quizScore - 60)
-          user.lvlProgress = 472 - ((user.quizScore - 60) / 40) * 472
-          user.lvlMessage = 'Gold level! and going towards Hero!'
+          userScore.level = 'gold'
+          userScore.pointsLeft = 40 - (user.quizScore - 60)
+          userScore.lvlProgress = 472 - ((user.quizScore - 60) / 40) * 472
+          userScore.lvlMessage = 'Gold level! and going towards Hero!'
         } else if (user.quizScore <= 59 && user.quizScore >= 30) {
-          user.level = 'silver'
-          user.pointsLeft = 30 - (user.quizScore - 30)
-          user.lvlProgress = 472 - ((user.quizScore - 30) / 30) * 472
-          user.lvlMessage = 'Silver level! and going towards Gold!'
+          userScore.level = 'silver'
+          userScore.pointsLeft = 30 - (user.quizScore - 30)
+          userScore.lvlProgress = 472 - ((user.quizScore - 30) / 30) * 472
+          userScore.lvlMessage = 'Silver level! and going towards Gold!'
         } else if (user.quizScore <= 29 && user.quizScore >= 15) {
-          user.level = 'bronze'
-          user.pointsLeft = 15 - (user.quizScore - 15)
-          user.lvlProgress = 472 - ((user.quizScore - 15) / 15) * 472
-          user.lvlMessage = 'Bronze level! and going towards Silver!'
+          userScore.level = 'bronze'
+          userScore.pointsLeft = 15 - (user.quizScore - 15)
+          userScore.lvlProgress = 472 - ((user.quizScore - 15) / 15) * 472
+          userScore.lvlMessage = 'Bronze level! and going towards Silver!'
         } else if (user.quizScore <= 15) {
-          user.level = 'n00b'
-          user.pointsLeft = 15 - user.quizScore
-          user.lvlProgress = 472 - (user.quizScore / 15) * 472
-          user.lvlMessage = 'Start a quiz to begin your recycling journey!'
+          userScore.level = 'n00b'
+          userScore.pointsLeft = 15 - user.quizScore
+          userScore.lvlProgress = 472 - (user.quizScore / 15) * 472
+          userScore.lvlMessage = 'Start a quiz to begin your recycling journey!'
         }
         return userScore
       }
     },
     /* Räknar ut en persons level för att visa rätt buckla och hur långt det är kvar till nästa level så att det kan markeras i cirkeln. En full cirkel är 472. */
     computed: {
+      scoreboard() {
+        let scoreboard = this.$store.state.personalProfiles
+        /* scoreboard.sort(
+          (firstScore, secondScore) => firstScore.quizScore - secondScore.quizScore
+        ) */
+        console.log(scoreboard)
+        return scoreboard
+      },
       user() {
+        var user = this.checkLevel(this.$store.state.currentUser)
+        /*
         let user = {
           level: '',
           lvlProgress: '',
@@ -107,7 +117,7 @@ avatarBackground into SASS */
           user.lvlProgress =
             472 - (this.$store.state.currentUser.quizScore / 15) * 472
           user.lvlMessage = 'Start a quiz to begin your recycling journey!'
-        }
+        } */
         return user
       }
     }
@@ -155,6 +165,12 @@ avatarBackground into SASS */
     justify-content: center;
   }
 
+  .scoreboardPic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
   .levelProgress {
     width: 160px;
     height: 160px;
@@ -177,7 +193,7 @@ avatarBackground into SASS */
     /* animation: anim 2s linear forwards; */
   }
 
-  /* Animering av level cirkeln.*/
+  /* Animering av level cirkeln. KAN MAN ANVÄNDA BOOTSTRAP SASS FÖR ATT NÅ DEN?*/
   @keyframes anim {
     100% {
       stroke-dashoffset: 0;
@@ -203,7 +219,7 @@ avatarBackground into SASS */
         <img id="avatar" :src="this.$store.state.currentUser.profilePic" />
       </div>
       <h1>{{ this.$store.state.currentUser.userName }}</h1>
-      <p>{{ user.pointsLeft }}</p>
+      <p>{{ user.lvlMessage }}</p>
       <div id="userLevel">
         <div class="levelProgress">
           <div>
@@ -237,6 +253,51 @@ avatarBackground into SASS */
         <img src="../../assets/globe.svg" alt="globe" id="globe" />
         <p>Saved CO2: {{ currentUser.savedCO2 }}</p>
       </div> -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2" scope="col">Score board</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <img
+                class="scoreboardPic"
+                :src="'../../assets/' + scoreboard[0].profilePic"
+                alt=""
+              />
+            </th>
+            <td>Cup</td>
+            <td>{{ scoreboard[0].userName }}</td>
+            <td>{{ scoreboard[0].quizScore }}</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <img
+                class="scoreboardPic"
+                :src="'../../assets/' + scoreboard[1].profilePic"
+                alt=""
+              />
+            </th>
+            <td>Cup</td>
+            <td>{{ scoreboard[1].userName }}</td>
+            <td>{{ scoreboard[1].quizScore }}</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <img
+                class="scoreboardPic"
+                :src="'../../assets/' + scoreboard[2].profilePic"
+                alt=""
+              />
+            </th>
+            <td>Cup</td>
+            <td>{{ scoreboard[2].userName }}</td>
+            <td>{{ scoreboard[2].quizScore }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
