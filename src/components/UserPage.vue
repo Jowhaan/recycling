@@ -7,8 +7,6 @@ avatarBackground into SASS */
       return {
         userName: '',
         password: '',
-        loggedIn: true,
-        currentUser: this.$store.state.personalProfiles[1],
         errorMessage: ''
       }
     },
@@ -20,67 +18,97 @@ avatarBackground into SASS */
             this.userName === this.$store.state.personalProfiles[i].userName &&
             this.password === this.$store.state.personalProfiles[i].password
           ) {
-            this.loggedIn = true
-            this.currentUser = this.$store.state.personalProfiles[i]
-            console.log(this.loggedIn)
-            console.log(this.currentUser)
+            this.$store.commit('login', i)
+            /* this.loggedIn = true
+            this.currentUser = this.$store.state.personalProfiles[i] */
           } else {
             this.errorMessage = 'Incorrect username and/or password'
           }
         }
       },
-      logout() {
-        this.loggedIn = false
-        this.currentUser = ''
-        console.log(this.loggedIn)
-        console.log(this.currentUser)
+      checkLevel(user) {
+        let userScore = {
+          level: '',
+          lvlProgress: '',
+          pointsLeft: '',
+          lvlMessage: ''
+        }
+        if (user.quizScore >= 100) {
+          user.level = 'platinum'
+          user.lvlProgress = 472
+          user.lvlMessage = 'You made it! You are a recycling Hero!'
+        } else if (user.quizScore <= 99 && user.quizScore >= 60) {
+          user.level = 'gold'
+          user.pointsLeft = 40 - (user.quizScore - 60)
+          user.lvlProgress = 472 - ((user.quizScore - 60) / 40) * 472
+          user.lvlMessage = 'Gold level! and going towards Hero!'
+        } else if (user.quizScore <= 59 && user.quizScore >= 30) {
+          user.level = 'silver'
+          user.pointsLeft = 30 - (user.quizScore - 30)
+          user.lvlProgress = 472 - ((user.quizScore - 30) / 30) * 472
+          user.lvlMessage = 'Silver level! and going towards Gold!'
+        } else if (user.quizScore <= 29 && user.quizScore >= 15) {
+          user.level = 'bronze'
+          user.pointsLeft = 15 - (user.quizScore - 15)
+          user.lvlProgress = 472 - ((user.quizScore - 15) / 15) * 472
+          user.lvlMessage = 'Bronze level! and going towards Silver!'
+        } else if (user.quizScore <= 15) {
+          user.level = 'n00b'
+          user.pointsLeft = 15 - user.quizScore
+          user.lvlProgress = 472 - (user.quizScore / 15) * 472
+          user.lvlMessage = 'Start a quiz to begin your recycling journey!'
+        }
+        return userScore
       }
     },
     /* Räknar ut en persons level för att visa rätt buckla och hur långt det är kvar till nästa level så att det kan markeras i cirkeln. En full cirkel är 472. */
     computed: {
-      userLevel() {
-        var currentLvl = 0
-        var currentLvlProgress = 0
-        var pointsLeft = 0
-        var lvlMessage = 0
-        if (this.currentUser.quizScore >= 100) {
-          currentLvl = 'platinum'
-          currentLvlProgress = 472
-          lvlMessage = 'You made it! You are a recycling Hero!'
-        } else if (
-          this.currentUser.quizScore <= 99 &&
-          this.currentUser.quizScore >= 60
-        ) {
-          currentLvl = 'gold'
-          pointsLeft = 40 - (this.currentUser.quizScore - 60)
-          currentLvlProgress =
-            472 - ((this.currentUser.quizScore - 60) / 40) * 472
-          lvlMessage = 'Gold level! and going towards Hero!'
-        } else if (
-          this.currentUser.quizScore <= 59 &&
-          this.currentUser.quizScore >= 30
-        ) {
-          currentLvl = 'silver'
-          pointsLeft = 30 - (this.currentUser.quizScore - 30)
-          currentLvlProgress =
-            472 - ((this.currentUser.quizScore - 30) / 30) * 472
-          lvlMessage = 'Silver level! and going towards Gold!'
-        } else if (
-          this.currentUser.quizScore <= 29 &&
-          this.currentUser.quizScore >= 15
-        ) {
-          currentLvl = 'bronze'
-          pointsLeft = 15 - (this.currentUser.quizScore - 15)
-          currentLvlProgress =
-            472 - ((this.currentUser.quizScore - 15) / 15) * 472
-          lvlMessage = 'Bronze level! and going towards Silver!'
-        } else if (this.currentUser.quizScore <= 15) {
-          currentLvl = 'n00b'
-          pointsLeft = 15 - this.currentUser.quizScore
-          currentLvlProgress = 472 - (this.currentUser.quizScore / 15) * 472
-          lvlMessage = 'Start a quiz to begin your recycling journey!'
+      user() {
+        let user = {
+          level: '',
+          lvlProgress: '',
+          pointsLeft: '',
+          lvlMessage: ''
         }
-        return [currentLvl, currentLvlProgress, pointsLeft, lvlMessage]
+        if (this.$store.state.currentUser.quizScore >= 100) {
+          user.level = 'platinum'
+          user.lvlProgress = 472
+          user.lvlMessage = 'You made it! You are a recycling Hero!'
+        } else if (
+          this.$store.state.currentUser.quizScore <= 99 &&
+          this.$store.state.currentUser.quizScore >= 60
+        ) {
+          user.level = 'gold'
+          user.pointsLeft = 40 - (this.$store.state.currentUser.quizScore - 60)
+          user.lvlProgress =
+            472 - ((this.$store.state.currentUser.quizScore - 60) / 40) * 472
+          user.lvlMessage = 'Gold level! and going towards Hero!'
+        } else if (
+          this.$store.state.currentUser.quizScore <= 59 &&
+          this.$store.state.currentUser.quizScore >= 30
+        ) {
+          user.level = 'silver'
+          user.pointsLeft = 30 - (this.$store.state.currentUser.quizScore - 30)
+          user.lvlProgress =
+            472 - ((this.$store.state.currentUser.quizScore - 30) / 30) * 472
+          user.lvlMessage = 'Silver level! and going towards Gold!'
+        } else if (
+          this.$store.state.currentUser.quizScore <= 29 &&
+          this.$store.state.currentUser.quizScore >= 15
+        ) {
+          user.level = 'bronze'
+          user.pointsLeft = 15 - (this.$store.state.currentUser.quizScore - 15)
+          user.lvlProgress =
+            472 - ((this.$store.state.currentUser.quizScore - 15) / 15) * 472
+          user.lvlMessage = 'Bronze level! and going towards Silver!'
+        } else if (this.$store.state.currentUser.quizScore <= 15) {
+          user.level = 'n00b'
+          user.pointsLeft = 15 - this.$store.state.currentUser.quizScore
+          user.lvlProgress =
+            472 - (this.$store.state.currentUser.quizScore / 15) * 472
+          user.lvlMessage = 'Start a quiz to begin your recycling journey!'
+        }
+        return user
       }
     }
   }
@@ -149,6 +177,7 @@ avatarBackground into SASS */
     /* animation: anim 2s linear forwards; */
   }
 
+  /* Animering av level cirkeln.*/
   @keyframes anim {
     100% {
       stroke-dashoffset: 0;
@@ -158,7 +187,7 @@ avatarBackground into SASS */
 
 <template>
   <div id="center">
-    <div v-if="!loggedIn">
+    <div v-if="!this.$store.state.loggedIn">
       <input v-model="userName" type="text" placeholder="Username" />
       <input v-model="password" type="password" placeholder="Password" />
       <input
@@ -169,16 +198,16 @@ avatarBackground into SASS */
       />
       <p>{{ errorMessage }}</p>
     </div>
-    <div v-if="loggedIn">
+    <div v-if="this.$store.state.loggedIn">
       <div id="avatarBackground">
-        <img id="avatar" :src="currentUser.profilePic" />
+        <img id="avatar" :src="this.$store.state.currentUser.profilePic" />
       </div>
-      <h1>{{ currentUser.userName }}</h1>
-      <p>{{ userLevel[3] }}</p>
+      <h1>{{ this.$store.state.currentUser.userName }}</h1>
+      <p>{{ user.pointsLeft }}</p>
       <div id="userLevel">
         <div class="levelProgress">
           <div>
-            <img :src="'../../assets/' + userLevel[0] + '.svg'" alt="" />
+            <img :src="'../../assets/' + user.level + '.svg'" alt="" />
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -197,20 +226,17 @@ avatarBackground into SASS */
               cy="80"
               r="70"
               stroke-linecap="round"
-              :style="'stroke-dashoffset: ' + userLevel[1]"
+              :style="'stroke-dashoffset: ' + user.lvlProgress"
             />
           </svg>
         </div>
       </div>
-      <p>{{ userLevel[2] }} points until next level</p>
-      <!--
-      <p>Quiz's taken: {{ currentUser.quizTaken }}</p>
-      <p>Total score: {{ currentUser.quizScore }}</p>
+      <p>{{ user.pointsLeft }} points until next level</p>
+      <!-- Ligger kvar för sprint 3
        <div id="carbonDioxide">
         <img src="../../assets/globe.svg" alt="globe" id="globe" />
         <p>Saved CO2: {{ currentUser.savedCO2 }}</p>
       </div> -->
-      <button @click="logout" />
     </div>
   </div>
 </template>

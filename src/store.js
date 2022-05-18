@@ -1,8 +1,19 @@
 import { createStore } from 'vuex'
 
-const mutations = {},
+const mutations = {
+    login(state, user) {
+      state.loggedIn = true
+      state.currentUser = state.personalProfiles[user]
+    },
+    logout(state) {
+      state.loggedIn = false
+      state.currentUser = ''
+    }
+  },
   state = {
-    todaysTip: 0,
+    todaysTip: 0 /* Försöker få tag på dagens tip på första sidan för att skicka vidare. */,
+    loggedIn: false,
+    currentUser: '',
     personalProfiles: [
       {
         userId: 1,
