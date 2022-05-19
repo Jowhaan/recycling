@@ -1,8 +1,19 @@
 import { createStore } from 'vuex'
 
-const mutations = {},
+const mutations = {
+    login(state, user) {
+      state.loggedIn = true
+      state.currentUser = state.personalProfiles[user]
+    },
+    logout(state) {
+      state.loggedIn = false
+      state.currentUser = ''
+    }
+  },
   state = {
-    todaysTip: 0,
+    todaysTip: 0 /* Försöker få tag på dagens tip på första sidan för att skicka vidare. */,
+    loggedIn: false,
+    currentUser: '',
     personalProfiles: [
       {
         userId: 1,
@@ -46,7 +57,7 @@ const mutations = {},
         password: 'trash123',
         profilePic: '../../assets/profilePictures/5.jpg',
         quizTaken: 4,
-        quizScore: 19,
+        quizScore: 99,
         savedCO2: 6
       },
       {
@@ -55,7 +66,7 @@ const mutations = {},
         password: 'trash123',
         profilePic: '../../assets/profilePictures/6.jpg',
         quizTaken: 2,
-        quizScore: 10,
+        quizScore: 100,
         savedCO2: 4
       },
       {
@@ -64,7 +75,7 @@ const mutations = {},
         password: 'trash123',
         profilePic: '../../assets/profilePictures/7.jpg',
         quizTaken: 5,
-        quizScore: 17,
+        quizScore: 65,
         savedCO2: 5
       },
       {
@@ -73,7 +84,7 @@ const mutations = {},
         password: 'trash123',
         profilePic: '../../assets/profilePictures/8.jpg',
         quizTaken: 5,
-        quizScore: 13,
+        quizScore: 43,
         savedCO2: 5
       }
     ],
