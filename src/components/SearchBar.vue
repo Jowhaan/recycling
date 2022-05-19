@@ -105,6 +105,9 @@
           this.inputFocus = false
         }, 1000)
       },
+      onFocus() {
+        this.inputFocus = true
+      },
       onSignClick(imagePath) {
         this.currentSign = []
         this.searchBarFocused = false
@@ -180,7 +183,7 @@
       v-model="searchQuery"
       placeholder="Ex. glue, computer..."
       aria-label="Search"
-      @focus="inputFocus = true"
+      @focus="onFocus"
       @blur="onBlur"
     />
     <datalist v-if="!searchHit" id="datalistOptions">
