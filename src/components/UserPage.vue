@@ -19,13 +19,12 @@ avatarBackground into SASS */
             this.password === this.$store.state.personalProfiles[i].password
           ) {
             this.$store.commit('login', i)
-            /* this.loggedIn = true
-            this.currentUser = this.$store.state.personalProfiles[i] */
           } else {
             this.errorMessage = 'Incorrect username and/or password'
           }
         }
       },
+      /* Räknar ut en persons level för att visa rätt buckla och hur långt det är kvar till nästa level så att det kan markeras i cirkeln. En full cirkel är 472. */
       checkLevel(user) {
         let userScore = {
           level: '',
@@ -61,63 +60,19 @@ avatarBackground into SASS */
         return userScore
       }
     },
-    /* Räknar ut en persons level för att visa rätt buckla och hur långt det är kvar till nästa level så att det kan markeras i cirkeln. En full cirkel är 472. */
     computed: {
       scoreboard() {
-        let scoreboard = this.$store.state.personalProfiles
-        /* scoreboard.sort(
-          (firstScore, secondScore) => firstScore.quizScore - secondScore.quizScore
-        ) */
+        let scoreboard = [...this.$store.state.personalProfiles]
+        scoreboard.sort(
+          (firstScore, secondScore) =>
+            firstScore.quizScore - secondScore.quizScore
+        )
+        scoreboard.reverse()
         console.log(scoreboard)
         return scoreboard
       },
       user() {
         var user = this.checkLevel(this.$store.state.currentUser)
-        /*
-        let user = {
-          level: '',
-          lvlProgress: '',
-          pointsLeft: '',
-          lvlMessage: ''
-        }
-        if (this.$store.state.currentUser.quizScore >= 100) {
-          user.level = 'platinum'
-          user.lvlProgress = 472
-          user.lvlMessage = 'You made it! You are a recycling Hero!'
-        } else if (
-          this.$store.state.currentUser.quizScore <= 99 &&
-          this.$store.state.currentUser.quizScore >= 60
-        ) {
-          user.level = 'gold'
-          user.pointsLeft = 40 - (this.$store.state.currentUser.quizScore - 60)
-          user.lvlProgress =
-            472 - ((this.$store.state.currentUser.quizScore - 60) / 40) * 472
-          user.lvlMessage = 'Gold level! and going towards Hero!'
-        } else if (
-          this.$store.state.currentUser.quizScore <= 59 &&
-          this.$store.state.currentUser.quizScore >= 30
-        ) {
-          user.level = 'silver'
-          user.pointsLeft = 30 - (this.$store.state.currentUser.quizScore - 30)
-          user.lvlProgress =
-            472 - ((this.$store.state.currentUser.quizScore - 30) / 30) * 472
-          user.lvlMessage = 'Silver level! and going towards Gold!'
-        } else if (
-          this.$store.state.currentUser.quizScore <= 29 &&
-          this.$store.state.currentUser.quizScore >= 15
-        ) {
-          user.level = 'bronze'
-          user.pointsLeft = 15 - (this.$store.state.currentUser.quizScore - 15)
-          user.lvlProgress =
-            472 - ((this.$store.state.currentUser.quizScore - 15) / 15) * 472
-          user.lvlMessage = 'Bronze level! and going towards Silver!'
-        } else if (this.$store.state.currentUser.quizScore <= 15) {
-          user.level = 'n00b'
-          user.pointsLeft = 15 - this.$store.state.currentUser.quizScore
-          user.lvlProgress =
-            472 - (this.$store.state.currentUser.quizScore / 15) * 472
-          user.lvlMessage = 'Start a quiz to begin your recycling journey!'
-        } */
         return user
       }
     }
@@ -193,7 +148,6 @@ avatarBackground into SASS */
     /* animation: anim 2s linear forwards; */
   }
 
-  /* Animering av level cirkeln. KAN MAN ANVÄNDA BOOTSTRAP SASS FÖR ATT NÅ DEN?*/
   @keyframes anim {
     100% {
       stroke-dashoffset: 0;
