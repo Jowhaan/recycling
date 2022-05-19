@@ -28,7 +28,17 @@
         questionsIndex: 0,
         score: 0,
         disableRadio: null,
-        indicator: 1
+        indicator: 1,
+        indicatorBool: true
+      }
+    },
+    computed: {
+      showIndicator() {
+        if (this.isStarted && this.indicatorBool) {
+          return true
+        } else {
+          return false
+        }
       }
     },
     methods: {
@@ -138,11 +148,17 @@
         this.getQuestions()
         this.getAnswers()
         this.indicator = 1
+        this.indicatorBool = true
       },
       onContinueQuiz() {
         this.continueQuiz = true
         this.rightAnswer = false
         this.indicator++
+        if (this.questionsIndex < 5) {
+          this.indicatorBool = true
+        } else {
+          this.indicatorBool = false
+        }
       }
     }
   }
@@ -163,9 +179,13 @@
     padding: 10px;
     font-family: 'PoppinsRegular';
   }
+  .btn {
+    display: block;
+    width: auto;
+  }
 </style>
 <template>
-  <QuizProgress v-if="isStarted" :indicator="indicator" />
+  <QuizProgress v-if="showIndicator" :indicator="indicator" />
   <div class="card border border-2 border-search-icon-color rounded">
     <div class="test">
       <div class="quiz-flex-container">
