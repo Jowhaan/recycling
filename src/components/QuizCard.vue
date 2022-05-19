@@ -1,8 +1,12 @@
 <script>
+  import QuizProgress from './QuizProgress.vue'
   export default {
     created() {
       this.getQuestions()
       this.getAnswers()
+    },
+    components: {
+      QuizProgress
     },
     watch: {
       answer() {
@@ -23,7 +27,8 @@
         answersIndex: 0,
         questionsIndex: 0,
         score: 0,
-        disableRadio: null
+        disableRadio: null,
+        indicator: 1
       }
     },
     methods: {
@@ -132,15 +137,17 @@
         this.resetQuiz()
         this.getQuestions()
         this.getAnswers()
+        this.indicator = 1
       },
       onContinueQuiz() {
         this.continueQuiz = true
         this.rightAnswer = false
+        this.indicator++
       }
     }
   }
 </script>
-<style>
+<style scoped>
   .card {
     height: 35rem;
     width: 20rem;
@@ -151,8 +158,14 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  label {
+    margin: 10px;
+    padding: 10px;
+    font-family: 'PoppinsRegular';
+  }
 </style>
 <template>
+  <QuizProgress v-if="isStarted" :indicator="indicator" />
   <div class="card border border-2 border-search-icon-color rounded">
     <div class="test">
       <div class="quiz-flex-container">
