@@ -52,6 +52,7 @@
 
 <style lang="scss" scoped>
   #tipbotbox {
+    visibility: visible;
     display: flex;
     flex-direction: column;
     position: absolute;
