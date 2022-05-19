@@ -55,8 +55,9 @@
       //metod för att slumpa 5 quizfrågor
       getQuestions() {
         while (this.questions.length < 5) {
-          //Måste byta ut '20' till this.$store.state.quizQuestions.length när vi har fyllt med riktiga frågor, blir knas i nuläget
-          var randomIndex = Math.floor(Math.random() * 20)
+          var randomIndex = Math.floor(
+            Math.random() * this.$store.state.quizQuestions.length
+          )
           var currentQuestion = this.$store.state.quizQuestions[randomIndex]
           var conflict = false
 

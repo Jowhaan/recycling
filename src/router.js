@@ -28,7 +28,7 @@ export default createRouter({
     },*/
     {
       component: TipView,
-      path: '/tip'
+      path: '/tip/:tipNum?'
     },
     {
       component: UserView,
