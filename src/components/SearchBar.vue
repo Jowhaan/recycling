@@ -36,6 +36,32 @@
         })
       }
     },
+    computed: {
+      showEntireSignList() {
+        if (
+          (this.inputFocus || this.searchQuery) &&
+          !this.containsSpecific &&
+          !this.searchHit &&
+          !this.signClicked
+        ) {
+          return true
+        } else {
+          return false
+        }
+      },
+      showSpecificSignList() {
+        if (
+          this.searchQuery &&
+          this.containsSpecific &&
+          !this.signClicked &&
+          !this.searchHit
+        ) {
+          return true
+        } else {
+          return false
+        }
+      }
+    },
     methods: {
       getSpecificImagePaths() {
         this.containsSpecific = false
@@ -78,6 +104,9 @@
         setTimeout(() => {
           this.inputFocus = false
         }, 1000)
+      },
+      onFocus() {
+        this.inputFocus = true
       },
       onSignClick(imagePath) {
         this.currentSign = []
@@ -122,7 +151,7 @@
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
-    padding-top: 2rem;
+    padding-top: 20px;
     margin-top: 2rem;
   }
   .image-items {
@@ -140,6 +169,7 @@
     border-radius: 80px;
     flex-grow: 1;
     align-items: center;
+    margin-top: 20px;
   }
 </style>
 
@@ -153,7 +183,7 @@
       v-model="searchQuery"
       placeholder="Ex. glue, computer..."
       aria-label="Search"
-      @focus="inputFocus = true"
+      @focus="onFocus"
       @blur="onBlur"
     />
     <datalist v-if="!searchHit" id="datalistOptions">
@@ -174,15 +204,8 @@
       <p>What happens when i recycle?</p>
       <p>{{ this.currentTrashObject.whatHappens }}</p>
     </div>
-    <div
-      v-if="
-        (inputFocus || searchQuery) &&
-        !containsSpecific &&
-        !searchHit &&
-        !signClicked
-      "
-    >
-      <h3 style="margin-top: 10px">Categories:</h3>
+    <div v-if="showEntireSignList">
+      <h3 style="padding-top: 40px">Categories:</h3>
       <span
         :key="this.allImagePaths[index]"
         class="image-items"
@@ -212,9 +235,9 @@
         </li>
       </ul>
     </div>
-    <div v-if="searchQuery && containsSpecific && !signClicked && !searchHit">
-      <h3>Categories:</h3>
-      <div
+    <div v-if="showSpecificSignList">
+      <h3 style="padding-top: 40px">Categories:</h3>
+      <span
         :key="this.specificImagePaths[index]"
         class="image-items"
         v-for="(imagePath, index) in specificImagePaths"
@@ -226,7 +249,7 @@
           :alt="imagePath"
           @click="onSignClick(imagePath)"
         />
-      </div>
+      </span>
     </div>
   </div>
 </template>

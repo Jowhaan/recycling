@@ -6,6 +6,11 @@
     components: {
       SearchBar,
       TipBot
+    },
+    data() {
+      return {
+        hiddenTipBot: null
+      }
     }
   }
 </script>

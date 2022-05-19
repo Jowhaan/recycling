@@ -5,12 +5,11 @@
     mounted() {
       var myCarousel = document.querySelector('#myCarousel')
       var carousel = new bootstrap.Carousel(myCarousel)
-      console.log(carousel)
+      carousel.to(this.$route.params)
     },
     data() {
       return {}
     },
-    methods: {},
     computed: {
       tip() {
         return this.$store.state.quizQuestions[0].tip
@@ -40,25 +39,11 @@
 <template>
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="card border border-5 border-white rounded">
-          <i class="bi bi-share position-absolute top-0 end-0" />
-          <div id="cardImage">
-            <img :src="pic" class="d-block w-100" alt="..." />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Did you know that...</h5>
-            <p class="card-text">
-              {{ tip }}
-            </p>
-          </div>
-        </div>
-      </div>
-
       <div
-        v-for="card in this.$store.state.quizQuestions"
+        v-for="(card, index) in this.$store.state.quizQuestions"
         :key="card.id"
         class="carousel-item"
+        :class="{ active: index - 1 == $route.params.tipNum }"
       >
         <div class="card border border-5 border-white rounded">
           <i class="bi bi-share position-absolute top-0 end-0" />
@@ -98,5 +83,4 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <!-- <button data-bs-target="#myCarousel" data-bs-slide-to="5" /> -->
 </template>
