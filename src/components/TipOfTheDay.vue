@@ -2,6 +2,15 @@
   import * as bootstrap from 'bootstrap'
 
   export default {
+    created() {
+      this.$watch(
+        () => this.$route.params,
+        () => {
+          this.goToTip()
+        },
+        { immediate: true }
+      )
+    },
     mounted() {
       var myCarousel = document.querySelector('#myCarousel')
       var carousel = new bootstrap.Carousel(myCarousel)
@@ -10,7 +19,11 @@
     data() {
       return {}
     },
-    methods: {},
+    methods: {
+      goToTip() {
+        console.log(this.$route.params)
+      }
+    },
     computed: {
       tip() {
         return this.$store.state.quizQuestions[0].tip
