@@ -10,33 +10,47 @@
 </script>
 
 <template>
-  <div class="flexbox-container2">
-    <nav class="navbar">
-      <MenuList />
-
+  <nav class="navbar">
+    <MenuList />
+    <a href="/">
       <img
         src="../../assets/EarthlyIcon.svg"
         alt=""
-        width="130"
+        width="150"
         height="70"
         class="image"
       />
+    </a>
+    <a href="/user">
       <button class="btnlog" type="submit">Log in</button>
-    </nav>
-  </div>
+    </a>
+  </nav>
 </template>
 
 <style>
   .btnlog {
+    border-radius: 1rem;
+    border-color: #0b604d;
+    margin-right: 15px;
+    text-align: center;
+    font-size: 15px;
   }
-  flexbox-container2 {
+  .flexbox-container2 {
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
-    background-color: red;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 15px;
   }
 
   .image {
-    align-items: flex-end;
+    align-items: center;
+    padding-left: 10px;
+    margin-left: 15px;
   }
 </style>
