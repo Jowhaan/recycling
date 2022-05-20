@@ -61,6 +61,7 @@ avatarBackground into SASS */
       }
     },
     computed: {
+      /* Kopierar personal-profiles arrayen och sorterar den så att de med högst poäng hamnar först för att sedan publicera i scoreboard. */
       scoreboard() {
         let scoreboard = [...this.$store.state.personalProfiles]
         scoreboard.sort(
@@ -68,9 +69,9 @@ avatarBackground into SASS */
             firstScore.quizScore - secondScore.quizScore
         )
         scoreboard.reverse()
-        console.log(scoreboard)
         return scoreboard
       },
+      /* Hämtar info om vilken level den inloggade användaren är */
       user() {
         var user = this.checkLevel(this.$store.state.currentUser)
         return user
@@ -118,12 +119,33 @@ avatarBackground into SASS */
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
 
+  /*
+  #outer {
+    width: 160px;
+    height: 160px;
+    background-color: gray;
+    border-radius: 50%;
+  }
+
+  #inner {
+    width: 140px;
+    height: 140px;
+    background-color: #eff3f2;
+    border-radius: 50%;
+  }
+  */
   .scoreboardPic {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+  }
+
+  .scoreboardCup {
+    width: 30px;
+    height: 30px;
   }
 
   .levelProgress {
@@ -157,6 +179,7 @@ avatarBackground into SASS */
 
 <template>
   <div id="center">
+    <!-- LOGIN PAGE -->
     <div v-if="!this.$store.state.loggedIn">
       <input v-model="userName" type="text" placeholder="Username" />
       <input v-model="password" type="password" placeholder="Password" />
@@ -168,6 +191,7 @@ avatarBackground into SASS */
       />
       <p>{{ errorMessage }}</p>
     </div>
+    <!-- PROFILE PAGE  -->
     <div v-if="this.$store.state.loggedIn">
       <div id="avatarBackground">
         <img id="avatar" :src="this.$store.state.currentUser.profilePic" />
@@ -175,30 +199,28 @@ avatarBackground into SASS */
       <h1>{{ this.$store.state.currentUser.userName }}</h1>
       <p>{{ user.lvlMessage }}</p>
       <div id="userLevel">
-        <div class="levelProgress">
-          <div>
-            <img :src="'../../assets/' + user.level + '.svg'" alt="" />
+        <div id="outer">
+          <div id="inner">
+            <div class="levelProgress">
+              <div>
+                <img :src="'../../assets/' + user.level + '.svg'" alt="" />
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                width="160px"
+                height="160px"
+              >
+                <circle
+                  cx="80"
+                  cy="80"
+                  r="70"
+                  stroke-linecap="round"
+                  :style="'stroke-dashoffset: ' + user.lvlProgress"
+                />
+              </svg>
+            </div>
           </div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            version="1.1"
-            width="160px"
-            height="160px"
-          >
-            <defs>
-              <linearGradient id="GradientColor">
-                <stop offset="0%" stop-color="#e91e63" />
-                <stop offset="100%" stop-color="#673ab7" />
-              </linearGradient>
-            </defs>
-            <circle
-              cx="80"
-              cy="80"
-              r="70"
-              stroke-linecap="round"
-              :style="'stroke-dashoffset: ' + user.lvlProgress"
-            />
-          </svg>
         </div>
       </div>
       <p>{{ user.pointsLeft }} points until next level</p>
@@ -207,6 +229,7 @@ avatarBackground into SASS */
         <img src="../../assets/globe.svg" alt="globe" id="globe" />
         <p>Saved CO2: {{ currentUser.savedCO2 }}</p>
       </div> -->
+      <!-- SCOREBOARD -->
       <table class="table">
         <thead>
           <tr>
@@ -214,41 +237,23 @@ avatarBackground into SASS */
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr v-for="leaders in scoreboard" :key="leaders.userId">
             <th scope="row">
               <img
                 class="scoreboardPic"
-                :src="'../../assets/' + scoreboard[0].profilePic"
+                :src="'../../assets/' + leaders.profilePic"
                 alt=""
               />
             </th>
-            <td>Cup</td>
-            <td>{{ scoreboard[0].userName }}</td>
-            <td>{{ scoreboard[0].quizScore }}</td>
-          </tr>
-          <tr>
-            <th scope="row">
+            <td>
               <img
-                class="scoreboardPic"
-                :src="'../../assets/' + scoreboard[1].profilePic"
-                alt=""
+                class="scoreboardCup"
+                :src="'../../assets/' + checkLevel(leaders).level + '.svg'"
+                :alt="checkLevel(leaders).level"
               />
-            </th>
-            <td>Cup</td>
-            <td>{{ scoreboard[1].userName }}</td>
-            <td>{{ scoreboard[1].quizScore }}</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <img
-                class="scoreboardPic"
-                :src="'../../assets/' + scoreboard[2].profilePic"
-                alt=""
-              />
-            </th>
-            <td>Cup</td>
-            <td>{{ scoreboard[2].userName }}</td>
-            <td>{{ scoreboard[2].quizScore }}</td>
+            </td>
+            <td>{{ leaders.userName }}</td>
+            <td>{{ leaders.quizScore }}</td>
           </tr>
         </tbody>
       </table>
