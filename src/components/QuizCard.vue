@@ -174,15 +174,17 @@
 
 <style scoped>
   .card {
-    height: 35rem;
-    width: 20rem;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+    margin: 20px auto;
+    border-radius: 20px;
+    text-align: center;
   }
-  .test {
-    padding-top: 2rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+
   label {
     margin: 10px;
     padding: 10px;
@@ -192,98 +194,160 @@
     display: block;
     width: auto;
   }
+
+  #xbox {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #quiz-btn-group {
+    width: 300px;
+  }
+  #quiz-right {
+    color: var(--bs-success);
+  }
+  #quiz-wrong {
+    color: var(--bs-danger);
+  }
+
+  /* Earthly talking */
+  #smileyEarthly {
+    position: absolute;
+    width: 100px;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  /* Popup container */
+  .chatbubble {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background-color: #5ab7a8;
+    color: #2b2b2b;
+    text-align: left;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  /* Chatbubble arrow */
+  .chatbubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 80%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #5ab7a8 transparent transparent transparent;
+  }
 </style>
 
 <template>
   <QuizProgress v-if="showIndicator" :indicator="indicator" />
-  <div class="card border border-2 border-search-icon-color rounded">
-    <div class="test">
-      <div class="quiz-flex-container">
-        <i class="bi bi-x-lg position-absolute top-0 end-0" />
-        <div v-if="continueQuiz">
-          <div v-if="isStarted">
-            <div class="quiz-flex-container" v-if="questionsIndex < 5">
-              <h3>
-                {{ this.questions[questionsIndex].question }}
-              </h3>
-              <div>
-                <div
-                  class="btn-group-vertical"
-                  role="group"
-                  aria-label="Basic radio toggle button group"
-                >
-                  <div
-                    id="quiz-btn-group"
-                    :key="this.answers[index]"
-                    v-for="(test, index) in this.answers"
-                  >
-                    <input
-                      v-model="answer"
-                      type="radio"
-                      :value="test"
-                      :checked="this.disableRadio"
-                      class="btn-check"
-                      :id="index"
-                      autocomplete="off"
-                    />
-                    <label class="btn btn-outline-primary" :for="index">{{
-                      test
-                    }}</label>
-                  </div>
-                </div>
+  <div class="card">
+    <div id="xbox"><i class="bi bi-x" /></div>
+    <!-- QUIZ -->
+    <div v-if="continueQuiz">
+      <div v-if="isStarted">
+        <div v-if="questionsIndex < 5">
+          <h3>
+            {{ this.questions[questionsIndex].question }}
+          </h3>
+          <div>
+            <div
+              class="btn-group-vertical"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <div
+                id="quiz-btn-group"
+                :key="this.answers[index]"
+                v-for="(test, index) in this.answers"
+              >
+                <input
+                  v-model="answer"
+                  type="radio"
+                  :value="test"
+                  :checked="this.disableRadio"
+                  class="btn-check"
+                  :id="index"
+                  autocomplete="off"
+                />
+                <label class="btn btn-outline-primary" :for="index">{{
+                  test
+                }}</label>
               </div>
             </div>
+          </div>
+        </div>
+        <div v-else>
+          <!-- RESULT PAGE -->
+          <div v-if="playAgain" />
+          <div v-else>
+            <!-- RESULT PAGE - HIGH SCORE -->
+            <div v-if="this.score > 4">
+              <h1>Great job!</h1>
+              <p>You scored {{ this.score }} out of 5</p>
+              <img src="../../assets/platinum.svg" alt="Celebrating Earthly" />
+              <button id="shadowBtn" @click="onPlayAgain">Play again</button>
+            </div>
+            <!-- RESULT PAGE - LOW SCORE -->
+            <div v-else-if="this.score < 1">
+              <h1>You'll get there!</h1>
+              <p>You scored {{ this.score }} out of 5</p>
+              <p>You need some more practice</p>
+              <img
+                src="../../assets/burningEarthly.svg"
+                alt="Burning Earthly"
+              />
+              <button id="shadowBtn" @click="onPlayAgain">Play again</button>
+            </div>
+            <!-- RESULT PAGE - MIDDLE SCORE -->
             <div v-else>
-              <div v-if="playAgain" />
-              <div class="quiz-flex-container" v-else>
-                <div v-if="this.score > 4">
-                  <h1>Great job!</h1>
-                  <p>You scored {{ this.score }} out of 5</p>
-                  <img
-                    src="../../assets/platinum.svg"
-                    alt="Celebrating Earth"
-                  />
-                  <button class="btn" @click="onPlayAgain">Play again</button>
-                </div>
-                <div v-else-if="this.score < 1">
-                  <h1>You'll get there!</h1>
-                  <p>You scored {{ this.score }} out of 5</p>
-                  <p>You need some more practice</p>
-                  <img
-                    src="../../assets/burningEarthly.svg"
-                    alt="Burning Earth"
-                  />
-                  <button class="btn" @click="onPlayAgain">Play again</button>
-                </div>
-                <div v-else>
-                  <h1>Good job!</h1>
-                  <p>You scored {{ this.score }} out of 5</p>
-                  <img src="../../assets/happyEarthly.svg" alt="Happy Earth" />
-                  <p>You could still learn some more about recycling</p>
-                  <button class="btn" @click="onPlayAgain">Play again</button>
-                </div>
-              </div>
+              <h1>Good job!</h1>
+              <p>You scored {{ this.score }} out of 5</p>
+              <img src="../../assets/smileyEarthly.svg" alt="Happy Earthly" />
+              <p>You could still learn some more about recycling</p>
+              <button id="shadowBtn" @click="onPlayAgain">Play again</button>
             </div>
           </div>
-          <div v-else>
-            <h3 id="start-quiz" @click="onStart">Start Quiz</h3>
-          </div>
         </div>
-        <div class="quiz-flex-container" v-else @click="onContinueQuiz">
+      </div>
+      <!-- START QUIZ PAGE -->
+      <div v-else>
+        <h1>Recycle Quiz</h1>
+        <div class="chatbubble">
           <p>
-            {{ this.questions[questionsIndex - 1].question }}
+            Learn more about recycling while competing for nice prizes. Answer
+            the questions and collect points. Share your result with friends
+            when you're done.
           </p>
-          <div v-if="rightAnswer">
-            <h3 id="quiz-right">
-              {{ this.questions[questionsIndex - 1].ifRight }}
-            </h3>
-          </div>
-          <div v-else>
-            <h3 id="quiz-wrong">
-              {{ this.questions[questionsIndex - 1].ifWrong }}
-            </h3>
-          </div>
+          <p @click="onStart"><u>Let's play!</u></p>
         </div>
+        <img
+          id="smileyEarthly"
+          src="../../assets/smileyEarthly.svg"
+          alt="Earthly"
+        />
+      </div>
+    </div>
+    <!-- RIGHT OR WRONG PAGE -->
+    <div class="card" v-else @click="onContinueQuiz">
+      <p>
+        {{ this.questions[questionsIndex - 1].question }}
+      </p>
+      <div v-if="rightAnswer">
+        <h3 id="quiz-right">
+          {{ this.questions[questionsIndex - 1].ifRight }}
+        </h3>
+      </div>
+      <div v-else>
+        <h3 id="quiz-wrong">
+          {{ this.questions[questionsIndex - 1].ifWrong }}
+        </h3>
       </div>
     </div>
   </div>

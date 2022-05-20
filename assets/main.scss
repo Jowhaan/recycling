@@ -76,21 +76,14 @@ img {
   line-height: 20px;
 }
 
-.quiz-flex-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-}
-#quiz-btn-group {
-  width: 300px;
-}
-#quiz-right {
-  color: var(--bs-success);
-}
-#quiz-wrong {
-  color: var(--bs-danger);
+#shadowBtn {
+  height: 40px;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: white;
+  border-style: solid;
+  border-color: var(--bs-primary);
+  box-shadow: 5px 5px 5px lightslategray;
 }
 
 .btn {
@@ -98,6 +91,7 @@ img {
   font-family: Poppins;
   width: 100%;
 }
+
 .list-group-item-action {
   color: var(-bs--text-color);
       font-family: "PoppinsRegular";
