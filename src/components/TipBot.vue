@@ -68,13 +68,6 @@
     border-radius: 0%;
     min-width: 0%;
   }
-  .dialogbox {
-    justify-content: space-between;
-    background-color: var(--bs-primary);
-    border-radius: 20px;
-    height: fit-content;
-    padding: 30px;
-  }
   #tipsarrow {
     position: absolute;
     right: 30px;
