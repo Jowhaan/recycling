@@ -10,7 +10,6 @@
         this.randomNumber = Math.floor(
           Math.random() * this.$store.state.quizQuestions.length
         )
-        console.log(this.randomNumber)
         return this.randomNumber
       },
       goToTipPage() {}
