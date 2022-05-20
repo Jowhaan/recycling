@@ -201,7 +201,7 @@
   }
 
   #quiz-btn-group {
-    width: 300px;
+    width: 250px;
   }
   #quiz-right {
     color: var(--bs-success);
@@ -335,7 +335,7 @@
       </div>
     </div>
     <!-- RIGHT OR WRONG PAGE -->
-    <div class="card" v-else @click="onContinueQuiz">
+    <div v-else @click="onContinueQuiz">
       <p>
         {{ this.questions[questionsIndex - 1].question }}
       </p>
