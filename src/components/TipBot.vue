@@ -5,6 +5,11 @@
         randomNumber: 0
       }
     },
+    props: {
+      amIHidden: {
+        type: Boolean
+      }
+    },
     methods: {
       getRandomNumber() {
         this.randomNumber = Math.floor(
@@ -26,7 +31,7 @@
 <template>
   <RouterLink :to="`/tip/${this.randomNumber}`"> Testlänk</RouterLink>
 
-  <div id="tipbotbox">
+  <div v-if="!amIHidden" id="tipbotbox">
     <div id="tipheaderbox">
       <h3 id="header">Todays tip:</h3>
       <img
