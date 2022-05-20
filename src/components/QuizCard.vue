@@ -212,10 +212,12 @@
     width: 250px;
   }
   #quiz-right {
-    color: var(--bs-success);
+    border: 2px solid var(--bs-success);
+    background-color: white;
   }
   #quiz-wrong {
-    color: var(--bs-danger);
+    border: 2px solid var(--bs-danger);
+    background-color: white;
   }
 
   /* Earthly talking */
@@ -256,14 +258,18 @@
 <template>
   <QuizProgress v-if="showIndicator" :indicator="indicator" />
   <div class="card">
-    <div id="xbox"><i class="bi bi-x" /></div>
+    <div id="xbox">
+      <RouterLink to="/"><i class="bi bi-x" /></RouterLink>
+    </div>
     <!-- QUIZ -->
     <div v-if="continueQuiz">
       <div v-if="isStarted">
         <div v-if="questionsIndex < 5">
-          <h3>
-            {{ this.questions[questionsIndex].question }}
-          </h3>
+          <p>
+            <b>
+              {{ this.questions[questionsIndex].question }}
+            </b>
+          </p>
           <div>
             <div
               class="btn-group-vertical"
@@ -347,17 +353,29 @@
     <!-- RIGHT OR WRONG PAGE -->
     <div v-else @click="onContinueQuiz">
       <p>
-        {{ this.questions[questionsIndex - 1].question }}
+        <b>
+          {{ this.questions[questionsIndex - 1].question }}
+        </b>
       </p>
-      <div v-if="rightAnswer">
-        <h3 id="quiz-right">
+      <div id="quiz-right" class="chatbubble" v-if="rightAnswer">
+        <p>
           {{ this.questions[questionsIndex - 1].ifRight }}
-        </h3>
+        </p>
+        <img
+          id="smileyEarthly"
+          src="../../assets/happyEarthly.svg"
+          alt="Earthly"
+        />
       </div>
-      <div v-else>
-        <h3 id="quiz-wrong">
+      <div id="quiz-wrong" class="chatbubble" v-else>
+        <p>
           {{ this.questions[questionsIndex - 1].ifWrong }}
-        </h3>
+        </p>
+        <img
+          id="smileyEarthly"
+          src="../../assets/sadEarthly.svg"
+          alt="Earthly"
+        />
       </div>
     </div>
   </div>
