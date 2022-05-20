@@ -9,10 +9,17 @@
     },
     data() {
       return {
-        hiddenTipBot: null
+        amIHidden: false
+      }
+    },
+    methods: {
+      onHideGlobe() {
+        this.amIHidden = true
       }
     }
   }
 </script>
 
-<template><SearchBar /> <TipBot /></template>
+<template>
+  <SearchBar @hide-globe="onHideGlobe" /> <TipBot :am-i-hidden="amIHidden" />
+</template>
