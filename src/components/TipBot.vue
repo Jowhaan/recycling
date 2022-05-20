@@ -27,22 +27,6 @@
   }
 </script>
 
-<template>
-  <div v-if="!amIHidden" id="tipbotbox">
-    <div id="tipheaderbox">
-      <h3 id="header">Todays tip:</h3>
-      <img id="earthy" src="../../assets/earthly.svg" alt="toon" />
-    </div>
-
-    <div class="dialogbox">
-      <p>{{ tipOfTheDay }}</p>
-      <RouterLink :to="`/tip/${this.randomNumber}`"
-        ><i id="tipsarrow" class="bi bi-arrow-right"
-      /></RouterLink>
-    </div>
-  </div>
-</template>
-
 <style lang="scss" scoped>
   #tipbotbox {
     visibility: visible;
@@ -80,3 +64,19 @@
     width: 21px;
   }
 </style>
+
+<template>
+  <div v-if="!amIHidden" id="tipbotbox">
+    <div id="tipheaderbox">
+      <h3 id="header">Todays tip:</h3>
+      <img id="earthy" src="../../assets/earthly.svg" alt="toon" />
+    </div>
+
+    <div class="dialogbox">
+      <p>{{ tipOfTheDay }}</p>
+      <RouterLink :to="`/tip/${this.randomNumber}`"
+        ><i id="tipsarrow" class="bi bi-arrow-right"
+      /></RouterLink>
+    </div>
+  </div>
+</template>
