@@ -107,6 +107,7 @@
       },
       onFocus() {
         this.inputFocus = true
+        this.$emit('hide-globe')
       },
       onSignClick(imagePath) {
         this.currentSign = []
@@ -130,7 +131,8 @@
           }
         })
       }
-    }
+    },
+    emits: ['hide-globe']
   }
 </script>
 

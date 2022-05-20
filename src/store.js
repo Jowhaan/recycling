@@ -15,7 +15,6 @@ const mutations = {
     }
   },
   state = {
-    todaysTip: 0 /* Försöker få tag på dagens tip på första sidan för att skicka vidare. */,
     loggedIn: false,
     currentUser: '',
     personalProfiles: [

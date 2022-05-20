@@ -86,6 +86,14 @@ img {
   box-shadow: 5px 5px 5px lightslategray;
 }
 
+.dialogbox {
+  justify-content: space-between;
+  background-color: var(--bs-primary);
+  border-radius: 20px;
+  height: fit-content;
+  padding: 30px;
+}
+
 .btn {
   color: var(--bs-text-color);
   font-family: Poppins;
