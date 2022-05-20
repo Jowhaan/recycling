@@ -185,6 +185,7 @@
     width: auto;
   }
 </style>
+
 <template>
   <QuizProgress v-if="showIndicator" :indicator="indicator" />
   <div class="card border border-2 border-search-icon-color rounded">
@@ -227,12 +228,32 @@
             <div v-else>
               <div v-if="playAgain" />
               <div class="quiz-flex-container" v-else>
-                <h1>{{ this.score }}/5</h1>
-                <h3 v-if="this.score > 4">Whooo! Greta would be proud</h3>
-                <h3 v-else>You still need to learn more about recycling</h3>
-                <p @click="onPlayAgain">
-                  <b>Tryck på denna texten för att Spela igen!</b>
-                </p>
+                <div v-if="this.score > 4">
+                  <h1>Great job!</h1>
+                  <p>You scored {{ this.score }} out of 5</p>
+                  <img
+                    src="../../assets/platinum.svg"
+                    alt="Celebrating Earth"
+                  />
+                  <button class="btn" @click="onPlayAgain">Play again</button>
+                </div>
+                <div v-else-if="this.score < 1">
+                  <h1>You'll get there!</h1>
+                  <p>You scored {{ this.score }} out of 5</p>
+                  <p>You need some more practice</p>
+                  <img
+                    src="../../assets/burningEarthly.svg"
+                    alt="Burning Earth"
+                  />
+                  <button class="btn" @click="onPlayAgain">Play again</button>
+                </div>
+                <div v-else>
+                  <h1>Good job!</h1>
+                  <p>You scored {{ this.score }} out of 5</p>
+                  <img src="../../assets/happyEarthly.svg" alt="Happy Earth" />
+                  <p>You could still learn some more about recycling</p>
+                  <button class="btn" @click="onPlayAgain">Play again</button>
+                </div>
               </div>
             </div>
           </div>
