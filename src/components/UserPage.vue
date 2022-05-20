@@ -119,15 +119,20 @@ avatarBackground into SASS */
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    margin: 10px;
   }
 
-  /*
   #outer {
-    width: 160px;
-    height: 160px;
-    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    background-color: #eff3f2;
     border-radius: 50%;
+    border-style: solid;
+    border-color: #f3e6b5;
+    border-width: 10px;
   }
 
   #inner {
@@ -136,7 +141,7 @@ avatarBackground into SASS */
     background-color: #eff3f2;
     border-radius: 50%;
   }
-  */
+
   .scoreboardPic {
     width: 30px;
     height: 30px;
@@ -151,7 +156,6 @@ avatarBackground into SASS */
   .levelProgress {
     width: 160px;
     height: 160px;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,6 +188,7 @@ avatarBackground into SASS */
       <input v-model="userName" type="text" placeholder="Username" />
       <input v-model="password" type="password" placeholder="Password" />
       <input
+        class="btn"
         type="button"
         value="Login"
         @click="login"
@@ -200,26 +205,27 @@ avatarBackground into SASS */
       <p>{{ user.lvlMessage }}</p>
       <div id="userLevel">
         <div id="outer">
-          <div id="inner">
-            <div class="levelProgress">
-              <div>
-                <img :src="'../../assets/' + user.level + '.svg'" alt="" />
-              </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                version="1.1"
-                width="160px"
-                height="160px"
-              >
-                <circle
-                  cx="80"
-                  cy="80"
-                  r="70"
-                  stroke-linecap="round"
-                  :style="'stroke-dashoffset: ' + user.lvlProgress"
-                />
-              </svg>
+          <div class="levelProgress">
+            <div>
+              <img
+                :src="'../../assets/' + user.level + '.svg'"
+                :alt="user.level"
+              />
             </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              width="160px"
+              height="160px"
+            >
+              <circle
+                cx="80"
+                cy="80"
+                r="70"
+                stroke-linecap="round"
+                :style="'stroke-dashoffset: ' + user.lvlProgress"
+              />
+            </svg>
           </div>
         </div>
       </div>
