@@ -36,7 +36,8 @@
         score: 0,
         disableRadio: null,
         indicator: 1,
-        indicatorBool: true
+        indicatorBool: true,
+        hover: false
       }
     },
     computed: {
@@ -325,11 +326,24 @@
             the questions and collect points. Share your result with friends
             when you're done.
           </p>
-          <p @click="onStart"><u>Let's play!</u></p>
+          <p
+            @mouseover="hover = true"
+            @mouseleave="hover = false"
+            @click="onStart"
+          >
+            <u>Let's play!</u>
+          </p>
         </div>
         <img
+          v-if="!hover"
           id="smileyEarthly"
           src="../../assets/smileyEarthly.svg"
+          alt="Earthly"
+        />
+        <img
+          v-else
+          id="smileyEarthly"
+          src="../../assets/happyEarthly.svg"
           alt="Earthly"
         />
       </div>
