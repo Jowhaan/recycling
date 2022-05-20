@@ -86,6 +86,10 @@ avatarBackground into SASS */
     text-align: center;
   }
 
+  input {
+    display: block;
+  }
+
   #avatar {
     width: 100px;
     height: 100px;
@@ -142,6 +146,13 @@ avatarBackground into SASS */
     border-radius: 50%;
   }
 
+  .login {
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    margin: 10px 20px 20px 20px;
+  }
+
   .scoreboardPic {
     width: 30px;
     height: 30px;
@@ -185,15 +196,25 @@ avatarBackground into SASS */
   <div id="center">
     <!-- LOGIN PAGE -->
     <div v-if="!this.$store.state.loggedIn">
-      <input v-model="userName" type="text" placeholder="Username" />
-      <input v-model="password" type="password" placeholder="Password" />
       <input
-        class="btn"
-        type="button"
-        value="Login"
+        class="form-control login"
+        v-model="userName"
+        type="text"
+        placeholder="Username"
+      />
+      <input
+        class="form-control login"
+        v-model="password"
+        type="password"
+        placeholder="Password"
+      />
+      <button
+        class="shadowBtn"
         @click="login"
         :disabled="userName.length === 0 && password.length === 0"
-      />
+      >
+        Login
+      </button>
       <p>{{ errorMessage }}</p>
     </div>
     <!-- PROFILE PAGE  -->

@@ -292,7 +292,7 @@
               <h1>Great job!</h1>
               <p>You scored {{ this.score }} out of 5</p>
               <img src="../../assets/platinum.svg" alt="Celebrating Earthly" />
-              <button id="shadowBtn" @click="onPlayAgain">Play again</button>
+              <button class="shadowBtn" @click="onPlayAgain">Play again</button>
             </div>
             <!-- RESULT PAGE - LOW SCORE -->
             <div v-else-if="this.score < 1">
@@ -303,7 +303,7 @@
                 src="../../assets/burningEarthly.svg"
                 alt="Burning Earthly"
               />
-              <button id="shadowBtn" @click="onPlayAgain">Play again</button>
+              <button class="shadowBtn" @click="onPlayAgain">Play again</button>
             </div>
             <!-- RESULT PAGE - MIDDLE SCORE -->
             <div v-else>
@@ -311,7 +311,7 @@
               <p>You scored {{ this.score }} out of 5</p>
               <img src="../../assets/smileyEarthly.svg" alt="Happy Earthly" />
               <p>You could still learn some more about recycling</p>
-              <button id="shadowBtn" @click="onPlayAgain">Play again</button>
+              <button class="shadowBtn" @click="onPlayAgain">Play again</button>
             </div>
           </div>
         </div>
