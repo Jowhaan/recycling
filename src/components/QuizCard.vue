@@ -13,6 +13,13 @@
         if (this.answer !== null) {
           this.nextQuestion()
         }
+      },
+      questionsIndex() {
+        if (this.questionsIndex === 5) {
+          if (this.$store.state.loggedIn) {
+            this.$store.commit('addPoints', this.score)
+          }
+        }
       }
     },
     data() {
@@ -164,6 +171,7 @@
     }
   }
 </script>
+
 <style scoped>
   .card {
     height: 35rem;

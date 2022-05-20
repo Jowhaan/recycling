@@ -8,6 +8,10 @@ const mutations = {
     logout(state) {
       state.loggedIn = false
       state.currentUser = ''
+    },
+    addPoints(state, points) {
+      state.currentUser.quizScore += points
+      state.currentUser.quizTaken += 1
     }
   },
   state = {
