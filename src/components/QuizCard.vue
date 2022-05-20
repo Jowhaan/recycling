@@ -47,6 +47,13 @@
         } else {
           return false
         }
+      },
+      onHover() {
+        if (this.hover === true) {
+          return '../../assets/happyEarthly.svg'
+        } else {
+          return '../../assets/smileyEarthly.svg'
+        }
       }
     },
     methods: {
@@ -334,18 +341,7 @@
             <u>Let's play!</u>
           </p>
         </div>
-        <img
-          v-if="!hover"
-          id="smileyEarthly"
-          src="../../assets/smileyEarthly.svg"
-          alt="Earthly"
-        />
-        <img
-          v-else
-          id="smileyEarthly"
-          src="../../assets/happyEarthly.svg"
-          alt="Earthly"
-        />
+        <img id="smileyEarthly" :src="onHover" alt="Earthly" />
       </div>
     </div>
     <!-- RIGHT OR WRONG PAGE -->
