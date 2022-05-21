@@ -15,7 +15,6 @@
         this.randomNumber = Math.floor(
           Math.random() * this.$store.state.quizQuestions.length
         )
-        console.log(this.randomNumber)
         return this.randomNumber
       },
       goToTipPage() {}
@@ -27,22 +26,6 @@
     }
   }
 </script>
-
-<template>
- <div v-if="!amIHidden" id="tipbotbox">
-    <div id="tipheaderbox">
-      <h3 id="header">Todays tip:</h3>
-      <img id="earthy" src="../../assets/earthly.svg" alt="toon" />
-    </div>
-
-    <div class="dialogbox">
-      <p>{{ tipOfTheDay }}</p>
-      <RouterLink :to="`/tip/${this.randomNumber}`"
-        ><i id="tipsarrow" class="bi bi-arrow-right"
-      /></RouterLink>
-    </div>
-  </div>
-</template>
 
 <style lang="scss" scoped>
   #tipbotbox {
@@ -81,3 +64,19 @@
     width: 21px;
   }
 </style>
+
+<template>
+  <div v-if="!amIHidden" id="tipbotbox">
+    <div id="tipheaderbox">
+      <h3 id="header">Todays tip:</h3>
+      <img id="earthy" src="../../assets/earthly.svg" alt="toon" />
+    </div>
+
+    <div class="dialogbox">
+      <p>{{ tipOfTheDay }}</p>
+      <RouterLink :to="`/tip/${this.randomNumber}`"
+        ><i id="tipsarrow" class="bi bi-arrow-right"
+      /></RouterLink>
+    </div>
+  </div>
+</template>
