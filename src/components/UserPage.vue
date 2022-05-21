@@ -1,6 +1,3 @@
-/* - Error message in RED (incorrect password) - disabled button doesn't work -
-avatarBackground into SASS */
-
 <script>
   export default {
     data() {
@@ -80,7 +77,7 @@ avatarBackground into SASS */
   }
 </script>
 
-<style>
+<style scoped>
   #center {
     margin: auto;
     text-align: center;
@@ -146,11 +143,26 @@ avatarBackground into SASS */
     border-radius: 50%;
   }
 
+  #form {
+    margin: 30px;
+  }
+
+  #errorMsg {
+    color: red;
+    margin: 20px;
+  }
+
   .login {
     border-radius: 20px;
     border-style: solid;
+    border-color: #5ab7a8;
     border-width: 2px;
-    margin: 10px 20px 20px 20px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .shadowBtn {
+    width: 100px;
   }
 
   .scoreboardPic {
@@ -185,17 +197,18 @@ avatarBackground into SASS */
     /* animation: anim 2s linear forwards; */
   }
 
+  /* Används för animering av levelcirkeln
   @keyframes anim {
     100% {
       stroke-dashoffset: 0;
     }
-  }
+  } */
 </style>
 
 <template>
   <div id="center">
     <!-- LOGIN PAGE -->
-    <div v-if="!this.$store.state.loggedIn">
+    <div id="form" v-if="!this.$store.state.loggedIn">
       <input
         class="form-control login"
         v-model="userName"
@@ -211,11 +224,11 @@ avatarBackground into SASS */
       <button
         class="shadowBtn"
         @click="login"
-        :disabled="userName.length === 0 && password.length === 0"
+        :disabled="userName.length === 0 || password.length === 0"
       >
         Login
       </button>
-      <p>{{ errorMessage }}</p>
+      <p id="errorMsg">{{ errorMessage }}</p>
     </div>
     <!-- PROFILE PAGE  -->
     <div v-if="this.$store.state.loggedIn">
