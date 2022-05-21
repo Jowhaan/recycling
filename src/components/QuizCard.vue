@@ -251,7 +251,7 @@
 </style>
 
 <template>
-  <QuizProgress v-if="showIndicator" :indicator="indicator" />
+  <QuizProgress :hidden="!showIndicator" :indicator="indicator" />
   <div class="card">
     <div id="xbox">
       <RouterLink to="/"><i class="bi bi-x" /></RouterLink>
