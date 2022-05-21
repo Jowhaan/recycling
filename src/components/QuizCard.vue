@@ -192,7 +192,6 @@
     border-radius: 20px;
     text-align: center;
   }
-
   label {
     margin: 10px;
     padding: 10px;
@@ -201,25 +200,23 @@
   .btn {
     display: block;
     width: auto;
+    border-radius: 10px;
   }
-
   #xbox {
     display: flex;
     justify-content: flex-end;
   }
-
   #quiz-btn-group {
     width: 250px;
   }
   #quiz-right {
-    border: 2px solid var(--bs-success);
+    border: 3px solid var(--bs-success);
     background-color: white;
   }
   #quiz-wrong {
-    border: 2px solid var(--bs-danger);
+    border: 3px solid var(--bs-danger);
     background-color: white;
   }
-
   /* Earthly talking */
   #smileyEarthly {
     position: absolute;
@@ -228,7 +225,6 @@
     right: 0;
     border-radius: 0;
   }
-
   /* Popup container */
   .chatbubble {
     width: 100%;
@@ -241,7 +237,6 @@
     padding: 20px;
     margin-top: 20px;
   }
-
   /* Chatbubble arrow */
   .chatbubble::after {
     content: '';
