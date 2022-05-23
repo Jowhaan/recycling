@@ -1,6 +1,3 @@
-/* - Error message in RED (incorrect password) - disabled button doesn't work -
-avatarBackground into SASS */
-
 <script>
   export default {
     data() {
@@ -80,10 +77,14 @@ avatarBackground into SASS */
   }
 </script>
 
-<style>
+<style scoped>
   #center {
     margin: auto;
     text-align: center;
+  }
+
+  input {
+    display: block;
   }
 
   #avatar {
@@ -142,6 +143,28 @@ avatarBackground into SASS */
     border-radius: 50%;
   }
 
+  #form {
+    margin: 30px;
+  }
+
+  #errorMsg {
+    color: red;
+    margin: 20px;
+  }
+
+  .login {
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #5ab7a8;
+    border-width: 2px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .shadowBtn {
+    width: 100px;
+  }
+
   .scoreboardPic {
     width: 30px;
     height: 30px;
@@ -174,27 +197,38 @@ avatarBackground into SASS */
     /* animation: anim 2s linear forwards; */
   }
 
+  /* Används för animering av levelcirkeln
   @keyframes anim {
     100% {
       stroke-dashoffset: 0;
     }
-  }
+  } */
 </style>
 
 <template>
   <div id="center">
     <!-- LOGIN PAGE -->
-    <div v-if="!this.$store.state.loggedIn">
-      <input v-model="userName" type="text" placeholder="Username" />
-      <input v-model="password" type="password" placeholder="Password" />
+    <div id="form" v-if="!this.$store.state.loggedIn">
       <input
-        class="btn"
-        type="button"
-        value="Login"
-        @click="login"
-        :disabled="userName.length === 0 && password.length === 0"
+        class="form-control login"
+        v-model="userName"
+        type="text"
+        placeholder="Username"
       />
-      <p>{{ errorMessage }}</p>
+      <input
+        class="form-control login"
+        v-model="password"
+        type="password"
+        placeholder="Password"
+      />
+      <button
+        class="shadowBtn"
+        @click="login"
+        :disabled="userName.length === 0 || password.length === 0"
+      >
+        Login
+      </button>
+      <p id="errorMsg">{{ errorMessage }}</p>
     </div>
     <!-- PROFILE PAGE  -->
     <div v-if="this.$store.state.loggedIn">
