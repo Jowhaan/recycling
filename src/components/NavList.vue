@@ -1,5 +1,17 @@
+<script>
+  export default {}
+</script>
+
 <template>
   <span style="display: flex; direction: column">
+    <span id="userLink" v-if="this.$store.state.loggedIn">
+      <img
+        src="this.$store.state.currentUser.profilePic"
+        alt="profile picture"
+      />
+      <p>{{ this.$store.state.currentUser.userName }}</p>
+    </span>
+
     <span id="menuIcons">
       <img src="../../assets/MenuIcons/tips-icon.svg" />
       <img src="../../assets/MenuIcons/quiz-icon.svg" />
