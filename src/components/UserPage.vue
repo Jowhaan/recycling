@@ -21,6 +21,9 @@
           }
         }
       },
+      submitForm() {
+        this.login() // one get input value
+      },
       /* Räknar ut en persons level för att visa rätt buckla och hur långt det är kvar till nästa level så att det kan markeras i cirkeln. En full cirkel är 472. */
       checkLevel(user) {
         let userScore = {
@@ -220,6 +223,7 @@
         v-model="password"
         type="password"
         placeholder="Password"
+        @keyup.enter="submitForm"
       />
       <button
         class="shadowBtn"
