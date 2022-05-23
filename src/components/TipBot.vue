@@ -26,25 +26,24 @@
 <template>
   <RouterLink :to="`/tip/${this.randomNumber}`"> Testlänk</RouterLink>
 
-  <div id="tipbotbox">
-    <div id="tipheaderbox">
-      <h3 id="header">Todays tip:</h3>
-      <img
-        id="earthy"
-        src="../../assets/earthly.svg"
-        alt="toon"
-        @click="clickText"
-      />
-    </div>
+  <div id="tipbotbox" />
+  <div id="tipheaderbox" />
 
-    <div class="dialogbox">
-      <p>{{ tipOfTheDay }}</p>
-      <i
-        @click="goToTipPage(randomNumber)"
-        id="tipsarrow"
-        class="bi bi-arrow-right"
-      />
-    </div>
+  <h3 id="header">Todays tip:</h3>
+  <img
+    id="earthy"
+    src="../../assets/earthly.svg"
+    alt="toon"
+    @click="clickText"
+  />
+
+  <div class="dialogbox">
+    <p>{{ tipOfTheDay }}</p>
+    <i
+      @click="goToTipPage(randomNumber)"
+      id="tipsarrow"
+      class="bi bi-arrow-right"
+    />
   </div>
 </template>
 <!-- <button data-bs-target="#myCarousel" data-bs-slide-to="5" /> -->
