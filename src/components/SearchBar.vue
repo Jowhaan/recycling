@@ -226,6 +226,7 @@
         style="height: 150px"
         class="trashSign"
         :src="'../../assets/RecyclingSigns/' + this.signClickedPath + '.svg'"
+        :alt="signClickedPath"
       />
       <p>Here you throw away:</p>
       <ul>

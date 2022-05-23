@@ -9,7 +9,7 @@
         <img
           id="profilePic"
           :src="this.$store.state.currentUser.profilePic"
-          alt="profile picture"
+          alt="Profile picture"
         />
         <h3>{{ this.$store.state.currentUser.userName }}</h3>
       </span>
@@ -18,9 +18,12 @@
     <span style="display: flex; direction: column">
       <span id="linkList">
         <span id="menuIcons">
-          <img src="../../assets/MenuIcons/tips-icon.svg" />
-          <img src="../../assets/MenuIcons/quiz-icon.svg" />
-          <img src="../../assets/MenuIcons/sorting-icon.svg" />
+          <img src="../../assets/MenuIcons/tips-icon.svg" alt="Star" />
+          <img src="../../assets/MenuIcons/quiz-icon.svg" alt="Trophy" />
+          <img
+            src="../../assets/MenuIcons/sorting-icon.svg"
+            alt="Recycling symbol"
+          />
         </span>
 
         <span id="menuLinks">

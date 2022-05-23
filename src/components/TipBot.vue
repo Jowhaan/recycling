@@ -49,7 +49,7 @@
     margin-top: 35px;
     margin-left: 10px;
   }
-  #earthy {
+  #earthly {
     margin-right: 26px;
     margin-bottom: -2px;
     margin-top: auto;
@@ -69,7 +69,7 @@
   <div v-if="!amIHidden" id="tipbotbox">
     <div id="tipheaderbox">
       <h3 id="header">Todays tip:</h3>
-      <img id="earthy" src="../../assets/earthly.svg" alt="toon" />
+      <img id="earthly" src="../../assets/earthly.svg" alt="Smiling Earth" />
     </div>
 
     <div class="dialogbox">

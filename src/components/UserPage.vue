@@ -233,7 +233,11 @@
     <!-- PROFILE PAGE  -->
     <div v-if="this.$store.state.loggedIn">
       <div id="avatarBackground">
-        <img id="avatar" :src="this.$store.state.currentUser.profilePic" />
+        <img
+          id="avatar"
+          :src="this.$store.state.currentUser.profilePic"
+          alt="Profile Picture"
+        />
       </div>
       <h1>{{ this.$store.state.currentUser.userName }}</h1>
       <p>{{ user.lvlMessage }}</p>
@@ -282,7 +286,7 @@
               <img
                 class="scoreboardPic"
                 :src="'../../assets/' + leaders.profilePic"
-                alt=""
+                alt="Profile Picture"
               />
             </th>
             <td>

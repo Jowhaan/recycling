@@ -90,9 +90,9 @@
           <div id="cardcontainer">
             <img
               id="cardImage"
-              src="../../assets/roundEarthly.svg"
+              src="../../assets/smileyEarthly.svg"
               class="d-block w-100"
-              alt="..."
+              alt="Smiling Earth"
             />
             <div id="tipcontainer">
               <h3>Did you know that:</h3>

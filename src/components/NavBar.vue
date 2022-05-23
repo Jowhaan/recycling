@@ -19,21 +19,21 @@
 </script>
 
 <template>
+  <MenuList />
   <nav class="navbar">
-    <MenuList />
-    <a href="/">
+    <RouterLink to="/">
       <img
         src="../../assets/EarthlyIcon.svg"
-        alt=""
+        alt="Earthly Logo"
         width="150"
         height="70"
         class="image"
       />
-    </a>
-    <div v-if="this.$store.state.loggedIn">
+    </RouterLink>
+    <span v-if="this.$store.state.loggedIn">
       <button class="btnlog" @click="logout()">Logout</button>
-    </div>
-    <div v-else><button class="btnlog" @click="goToLog()">Login</button></div>
+    </span>
+    <span v-else><button class="btnlog" @click="goToLog()">Login</button></span>
   </nav>
 </template>
 
@@ -57,7 +57,7 @@
   }
 
   .navbar {
-    display: flex;
+    display: inline-flex;
     justify-content: space-between;
     width: 100%;
     padding-left: 15px;

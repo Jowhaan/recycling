@@ -306,7 +306,7 @@
             <div v-if="this.score > 4">
               <h1>Great job!</h1>
               <p>You scored {{ this.score }} out of 5</p>
-              <img src="../../assets/platinum.svg" alt="Celebrating Earthly" />
+              <img src="../../assets/platinum.svg" alt="Celebrating Earth" />
               <button class="shadowBtn" @click="onPlayAgain">Play again</button>
             </div>
             <!-- RESULT PAGE - LOW SCORE -->
@@ -314,17 +314,14 @@
               <h1>You'll get there!</h1>
               <p>You scored {{ this.score }} out of 5</p>
               <p>You need some more practice</p>
-              <img
-                src="../../assets/burningEarthly.svg"
-                alt="Burning Earthly"
-              />
+              <img src="../../assets/burningEarthly.svg" alt="Burning Earth" />
               <button class="shadowBtn" @click="onPlayAgain">Play again</button>
             </div>
             <!-- RESULT PAGE - MIDDLE SCORE -->
             <div v-else>
               <h1>Good job!</h1>
               <p>You scored {{ this.score }} out of 5</p>
-              <img src="../../assets/smileyEarthly.svg" alt="Happy Earthly" />
+              <img src="../../assets/smileyEarthly.svg" alt="Happy Earth" />
               <p>You could still learn some more about recycling</p>
               <button class="shadowBtn" @click="onPlayAgain">Play again</button>
             </div>
@@ -348,7 +345,7 @@
             <u>Let's play!</u>
           </p>
         </div>
-        <img id="smileyEarthly" :src="onHover" alt="Earthly" />
+        <img id="smileyEarthly" :src="onHover" alt="Smiley Earth" />
       </div>
     </div>
     <!-- RIGHT OR WRONG PAGE -->
@@ -367,7 +364,7 @@
         <img
           id="smileyEarthly"
           src="../../assets/happyEarthly.svg"
-          alt="Earthly"
+          alt="Happy Earth"
         />
       </div>
       <div v-else>
@@ -379,7 +376,7 @@
         <img
           id="smileyEarthly"
           src="../../assets/sadEarthly.svg"
-          alt="Earthly"
+          alt="Sad Earth"
         />
       </div>
     </div>
