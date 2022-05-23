@@ -155,6 +155,8 @@
     align-items: center;
     padding-top: 20px;
     margin-top: 2rem;
+    margin-left: 15px;
+    margin-right: 15px;
   }
   .image-items {
     padding-top: 1rem;
@@ -172,6 +174,13 @@
     flex-grow: 1;
     align-items: center;
     margin-top: 20px;
+  }
+  #categories {
+    padding-top: 40px;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 20px;
   }
 </style>
 
@@ -204,10 +213,10 @@
         :src="'../../assets/RecyclingSigns/' + this.currentHitPath + '.svg'"
       />
       <p>What happens when i recycle?</p>
-      <p>{{ this.currentTrashObject.whatHappens }}</p>
+      <p style="">{{ this.currentTrashObject.whatHappens }}</p>
     </div>
-    <div v-if="showEntireSignList">
-      <h3 style="padding-top: 40px">Categories:</h3>
+    <div style="margin-left: 20px" v-if="showEntireSignList">
+      <h3 id="categories">Categories:</h3>
       <span
         :key="this.allImagePaths[index]"
         class="image-items"

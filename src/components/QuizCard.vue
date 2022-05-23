@@ -192,6 +192,7 @@
     border-radius: 20px;
     text-align: center;
     height: 70vh;
+    align-items: center;
   }
   label {
     margin: 10px;
@@ -205,7 +206,7 @@
   }
   #xbox {
     display: flex;
-    justify-content: flex-end;
+    width: 100%;
   }
   #quiz-btn-group {
     width: 250px;
@@ -306,7 +307,11 @@
             <div v-if="this.score > 4">
               <h1>Great job!</h1>
               <p>You scored {{ this.score }} out of 5</p>
-              <img src="../../assets/platinum.svg" alt="Celebrating Earth" />
+              <img
+                style="display: block"
+                src="../../assets/platinum.svg"
+                alt="Celebrating Earth"
+              />
               <button class="shadowBtn" @click="onPlayAgain">Play again</button>
             </div>
             <!-- RESULT PAGE - LOW SCORE -->
