@@ -225,7 +225,7 @@
     right: 0;
     border-radius: 0;
   }
-  /* Popup container */
+
   .chatbubble {
     width: 100%;
     height: 100%;
@@ -241,12 +241,18 @@
   .chatbubble::after {
     content: '';
     position: absolute;
-    top: 100%;
-    left: 80%;
-    margin-left: -5px;
-    border-width: 5px;
+    left: 60%;
+    margin: 20px;
+    border-width: 10px;
     border-style: solid;
     border-color: #5ab7a8 transparent transparent transparent;
+  }
+  #quiz-right.chatbubble::after {
+    border-color: var(--bs-success) transparent transparent transparent;
+  }
+
+  #quiz-wrong.chatbubble::after {
+    border-color: var(--bs-danger) transparent transparent transparent;
   }
 </style>
 
@@ -352,20 +358,24 @@
           {{ this.questions[questionsIndex - 1].question }}
         </b>
       </p>
-      <div id="quiz-right" class="chatbubble" v-if="rightAnswer">
-        <p>
-          {{ this.questions[questionsIndex - 1].ifRight }}
-        </p>
+      <div v-if="rightAnswer">
+        <div id="quiz-right" class="chatbubble">
+          <p>
+            {{ this.questions[questionsIndex - 1].ifRight }}
+          </p>
+        </div>
         <img
           id="smileyEarthly"
           src="../../assets/happyEarthly.svg"
           alt="Earthly"
         />
       </div>
-      <div id="quiz-wrong" class="chatbubble" v-else>
-        <p>
-          {{ this.questions[questionsIndex - 1].ifWrong }}
-        </p>
+      <div v-else>
+        <div id="quiz-wrong" class="chatbubble">
+          <p>
+            {{ this.questions[questionsIndex - 1].ifWrong }}
+          </p>
+        </div>
         <img
           id="smileyEarthly"
           src="../../assets/sadEarthly.svg"
