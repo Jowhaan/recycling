@@ -97,16 +97,6 @@
     margin: 20px;
   }
 
-  .shadowBtn {
-    height: 40px;
-    justify-content: center;
-    border-radius: 10px;
-    background-color: var(--bs-secondary-background);
-    border-style: solid;
-    border-color: var(--bs-primary);
-    box-shadow: 5px 5px 5px lightslategray;
-  }
-
   #avatarBackground {
     background: linear-gradient(
       to bottom,

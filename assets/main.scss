@@ -15,54 +15,52 @@ $theme-colors: (
   'earth-surface-blobs': #0d986e,
   'earth-cheek': #fd8798,
   'earth-branch': #003f3f,
-  'earth-smiley': #2b2b2b,
+  'earth-smiley': #2b2b2b
 );
 
 @font-face {
-  font-family: "PoppinsRegular";
+  font-family: 'PoppinsRegular';
   font-weight: normal;
   font-style: normal;
-  src: url("Poppins-Regular.ttf") format("truetype");
+  src: url('Poppins-Regular.ttf') format('truetype');
 }
 @font-face {
-  font-family: "PoppinsMedium";
+  font-family: 'PoppinsMedium';
   font-weight: normal;
   font-style: normal;
-  src: url("Poppins-Medium.ttf") format("truetype");
+  src: url('Poppins-Medium.ttf') format('truetype');
 }
 @font-face {
-  font-family: "PoppinsBold";
+  font-family: 'PoppinsBold';
   font-weight: normal;
   font-style: normal;
-  src: url("Poppins-Bold.ttf") format("truetype");
+  src: url('Poppins-Bold.ttf') format('truetype');
 }
 
 h1 {
   color: var(--bs-text-color);
-  font-family: "PoppinsBold";
+  font-family: 'PoppinsBold';
   font-size: 24px;
   line-height: 32px;
 }
 
 h2 {
   color: var(--bs-text-color);
-  font-family: "PoppinsMedium";
+  font-family: 'PoppinsMedium';
   font-size: 20px;
   line-height: 28px;
 }
 
-
-
 h3 {
   color: var(--bs-text-color);
-  font-family: "PoppinsBold";
+  font-family: 'PoppinsBold';
   font-size: 16px;
   line-height: 20px;
 }
 
 p {
   color: var(--bs-text-color);
-  font-family: "PoppinsRegular";
+  font-family: 'PoppinsRegular';
   font-size: 16px;
   line-height: 20px;
 }
@@ -79,12 +77,10 @@ img {
 
 #link {
   color: var(--bs-text-color);
-  font-family: "PoppinsRegular";
+  font-family: 'PoppinsRegular';
   font-size: 16px;
   line-height: 20px;
 }
-
-
 
 .dialogbox {
   justify-content: space-between;
@@ -99,15 +95,24 @@ img {
   font-family: Poppins;
   width: 100%;
 }
+.shadowBtn {
+  height: 40px;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: var(--bs-secondary-background);
+  border-style: solid;
+  border-color: var(--bs-primary);
+  box-shadow: 5px 5px 5px lightslategray;
+}
 
 .list-group-item-action {
   color: var(-bs--text-color);
-      font-family: "PoppinsRegular";
-      font-size: 16px;
-      line-height: 20px;
-      &:hover {
-        color: var(--bs-primary);
-      }
+  font-family: 'PoppinsRegular';
+  font-size: 16px;
+  line-height: 20px;
+  &:hover {
+    color: var(--bs-primary);
+  }
 }
 
 $carousel-control-color: var(--bs-text-color);
@@ -129,9 +134,6 @@ $list-group-action-hover-color: map-get($theme-colors, 'primary');
 
 $list-group-action-active-color: map-get($theme-colors, 'primary');
 $list-group-action-active-bg: list-group-bg;
-
-
-
 
 /* IF WE DISCOVER THAT WE NEED ONLY SOME FEW BOOTSTRAP-IMPORTS:
     change first link to several needed imports.
