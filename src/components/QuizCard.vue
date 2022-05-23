@@ -188,9 +188,10 @@
     padding-left: 30px;
     padding-right: 30px;
     background-color: white;
-    margin: 20px auto;
+    margin: 20px;
     border-radius: 20px;
     text-align: center;
+    height: 70vh;
   }
   label {
     margin: 10px;
