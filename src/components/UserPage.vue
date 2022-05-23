@@ -80,7 +80,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   #center {
     margin: auto;
     text-align: center;
@@ -97,13 +97,23 @@
     margin: 20px;
   }
 
+  .shadowBtn {
+    height: 40px;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: var(--bs-secondary-background);
+    border-style: solid;
+    border-color: var(--bs-primary);
+    box-shadow: 5px 5px 5px lightslategray;
+  }
+
   #avatarBackground {
     background: linear-gradient(
       to bottom,
-      #5ab7a8 0%,
-      #5ab7a8 50%,
-      #eff3f2 50%,
-      #eff3f2 100%
+      var(--bs-primary) 0%,
+      var(--bs-primary) 50%,
+      var(--bs-primary-background) 50%,
+      var(--bs-primary-background) 100%
     );
     height: 100%;
     width: 100%;
@@ -132,7 +142,7 @@
     justify-content: center;
     width: 150px;
     height: 150px;
-    background-color: #eff3f2;
+    background-color: var(--bs-primary-background);
     border-radius: 50%;
     border-style: solid;
     border-color: #f3e6b5;
@@ -142,7 +152,7 @@
   #inner {
     width: 140px;
     height: 140px;
-    background-color: #eff3f2;
+    background-color: var(--bs-primary-background);
     border-radius: 50%;
   }
 
@@ -151,14 +161,14 @@
   }
 
   #errorMsg {
-    color: red;
+    color: var(--bs-danger);
     margin: 20px;
   }
 
   .login {
     border-radius: 20px;
     border-style: solid;
-    border-color: #5ab7a8;
+    border-color: var(--bs-primary);
     border-width: 2px;
     margin: 20px auto;
     padding: 10px;

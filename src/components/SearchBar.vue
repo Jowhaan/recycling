@@ -136,7 +136,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .trashSign {
     height: 80px;
   }
@@ -165,7 +165,7 @@
     text-align: center;
   }
   .flexbox-item-input {
-    border: 3px solid #0b604d;
+    border: 3px solid var(--bs-search-icon-color);
     height: 30px;
     width: 70%;
     border-radius: 80px;

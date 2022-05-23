@@ -2,49 +2,6 @@
   export default {}
 </script>
 
-<template>
-  <div id="rootBox">
-    <RouterLink to="/user" class="list-group-item list-group-item-action">
-      <span id="userLink" v-if="this.$store.state.loggedIn">
-        <img
-          id="profilePic"
-          :src="this.$store.state.currentUser.profilePic"
-          alt="Profile picture"
-        />
-        <h3>{{ this.$store.state.currentUser.userName }}</h3>
-      </span>
-    </RouterLink>
-
-    <span style="display: flex; direction: column">
-      <span id="linkList">
-        <span id="menuIcons">
-          <img src="../../assets/MenuIcons/tips-icon.svg" alt="Star" />
-          <img src="../../assets/MenuIcons/quiz-icon.svg" alt="Trophy" />
-          <img
-            src="../../assets/MenuIcons/sorting-icon.svg"
-            alt="Recycling symbol"
-          />
-        </span>
-
-        <span id="menuLinks">
-          <RouterLink to="/tip" class="list-group-item list-group-item-action">
-            Tips</RouterLink
-          >
-          <RouterLink to="/quiz" class="list-group-item list-group-item-action"
-            >Quiz
-          </RouterLink>
-          <RouterLink
-            to="/"
-            class="list-group-item list-group-item-action"
-            id="link"
-            >Sorting
-          </RouterLink>
-        </span>
-      </span>
-    </span>
-  </div>
-</template>
-
 <style lang="scss" scoped>
   #rootBox {
     display: flex;
@@ -89,3 +46,46 @@
     padding-top: 80px;
   }
 </style>
+
+<template>
+  <div id="rootBox">
+    <RouterLink to="/user" class="list-group-item list-group-item-action">
+      <span id="userLink" v-if="this.$store.state.loggedIn">
+        <img
+          id="profilePic"
+          :src="this.$store.state.currentUser.profilePic"
+          alt="Profile picture"
+        />
+        <h3>{{ this.$store.state.currentUser.userName }}</h3>
+      </span>
+    </RouterLink>
+
+    <span style="display: flex; direction: column">
+      <span id="linkList">
+        <span id="menuIcons">
+          <img src="../../assets/MenuIcons/tips-icon.svg" alt="Star" />
+          <img src="../../assets/MenuIcons/quiz-icon.svg" alt="Trophy" />
+          <img
+            src="../../assets/MenuIcons/sorting-icon.svg"
+            alt="Recycling symbol"
+          />
+        </span>
+
+        <span id="menuLinks">
+          <RouterLink to="/tip" class="list-group-item list-group-item-action">
+            Tips</RouterLink
+          >
+          <RouterLink to="/quiz" class="list-group-item list-group-item-action"
+            >Quiz
+          </RouterLink>
+          <RouterLink
+            to="/"
+            class="list-group-item list-group-item-action"
+            id="link"
+            >Sorting
+          </RouterLink>
+        </span>
+      </span>
+    </span>
+  </div>
+</template>

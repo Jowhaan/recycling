@@ -28,41 +28,6 @@
   }
 </script>
 
-<template>
-  <!-- SIDE BAR -->
-
-  <div :class="backgroundFade" id="secondBackground" />
-  <div :class="menuPosition" id="sidebar">
-    <div id="menubar">
-      <div id="side-navbar">
-        <div @click="hideMenu" class="list-group">
-          <NavList />
-        </div>
-      </div>
-      <i @click="hideMenu" class="bi bi-x" id="closeIcon" />
-    </div>
-    <div @click="hideMenu" id="clickSurface" />
-  </div>
-
-  <!-- NAV BAR -->
-  <nav class="navbar">
-    <i @click="showMenu" class="bi bi-list" />
-    <RouterLink to="/">
-      <img
-        src="../../assets/EarthlyIcon.svg"
-        alt="Earthly Logo"
-        width="150"
-        height="70"
-        class="image"
-      />
-    </RouterLink>
-    <span v-if="this.$store.state.loggedIn">
-      <p class="btnlog" @click="logout()">Logout</p>
-    </span>
-    <span v-else><p class="btnlog" @click="goToLog()">Login</p></span>
-  </nav>
-</template>
-
 <style lang="scss" scoped>
   #sidebar {
     display: flex;
@@ -148,3 +113,38 @@
     margin-left: 15px;
   }
 </style>
+
+<template>
+  <!-- SIDE BAR -->
+
+  <div :class="backgroundFade" id="secondBackground" />
+  <div :class="menuPosition" id="sidebar">
+    <div id="menubar">
+      <div id="side-navbar">
+        <div @click="hideMenu" class="list-group">
+          <NavList />
+        </div>
+      </div>
+      <i @click="hideMenu" class="bi bi-x" id="closeIcon" />
+    </div>
+    <div @click="hideMenu" id="clickSurface" />
+  </div>
+
+  <!-- NAV BAR -->
+  <nav class="navbar">
+    <i @click="showMenu" class="bi bi-list" />
+    <RouterLink to="/">
+      <img
+        src="../../assets/EarthlyIcon.svg"
+        alt="Earthly Logo"
+        width="150"
+        height="70"
+        class="image"
+      />
+    </RouterLink>
+    <span v-if="this.$store.state.loggedIn">
+      <p class="btnlog" @click="logout()">Logout</p>
+    </span>
+    <span v-else><p class="btnlog" @click="goToLog()">Login</p></span>
+  </nav>
+</template>

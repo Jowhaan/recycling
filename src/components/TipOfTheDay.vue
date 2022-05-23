@@ -59,12 +59,12 @@
     border-radius: 20px 20px 0px 0px;
   }
   h3 {
-    color: white;
+    color: var(--bs-secondary-background);
     font-size: 16px;
     line-height: 20px;
   }
   p {
-    color: white;
+    color: var(--bs-secondary-background);
     line-height: 24px;
   }
 

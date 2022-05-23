@@ -180,14 +180,14 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .card {
     display: flex;
     flex-direction: column;
     padding-top: 20px;
     padding-left: 30px;
     padding-right: 30px;
-    background-color: white;
+    background-color: var(--bs-secondary-background);
     margin: 20px;
     border-radius: 20px;
     text-align: center;
@@ -212,11 +212,11 @@
   }
   #quiz-right {
     border: 3px solid var(--bs-success);
-    background-color: white;
+    background-color: var(--bs-secondary-background);
   }
   #quiz-wrong {
     border: 3px solid var(--bs-danger);
-    background-color: white;
+    background-color: var(--bs-secondary-background);
   }
   /* Earthly talking */
   #smileyEarthly {
@@ -231,8 +231,7 @@
     width: 100%;
     height: 100%;
     display: inline-block;
-    background-color: #5ab7a8;
-    color: #2b2b2b;
+    background-color: var(--bs-primary);
     text-align: left;
     border-radius: 20px;
     padding: 20px;
@@ -246,7 +245,7 @@
     margin: 20px;
     border-width: 10px;
     border-style: solid;
-    border-color: #5ab7a8 transparent transparent transparent;
+    border-color: var(--bs-primary) transparent transparent transparent;
   }
   #quiz-right.chatbubble::after {
     border-color: var(--bs-success) transparent transparent transparent;
