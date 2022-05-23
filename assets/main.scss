@@ -9,7 +9,13 @@ $theme-colors: (
   'warning': #ffc107,
   'danger': #dc3545,
 
-  'text-color': #2b2b2b
+  'text-color': #2b2b2b,
+
+  'earth-surface': #7ad6c7,
+  'earth-surface-blobs': #0d986e,
+  'earth-cheek': #fd8798,
+  'earth-branch': #003f3f,
+  'earth-smiley': #2b2b2b,
 );
 
 @font-face {
@@ -78,21 +84,22 @@ img {
   line-height: 20px;
 }
 
-.quiz-flex-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
+.shadowBtn {
+  height: 40px;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: white;
+  border-style: solid;
+  border-color: var(--bs-primary);
+  box-shadow: 5px 5px 5px lightslategray;
 }
-#quiz-btn-group {
-  width: 300px;
-}
-#quiz-right {
-  color: var(--bs-success);
-}
-#quiz-wrong {
-  color: var(--bs-danger);
+
+.dialogbox {
+  justify-content: space-between;
+  background-color: var(--bs-primary);
+  border-radius: 20px;
+  height: fit-content;
+  padding: 30px;
 }
 
 .btn {
@@ -100,6 +107,7 @@ img {
   font-family: Poppins;
   width: 100%;
 }
+
 .list-group-item-action {
   color: var(-bs--text-color);
       font-family: "PoppinsRegular";

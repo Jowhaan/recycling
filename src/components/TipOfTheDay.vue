@@ -23,16 +23,57 @@
   }
 </script>
 
-<style>
-  .card {
-    height: 35rem;
-    width: 20rem;
-    margin: auto;
+<style lang="scss" scoped>
+  #rootcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin: 30px;
+    height: 80vh;
+  }
+
+  #cardcontainer {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    width: 70vw;
+    background-color: rgba(98, 193, 175, 0.18);
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: 5px 5px 30px rgba(0, 0, 30, 0.5);
   }
 
   #cardImage {
-    margin-top: 25px;
-    height: 220px;
+    display: flex;
+    padding: 20px 40px 0px 40px;
+    flex-grow: 1;
+    margin: auto;
+  }
+
+  #tipcontainer {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    flex-grow: 10;
+    background-color: var(--bs-earth-branch);
+    border-radius: 20px 20px 0px 0px;
+  }
+  h3 {
+    color: white;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  p {
+    color: white;
+    line-height: 24px;
+  }
+
+  i {
+    font-size: 38px;
+    &:hover {
+      color: var(--bs-earth-branch);
+    }
+    color: rgba(0, 0, 0, 0.46);
   }
 </style>
 
@@ -45,21 +86,20 @@
         class="carousel-item"
         :class="{ active: index - 1 == $route.params.tipNum }"
       >
-        <div class="card border border-5 border-white rounded">
-          <i class="bi bi-share position-absolute top-0 end-0" />
-          <div id="cardImage">
-            <!-- <img :src="pic" class="d-block w-100" alt="..." /> -->
+        <div id="rootcontainer">
+          <div id="cardcontainer">
             <img
+              id="cardImage"
               src="../../assets/roundEarthly.svg"
               class="d-block w-100"
               alt="..."
             />
-          </div>
-          <div class="card-body">
-            <p class="card-title"><b>Did you know that:</b></p>
-            <p class="card-text">
-              {{ card.tip }}
-            </p>
+            <div id="tipcontainer">
+              <h3>Did you know that:</h3>
+              <p class="card-text">
+                {{ card.tip }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -70,17 +110,22 @@
       data-bs-target="#myCarousel"
       data-bs-slide="prev"
     >
-      <span class="carousel-control-prev-icon" aria-hidden="true" />
+      <i class="bi bi-arrow-left-circle-fill" />
       <span class="visually-hidden">Previous</span>
     </button>
+
     <button
       class="carousel-control-next"
       type="button"
       data-bs-target="#myCarousel"
       data-bs-slide="next"
     >
-      <span class="carousel-control-next-icon" aria-hidden="true" />
+      <i class="bi bi-arrow-right-circle-fill" />
       <span class="visually-hidden">Next</span>
     </button>
   </div>
 </template>
+
+<!-- Code for having different pics for each tip
+<img :src="pic" class="d-block w-100" alt="..." />
+-->
