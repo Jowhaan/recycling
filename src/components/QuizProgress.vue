@@ -7,6 +7,9 @@
       indicator: {
         type: Number,
         default: 0
+      },
+      isHidden: {
+        type: Boolean
       }
     }
   }
@@ -25,6 +28,7 @@
 <template>
   <div class="quiz-progress">
     <span
+      :hidden="isHidden"
       class="quiz-dot"
       :style="{
         color:
