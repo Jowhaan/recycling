@@ -1,5 +1,7 @@
 <script>
   import QuizProgress from './QuizProgress.vue'
+  import happyEarthly from '../../assets/happyEarthly.svg'
+  import smileyEarthly from '../../assets/smileyEarthly.svg'
   export default {
     created() {
       this.getQuestions()
@@ -24,6 +26,8 @@
     },
     data() {
       return {
+        happyEarthly,
+        smileyEarthly,
         isStarted: false,
         playAgain: false,
         rightAnswer: null,
@@ -50,9 +54,9 @@
       },
       onHover() {
         if (this.hover === true) {
-          return '../../assets/happyEarthly.svg'
+          return this.happyEarthly
         } else {
-          return '../../assets/smileyEarthly.svg'
+          return this.smileyEarthly
         }
       }
     },

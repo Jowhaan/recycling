@@ -1,3 +1,22 @@
+@font-face {
+  font-family: 'PoppinsRegular';
+  font-weight: normal;
+  font-style: normal;
+  src: url('Poppins-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'PoppinsMedium';
+  font-weight: normal;
+  font-style: normal;
+  src: url('Poppins-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'PoppinsBold';
+  font-weight: normal;
+  font-style: normal;
+  src: url('Poppins-Bold.ttf') format('truetype');
+}
+
 $theme-colors: (
   'primary': #5ab7a8,
   'primary-background': #eff3f2,
@@ -17,25 +36,6 @@ $theme-colors: (
   'earth-branch': #003f3f,
   'earth-smiley': #2b2b2b
 );
-
-@font-face {
-  font-family: 'PoppinsRegular';
-  font-weight: normal;
-  font-style: normal;
-  src: url('Poppins-Regular.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'PoppinsMedium';
-  font-weight: normal;
-  font-style: normal;
-  src: url('Poppins-Medium.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'PoppinsBold';
-  font-weight: normal;
-  font-style: normal;
-  src: url('Poppins-Bold.ttf') format('truetype');
-}
 
 h1 {
   color: var(--bs-text-color);

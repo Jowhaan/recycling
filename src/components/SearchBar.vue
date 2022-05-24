@@ -210,7 +210,7 @@
       <img
         style="height: 150px"
         class="trashSign"
-        :src="'../../assets/RecyclingSigns/' + this.currentHitPath + '.svg'"
+        :src="'/RecyclingSigns/' + this.currentHitPath + '.svg'"
       />
       <p>What happens when i recycle?</p>
       <p style="">{{ this.currentTrashObject.whatHappens }}</p>
@@ -224,7 +224,7 @@
       >
         <img
           class="trashSign"
-          :src="'../../assets/RecyclingSigns/' + imagePath + '.svg'"
+          :src="'/RecyclingSigns/' + imagePath + '.svg'"
           :alt="imagePath"
           @click="onSignClick(imagePath)"
         />
@@ -234,7 +234,7 @@
       <img
         style="height: 150px"
         class="trashSign"
-        :src="'../../assets/RecyclingSigns/' + this.signClickedPath + '.svg'"
+        :src="'/RecyclingSigns/' + this.signClickedPath + '.svg'"
         :alt="signClickedPath"
       />
       <p>Here you throw away:</p>
@@ -257,7 +257,7 @@
         <img
           style="height: 150px"
           class="trashSign"
-          :src="'../../assets/RecyclingSigns/' + imagePath + '.svg'"
+          :src="'/RecyclingSigns/' + imagePath + '.svg'"
           :alt="imagePath"
           @click="onSignClick(imagePath)"
         />

@@ -1,3 +1,5 @@
+import { registerSW } from 'virtual:pwa-register'
+registerSW()
 import { createApp } from 'vue'
 
 import App from './App.vue'
