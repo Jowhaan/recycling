@@ -286,7 +286,7 @@
             <th scope="row">
               <img
                 class="scoreboardPic"
-                :src="'/' + leaders.profilePic"
+                :src="leaders.profilePic"
                 alt="Profile Picture"
               />
             </th>

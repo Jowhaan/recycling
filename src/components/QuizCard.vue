@@ -324,7 +324,7 @@
               <p>You scored {{ this.score }} out of 5</p>
               <img
                 class="resultImg"
-                src="../../assets/platinum.svg"
+                src="/platinum.svg"
                 alt="Celebrating Earth"
               />
               <button class="shadowBtn" @click="onPlayAgain">Play again</button>
