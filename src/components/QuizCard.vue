@@ -230,6 +230,15 @@
     border-radius: 0;
   }
 
+  .resultDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .resultImg {
+    display: block;
+  }
   .chatbubble {
     width: 100%;
     height: 100%;
@@ -306,29 +315,37 @@
           <div v-if="playAgain" />
           <div v-else>
             <!-- RESULT PAGE - HIGH SCORE -->
-            <div v-if="this.score > 4">
+            <div class="resultDiv" v-if="this.score > 4">
               <h1>Great job!</h1>
               <p>You scored {{ this.score }} out of 5</p>
               <img
-                style="display: block"
+                class="resultImg"
                 src="../../assets/platinum.svg"
                 alt="Celebrating Earth"
               />
               <button class="shadowBtn" @click="onPlayAgain">Play again</button>
             </div>
             <!-- RESULT PAGE - LOW SCORE -->
-            <div v-else-if="this.score < 1">
+            <div class="resultDiv" v-else-if="this.score < 1">
               <h1>You'll get there!</h1>
               <p>You scored {{ this.score }} out of 5</p>
               <p>You need some more practice</p>
-              <img src="../../assets/burningEarthly.svg" alt="Burning Earth" />
+              <img
+                class="resultImg"
+                src="../../assets/burningEarthly.svg"
+                alt="Burning Earth"
+              />
               <button class="shadowBtn" @click="onPlayAgain">Play again</button>
             </div>
             <!-- RESULT PAGE - MIDDLE SCORE -->
-            <div v-else>
+            <div class="resultDiv" v-else>
               <h1>Good job!</h1>
               <p>You scored {{ this.score }} out of 5</p>
-              <img src="../../assets/smileyEarthly.svg" alt="Happy Earth" />
+              <img
+                class="resultImg"
+                src="../../assets/smileyEarthly.svg"
+                alt="Happy Earth"
+              />
               <p>You could still learn some more about recycling</p>
               <button class="shadowBtn" @click="onPlayAgain">Play again</button>
             </div>
