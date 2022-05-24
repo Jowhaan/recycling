@@ -249,10 +249,7 @@
         <div id="outer">
           <div class="levelProgress">
             <div>
-              <img
-                :src="'../../assets/' + user.level + '.svg'"
-                :alt="user.level"
-              />
+              <img :src="'/' + user.level + '.svg'" :alt="user.level" />
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -289,14 +286,14 @@
             <th scope="row">
               <img
                 class="scoreboardPic"
-                :src="'../../assets/' + leaders.profilePic"
+                :src="'/' + leaders.profilePic"
                 alt="Profile Picture"
               />
             </th>
             <td>
               <img
                 class="scoreboardCup"
-                :src="'../../assets/' + checkLevel(leaders).level + '.svg'"
+                :src="'/' + checkLevel(leaders).level + '.svg'"
                 :alt="checkLevel(leaders).level"
               />
             </td>
