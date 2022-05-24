@@ -206,6 +206,8 @@
   }
   #xbox {
     display: flex;
+    flex-direction: row-reverse;
+    margin-right: 5px;
     width: 100%;
   }
   #quiz-btn-group {
