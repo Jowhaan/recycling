@@ -78,10 +78,7 @@
           <RouterLink to="/quiz" class="list-group-item list-group-item-action"
             >Quiz
           </RouterLink>
-          <RouterLink
-            to="/"
-            class="list-group-item list-group-item-action"
-            id="link"
+          <RouterLink to="/" class="list-group-item list-group-item-action"
             >Sorting
           </RouterLink>
         </span>
