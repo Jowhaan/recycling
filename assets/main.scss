@@ -136,15 +136,5 @@ $list-group-action-hover-color: map-get($theme-colors, 'primary');
 $list-group-action-active-color: map-get($theme-colors, 'primary');
 $list-group-action-active-bg: list-group-bg;
 
-/* IF WE DISCOVER THAT WE NEED ONLY SOME FEW BOOTSTRAP-IMPORTS:
-    change first link to several needed imports.
-*/
-
 @import 'bootstrap/scss/bootstrap';
-
-/* BOOTSTRAP ICONS
-    use as font -example icon-element:
-    <i class="bi bi-list" style="font-size: 2rem; color: cornflowerblue" />
-*/
-
 @import 'bootstrap-icons';

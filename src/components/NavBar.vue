@@ -1,4 +1,5 @@
 <script>
+  // SIDE BAR
   import NavList from './NavList.vue'
   export default {
     data() {
@@ -29,6 +30,7 @@
 </script>
 
 <style lang="scss" scoped>
+  // SIDE BAR
   #sidebar {
     display: flex;
     position: absolute;
@@ -95,6 +97,8 @@
       color: var(--bs-primary);
     }
   }
+
+  // TOP NAV BAR
   .btnlog {
     margin-right: 15px;
     margin-top: 15px;
@@ -116,7 +120,6 @@
 
 <template>
   <!-- SIDE BAR -->
-
   <div :class="backgroundFade" id="secondBackground" />
   <div :class="menuPosition" id="sidebar">
     <div id="menubar">
@@ -130,7 +133,7 @@
     <div @click="hideMenu" id="clickSurface" />
   </div>
 
-  <!-- NAV BAR -->
+  <!-- TOP NAV BAR -->
   <nav class="navbar">
     <i @click="showMenu" class="bi bi-list" />
     <RouterLink to="/">
