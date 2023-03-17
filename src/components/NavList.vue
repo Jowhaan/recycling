@@ -69,6 +69,7 @@
             src="../../assets/MenuIcons/sorting-icon.svg"
             alt="Recycling symbol"
           />
+          <img src="../../assets/smileyEarthly.svg" alt="Globe" />
         </span>
 
         <span id="menuLinks">
@@ -80,6 +81,9 @@
           </RouterLink>
           <RouterLink to="/" class="list-group-item list-group-item-action"
             >Sorting
+          </RouterLink>
+          <RouterLink to="/faq" class="list-group-item list-group-item-action"
+            >FAQ
           </RouterLink>
         </span>
       </span>
