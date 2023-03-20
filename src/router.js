@@ -6,6 +6,7 @@ import SearchBar from './components/SearchBar.vue'
 import TipView from './views/TipView.vue'
 import UserView from './views/UserView.vue'
 import UserPage from './components/UserPage.vue'
+import FaqView from './views/FaqView.vue'
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
@@ -34,6 +35,10 @@ export default createRouter({
     {
       component: UserView,
       path: '/user'
+    },
+    {
+      component: FaqView,
+      path: '/faq'
     }
   ]
 })
